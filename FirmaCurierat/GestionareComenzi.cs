@@ -1,25 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FirmaCurierat
 {
-    class GestionareComenzi
+    public class GestionareComenzi
     {
-        public ComandaLivrare[] Comenzi;
+        public ComandaLivrare[] Comenzi { get; set; }
+        public int CapacitateMaxima { get; set; }
 
         // Constructor fara parametri
-        public GestionareComenzi(int capacitate)
+        public GestionareComenzi()
         {
-            Comenzi = new ComandaLivrare[capacitate];
+            Comenzi = new ComandaLivrare[0];
+            CapacitateMaxima = 0;
         }
 
         // Constructor cu parametri
-        public GestionareComenzi(ComandaLivrare[] comenzi)
+        public GestionareComenzi(int capacitateMaxima)
         {
-            Comenzi = comenzi;
+            Comenzi = new ComandaLivrare[capacitateMaxima];
+            CapacitateMaxima = capacitateMaxima;
         }
     }
 }
