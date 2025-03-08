@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colet.cs" />
     <Compile Include="ComandaLivrare.cs" />
     <Compile Include="GestionareComenzi.cs" />
     <Compile Include="Program.cs" />
