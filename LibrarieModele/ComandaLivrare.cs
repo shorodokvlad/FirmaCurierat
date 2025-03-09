@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirmaCurierat
+namespace LibrarieModele
 {
     public class ComandaLivrare
     {
@@ -42,6 +42,3 @@ namespace FirmaCurierat
         }
     }
 }
-
-
-
