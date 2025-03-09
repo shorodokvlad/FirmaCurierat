@@ -12,17 +12,71 @@ namespace FirmaCurierat
     {
         static void Main(string[] args)
         {
-            // Instantierea unui obiect de tip Colet
-            var colet1 = new Colet("Laptop", 2.5, "20x20x20");
+            GestionareComenzi gestiune = new GestionareComenzi();
+            ComandaLivrare comanda2 = CitireComandaTastatura();
 
-            // Instantierea uniu obiecte de tip ComandaLivrare
-            var comanda1 = new ComandaLivrare(045213, "Popescu Alexandru", "Str. Universitatii 13", "12.03.2025", "In tranzit", colet1);
-            string s = comanda1.Info();
-            Console.WriteLine(s);
+            gestiune.AddComanda(comanda2);
+            AfisareComanda(comanda2);
 
-            // Instantierea unui obiect de gestionare a comenzilor cu capacitatea de 5 comenzi
-            GestionareComenzi gestiune = new GestionareComenzi(5);
+
+            Console.ReadKey();
+
+
         }
+
+        public static ComandaLivrare CitireComandaTastatura() 
+        {
+            Console.WriteLine("Introduceti ID comanda: ");
+            int idComanda = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Introduceti numele clientului: ");
+            string numeClient = Console.ReadLine();
+
+            Console.WriteLine("Introduceti adresa de livrare: ");
+            string adresaLivrare = Console.ReadLine();
+
+            Console.WriteLine("Introduceti data livrarii: ");
+            string dataLivrare = Console.ReadLine();
+
+            Console.WriteLine("Introduceti starea comenzii: ");
+            string stareComanda = Console.ReadLine();
+
+            Console.WriteLine("Introduceti descrierea coletului: ");
+            string descriere = Console.ReadLine();
+
+            Console.WriteLine("Introduceti greutatea coletului: ");
+            double greutate = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Introduceti dimensiunea coletului: ");
+            string dimensiune = Console.ReadLine();
+
+            Colet colet = new Colet(descriere, greutate, dimensiune);
+            ComandaLivrare comanda = new ComandaLivrare(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, colet);
+
+            return comanda;
+        }
+        public static void AfisareComanda(ComandaLivrare comanda)
+        {
+            string infoComanda = string.Format("Comanda cu ID-ul #{0} are următoarele detalii:\n"
+                                                      + "Nume client: {1}\n"
+                                                      + "Adresa de livrare: {2}\n"
+                                                      + "Data livrării: {3}\n"
+                                                      + "Starea comenzii: {4}\n"
+                                                      + "Descriere Colet: {5}\n"
+                                                      + "Greutate Colet: {6} kg\n"
+                                                      + "Dimensiune Colet: {7}",
+                                                      comanda.IDComanda,
+                                                      comanda.NumeClient ?? "NECUNOSCUT",
+                                                      comanda.AdresaLivrare ?? "NECUNOSCUT",
+                                                      comanda.DataLivrare ?? "NECUNOSCUT",
+                                                      comanda.StareComanda ?? "NECUNOSCUT",
+                                                      comanda.Colet.Descriere ?? "NECUNOSCUT",
+                                                      comanda.Colet.Greutate,
+                                                      comanda.Colet.Dimensiune ?? "NECUNOSCUT");
+
+            Console.WriteLine(infoComanda);
+        }
+
 
     }
 }

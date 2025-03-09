@@ -9,21 +9,25 @@ namespace NivelStocareDate
 {
     public class GestionareComenzi
     {
-        public ComandaLivrare[] Comenzi { get; set; }
-        public int CapacitateMaxima { get; set; }
+        private const int NR_MAX_COMENZI = 100;
+        private ComandaLivrare[] comenzi;
+        private int nrComenzi;
 
-        // Constructor fara parametri
         public GestionareComenzi()
         {
-            Comenzi = new ComandaLivrare[0];
-            CapacitateMaxima = 0;
+            comenzi = new ComandaLivrare[NR_MAX_COMENZI];
+            nrComenzi = 0;
+        }
+        public void AddComanda(ComandaLivrare comanda)
+        { 
+            comenzi[nrComenzi] = comanda;
+            nrComenzi++;
         }
 
-        // Constructor cu parametri
-        public GestionareComenzi(int capacitateMaxima)
+        public ComandaLivrare[] GetComenzi(out int nrComenzi)
         {
-            Comenzi = new ComandaLivrare[capacitateMaxima];
-            CapacitateMaxima = capacitateMaxima;
+            nrComenzi = this.nrComenzi;
+            return comenzi;
         }
     }
 }
