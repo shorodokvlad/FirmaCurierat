@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NivelStocareDate;
 using LibrarieModele;
+using System.Threading;
 
 namespace FirmaCurierat
 {
@@ -13,18 +14,52 @@ namespace FirmaCurierat
         static void Main(string[] args)
         {
             GestionareComenzi gestiune = new GestionareComenzi();
-            ComandaLivrare comanda2 = CitireComandaTastatura();
+            ComandaLivrare comandaNoua = new ComandaLivrare();
+            int nrComenzi = 0;
 
-            gestiune.AddComanda(comanda2);
-            AfisareComanda(comanda2);
+            string optiune;
+            do
+            {
+                Console.WriteLine("C. Citire informatii comanda de la tastatura");
+                Console.WriteLine("I. Afisarea informatiilor despre ultima comanda introdusa");
+                Console.WriteLine("A. Afisare comenzi");
+                Console.WriteLine("S. Salvare comanda in lista de comenzi");
+                Console.WriteLine("X. Inchidere program");
 
+                Console.WriteLine("Alegeti o optiune");
+                optiune = Console.ReadLine();
 
+                switch (optiune.ToUpper())
+                {
+                    case "C":
+                        comandaNoua = CitireComandaTastatura();
+                        break;
+
+                    case "I":
+                        AfisareComanda(comandaNoua);
+                        break;
+
+                    case "A":
+                        ComandaLivrare[] comenzi = gestiune.GetComenzi(out nrComenzi);
+                        AfisareComenzi(comenzi, nrComenzi);
+                        break;
+
+                    case "S":
+                        gestiune.AddComanda(comandaNoua);
+                        break;
+
+                    case "X":
+                        return;
+
+                    default:
+                        Console.WriteLine("Optiune invalida");
+                        break;
+                }
+            } while (optiune.ToUpper() != "X");
             Console.ReadKey();
-
-
         }
 
-        public static ComandaLivrare CitireComandaTastatura() 
+        public static ComandaLivrare CitireComandaTastatura()
         {
             Console.WriteLine("Introduceti ID comanda: ");
             int idComanda = int.Parse(Console.ReadLine());
@@ -57,7 +92,7 @@ namespace FirmaCurierat
         }
         public static void AfisareComanda(ComandaLivrare comanda)
         {
-            string infoComanda = string.Format("Comanda cu ID-ul #{0} are următoarele detalii:\n"
+            string infoComanda = string.Format("\nComanda cu ID-ul #{0} are următoarele detalii:\n"
                                                       + "Nume client: {1}\n"
                                                       + "Adresa de livrare: {2}\n"
                                                       + "Data livrării: {3}\n"
@@ -77,6 +112,13 @@ namespace FirmaCurierat
             Console.WriteLine(infoComanda);
         }
 
-
+        public static void AfisareComenzi(ComandaLivrare[] comenzi, int nrComenzi)
+        {
+            Console.WriteLine("Comenzile sunt: ");
+            for(int contor = 0; contor < nrComenzi; contor++)
+            {
+                AfisareComanda(comenzi[contor]);
+            }
+        }
     }
 }
