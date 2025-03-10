@@ -41,5 +41,17 @@ namespace NivelStocareDate
             }
           return null;
         }
+
+        public ComandaLivrare CautareDupaNumeClient(string numeClient)
+        { 
+            foreach (var comanda in comenzi)
+            {
+                if (comanda != null && comanda.NumeClient == numeClient)
+                {
+                    return comanda;
+                }
+            }
+         return null;
+        }
     }
 }

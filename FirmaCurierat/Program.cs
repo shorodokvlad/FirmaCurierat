@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NivelStocareDate;
 using LibrarieModele;
-using System.Threading;
 
 namespace FirmaCurierat
 {
@@ -24,7 +19,7 @@ namespace FirmaCurierat
                 Console.WriteLine("I. Afisarea informatiilor despre ultima comanda introdusa");
                 Console.WriteLine("A. Afisare comenzi");
                 Console.WriteLine("S. Salvare comanda in lista de comenzi");
-                Console.WriteLine("F. Cautare comanda dupa ID");
+                Console.WriteLine("F. Cautare comanda ");
                 Console.WriteLine("X. Inchidere program");
 
                 Console.WriteLine("Alegeti o optiune");
@@ -50,18 +45,48 @@ namespace FirmaCurierat
                         break;
 
                     case "F":
-                        Console.WriteLine("Introduceti ID-ul comenzii cautate: ");
-                        int idComanda = int.Parse(Console.ReadLine());
-                        ComandaLivrare comandaCautata = gestiune.CautareDupaIDComanda(idComanda);
-                        if (comandaCautata != null)
+                        string optiuneCautare;
+                        do
                         {
-                            Console.WriteLine("Comanda a fost gasita: ");
-                            AfisareComanda(comandaCautata);
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Comanda cu ID-ul {idComanda} nu a fost gasita\n");
-                        }
+                            Console.WriteLine("Cautare dupa: ");
+                            Console.WriteLine("1. ID comanda");
+                            Console.WriteLine("2. Nume client");
+                            optiuneCautare = Console.ReadLine();
+                            switch (optiuneCautare)
+                            {
+                                case "1":
+                                    Console.WriteLine("Introduceti ID-ul comenzii cautate: ");
+                                    int idComanda = int.Parse(Console.ReadLine());
+                                    ComandaLivrare comandaCautata = gestiune.CautareDupaIDComanda(idComanda);
+                                    if (comandaCautata != null)
+                                    {
+                                        Console.WriteLine("Comanda a fost gasita: ");
+                                        AfisareComanda(comandaCautata);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"Comanda cu ID-ul {idComanda} nu a fost gasita\n");
+                                    }
+                                    break;
+                                case "2":
+                                    Console.WriteLine("Introduceti numele clientului cautat: ");
+                                    string numeClient = Console.ReadLine();
+                                    ComandaLivrare comandaCautataNume = gestiune.CautareDupaNumeClient(numeClient);
+                                    if (comandaCautataNume != null)
+                                    {
+                                        Console.WriteLine("Comanda a fost gasita: ");
+                                        AfisareComanda(comandaCautataNume);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"Comanda cu numele {numeClient} nu a fost gasita\n");
+                                    }
+                                    break;
+                                default:
+                                    Console.WriteLine("Optiune invalida");
+                                    break;
+                            }
+                        } while (optiuneCautare != "1" && optiuneCautare != "2");
                         break;
 
                     case "X":
@@ -109,21 +134,21 @@ namespace FirmaCurierat
         public static void AfisareComanda(ComandaLivrare comanda)
         {
             string infoComanda = string.Format("\nComanda cu ID-ul #{0} are următoarele detalii:\n"
-                                                      + "Nume client: {1}\n"
-                                                      + "Adresa de livrare: {2}\n"
-                                                      + "Data livrării: {3}\n"
-                                                      + "Starea comenzii: {4}\n"
-                                                      + "Descriere Colet: {5}\n"
-                                                      + "Greutate Colet: {6} kg\n"
-                                                      + "Dimensiune Colet: {7}\n",
-                                                      comanda.IDComanda,
-                                                      comanda.NumeClient ?? "NECUNOSCUT",
-                                                      comanda.AdresaLivrare ?? "NECUNOSCUT",
-                                                      comanda.DataLivrare ?? "NECUNOSCUT",
-                                                      comanda.StareComanda ?? "NECUNOSCUT",
-                                                      comanda.Colet.Descriere ?? "NECUNOSCUT",
-                                                      comanda.Colet.Greutate,
-                                                      comanda.Colet.Dimensiune ?? "NECUNOSCUT");
+                                                  + "Nume client: {1}\n"
+                                                  + "Adresa de livrare: {2}\n"
+                                                  + "Data livrării: {3}\n"
+                                                  + "Starea comenzii: {4}\n"
+                                                  + "Descriere Colet: {5}\n"
+                                                  + "Greutate Colet: {6} kg\n"
+                                                  + "Dimensiune Colet: {7}\n",
+                                                  comanda.IDComanda,
+                                                  comanda.NumeClient ?? "NECUNOSCUT",
+                                                  comanda.AdresaLivrare ?? "NECUNOSCUT",
+                                                  comanda.DataLivrare ?? "NECUNOSCUT",
+                                                  comanda.StareComanda ?? "NECUNOSCUT",
+                                                  comanda.Colet.Descriere ?? "NECUNOSCUT",
+                                                  comanda.Colet.Greutate,
+                                                  comanda.Colet.Dimensiune ?? "NECUNOSCUT");
 
             Console.WriteLine(infoComanda);
         }
@@ -131,7 +156,7 @@ namespace FirmaCurierat
         public static void AfisareComenzi(ComandaLivrare[] comenzi, int nrComenzi)
         {
             Console.WriteLine("Comenzile sunt: ");
-            for(int contor = 0; contor < nrComenzi; contor++)
+            for (int contor = 0; contor < nrComenzi; contor++)
             {
                 AfisareComanda(comenzi[contor]);
             }
