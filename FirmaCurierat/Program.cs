@@ -24,6 +24,7 @@ namespace FirmaCurierat
                 Console.WriteLine("I. Afisarea informatiilor despre ultima comanda introdusa");
                 Console.WriteLine("A. Afisare comenzi");
                 Console.WriteLine("S. Salvare comanda in lista de comenzi");
+                Console.WriteLine("F. Cautare comanda dupa ID");
                 Console.WriteLine("X. Inchidere program");
 
                 Console.WriteLine("Alegeti o optiune");
@@ -46,6 +47,21 @@ namespace FirmaCurierat
 
                     case "S":
                         gestiune.AddComanda(comandaNoua);
+                        break;
+
+                    case "F":
+                        Console.WriteLine("Introduceti ID-ul comenzii cautate: ");
+                        int idComanda = int.Parse(Console.ReadLine());
+                        ComandaLivrare comandaCautata = gestiune.CautareDupaIDComanda(idComanda);
+                        if (comandaCautata != null)
+                        {
+                            Console.WriteLine("Comanda a fost gasita: ");
+                            AfisareComanda(comandaCautata);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Comanda cu ID-ul {idComanda} nu a fost gasita\n");
+                        }
                         break;
 
                     case "X":
@@ -99,7 +115,7 @@ namespace FirmaCurierat
                                                       + "Starea comenzii: {4}\n"
                                                       + "Descriere Colet: {5}\n"
                                                       + "Greutate Colet: {6} kg\n"
-                                                      + "Dimensiune Colet: {7}",
+                                                      + "Dimensiune Colet: {7}\n",
                                                       comanda.IDComanda,
                                                       comanda.NumeClient ?? "NECUNOSCUT",
                                                       comanda.AdresaLivrare ?? "NECUNOSCUT",

@@ -29,5 +29,17 @@ namespace NivelStocareDate
             nrComenzi = this.nrComenzi;
             return comenzi;
         }
+
+        public ComandaLivrare CautareDupaIDComanda(int idComanda)
+        {
+          foreach (var comanda in comenzi)
+            {
+                if (comanda != null && comanda.IDComanda == idComanda)
+                {
+                    return comanda;
+                }
+            }
+          return null;
+        }
     }
 }
