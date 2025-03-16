@@ -23,6 +23,7 @@ namespace FirmaCurierat
                 Console.WriteLine("I. Afisarea informatiilor despre ultima comanda introdusa");
                 Console.WriteLine("A. Afisare comenzi din fisier");
                 Console.WriteLine("S. Salvare comanda in fisier");
+                Console.WriteLine("F. Cautare comanda ");
                 Console.WriteLine("X. Inchidere program");
 
                 Console.WriteLine("Alegeti o optiune");
@@ -45,6 +46,51 @@ namespace FirmaCurierat
 
                     case "S":
                         gestiuneFisier.AddComanda(comandaNoua);
+                        break;
+
+                    case "F":
+                        string optiuneCautare;
+                        do
+                        {
+                            Console.WriteLine("Cautare dupa: ");
+                            Console.WriteLine("1. ID comanda");
+                            Console.WriteLine("2. Nume client");
+                            optiuneCautare = Console.ReadLine();
+                            switch (optiuneCautare)
+                            {
+                                case "1":
+                                    Console.WriteLine("Introduceti ID-ul comenzii cautate: ");
+                                    int idComanda = int.Parse(Console.ReadLine());
+                                    ComandaLivrare comandaCautata = gestiuneFisier.CautareDupaIDComanda(idComanda);
+                                    if (comandaCautata != null)
+                                    {
+                                        Console.WriteLine("Comanda a fost gasita: ");
+                                        AfisareComanda(comandaCautata);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"Comanda cu ID-ul {idComanda} nu a fost gasita\n");
+                                    }
+                                    break;
+                                case "2":
+                                    Console.WriteLine("Introduceti numele clientului cautat: ");
+                                    string numeClient = Console.ReadLine();
+                                    ComandaLivrare comandaCautataNume = gestiuneFisier.CautareDupaNumeClient(numeClient);
+                                    if (comandaCautataNume != null)
+                                    {
+                                        Console.WriteLine("Comanda a fost gasita: ");
+                                        AfisareComanda(comandaCautataNume);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"Comanda cu numele {numeClient} nu a fost gasita\n");
+                                    }
+                                    break;
+                                default:
+                                    Console.WriteLine("Optiune invalida");
+                                    break;
+                            }
+                        } while (optiuneCautare != "1" && optiuneCautare != "2");
                         break;
 
                     case "X":

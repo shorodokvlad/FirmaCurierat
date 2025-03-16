@@ -41,5 +41,31 @@ namespace NivelStocareDate
             }
             return comenzi;
         }
+
+        public ComandaLivrare CautareDupaIDComanda(int idComanda)
+        {
+            ComandaLivrare[] comenzi = GetComenzi(out int nrComenzi);
+            foreach (var comanda in comenzi)
+            {
+                if (comanda != null && comanda.IDComanda == idComanda)
+                {
+                    return comanda;
+                }
+            }
+            return null;
+        }
+
+        public ComandaLivrare CautareDupaNumeClient(string numeClient)
+        {
+            ComandaLivrare[] comenzi = GetComenzi(out int nrComenzi);
+            foreach (var comanda in comenzi)
+            {
+                if (comanda != null && comanda.NumeClient == numeClient)
+                {
+                    return comanda;
+                }
+            }
+            return null;
+        }
     }
 }
