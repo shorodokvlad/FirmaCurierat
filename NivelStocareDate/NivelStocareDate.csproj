@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionareColete_FisierText.cs" />
+    <Compile Include="GestionareColete_Memorie.cs" />
     <Compile Include="GestionareComenzi_FisierText.cs" />
     <Compile Include="GestionareComenzi_Memorie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

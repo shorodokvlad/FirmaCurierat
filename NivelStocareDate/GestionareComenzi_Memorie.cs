@@ -10,21 +10,21 @@ namespace NivelStocareDate
     public class GestionareComenzi_Memorie
     {
         private const int NR_MAX_COMENZI = 100;
-        private ComandaLivrare[] comenzi;
+        private Comanda[] comenzi;
         private int nrComenzi;
 
         public GestionareComenzi_Memorie()
         {
-            comenzi = new ComandaLivrare[NR_MAX_COMENZI];
+            comenzi = new Comanda[NR_MAX_COMENZI];
             nrComenzi = 0;
         }
-        public void AddComanda(ComandaLivrare comanda)
-        { 
+        public void AddComanda(Comanda comanda)
+        {
             comenzi[nrComenzi] = comanda;
             nrComenzi++;
         }
 
-        public ComandaLivrare[] GetComenzi(out int nrComenzi)
+        public Comanda[] GetComenzi(out int nrComenzi)
         {
             nrComenzi = this.nrComenzi;
             return comenzi;

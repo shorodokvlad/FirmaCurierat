@@ -13,13 +13,13 @@ namespace NivelStocareDate
         private const int NR_MAX_COMENZI = 100;
         private string numeFisier;
 
-    public GestionareComenzi_FisierText(string numeFisier)
+        public GestionareComenzi_FisierText(string numeFisier)
         {
             this.numeFisier = numeFisier;
             Stream streamFisier = File.Open(numeFisier, FileMode.OpenOrCreate);
             streamFisier.Close();
         }
-        public void AddComanda(ComandaLivrare comanda)
+        public void AddComanda(Comanda comanda)
         {
             using (StreamWriter streamWriter = new StreamWriter(numeFisier, true))
             {
@@ -27,24 +27,24 @@ namespace NivelStocareDate
             }
         }
 
-        public ComandaLivrare[] GetComenzi(out int nrComenzi)
+        public Comanda[] GetComenzi(out int nrComenzi)
         {
-            ComandaLivrare[] comenzi = new ComandaLivrare[NR_MAX_COMENZI];
+            Comanda[] comenzi = new Comanda[NR_MAX_COMENZI];
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
                 nrComenzi = 0;
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    comenzi[nrComenzi++] = new ComandaLivrare(linieFisier);
+                    comenzi[nrComenzi++] = new Comanda(linieFisier);
                 }
             }
             return comenzi;
         }
 
-        public ComandaLivrare CautareDupaIDComanda(int idComanda)
+        public Comanda CautareDupaIDComanda(int idComanda)
         {
-            ComandaLivrare[] comenzi = GetComenzi(out int nrComenzi);
+            Comanda[] comenzi = GetComenzi(out int nrComenzi);
             foreach (var comanda in comenzi)
             {
                 if (comanda != null && comanda.IDComanda == idComanda)
@@ -55,9 +55,9 @@ namespace NivelStocareDate
             return null;
         }
 
-        public ComandaLivrare CautareDupaNumeClient(string numeClient)
+        public Comanda CautareDupaNumeClient(string numeClient)
         {
-            ComandaLivrare[] comenzi = GetComenzi(out int nrComenzi);
+            Comanda[] comenzi = GetComenzi(out int nrComenzi);
             foreach (var comanda in comenzi)
             {
                 if (comanda != null && comanda.NumeClient == numeClient)

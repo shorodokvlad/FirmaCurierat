@@ -9,12 +9,17 @@ namespace FirmaCurierat
     {
         static void Main()
         {
-            // GestionareComenzi_Memorie gestiune = new GestionareComenzi_Memorie();
+            string numeFisierComenzi = ConfigurationManager.AppSettings["NumeFisierComenzi"];
+            string numeFisierColete = ConfigurationManager.AppSettings["NumeFisierColete"];
 
-            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
-            GestionareComenzi_FisierText gestiuneFisier = new GestionareComenzi_FisierText(numeFisier);
-            ComandaLivrare comandaNoua = new ComandaLivrare();
+            GestionareComenzi_FisierText gestiuneFisierComenzi = new GestionareComenzi_FisierText(numeFisierComenzi);
+            GestionareColete_FisierText gestiuneFisierColete = new GestionareColete_FisierText(numeFisierColete);
+
+            Comanda comandaNoua = new Comanda();
             int nrComenzi = 0;
+
+            Colet coletNou = new Colet();
+            int nrColete = 0;
 
             string optiune;
             do
@@ -32,20 +37,22 @@ namespace FirmaCurierat
                 switch (optiune.ToUpper())
                 {
                     case "C":
-                        comandaNoua = CitireComandaTastatura();
+                        (comandaNoua, coletNou) = CitireComandaSiColetTastatura();
                         break;
 
                     case "I":
-                        AfisareComanda(comandaNoua);
+                        AfisareComanda(comandaNoua, coletNou);
                         break;
 
                     case "A":
-                        ComandaLivrare[] comenzi = gestiuneFisier.GetComenzi(out nrComenzi);
-                        AfisareComenzi(comenzi, nrComenzi);
+                        Comanda[] comenzi = gestiuneFisierComenzi.GetComenzi(out nrComenzi);
+                        Colet[] colete = gestiuneFisierColete.GetColete(out nrColete);
+                        AfisareComenzi(comenzi, nrComenzi, colete);
                         break;
 
                     case "S":
-                        gestiuneFisier.AddComanda(comandaNoua);
+                        gestiuneFisierComenzi.AddComanda(comandaNoua);
+                        gestiuneFisierColete.AddColet(coletNou);
                         break;
 
                     case "F":
@@ -60,26 +67,32 @@ namespace FirmaCurierat
                             {
                                 case "1":
                                     Console.WriteLine("Introduceti ID-ul comenzii cautate: ");
-                                    int idComanda = int.Parse(Console.ReadLine());
-                                    ComandaLivrare comandaCautata = gestiuneFisier.CautareDupaIDComanda(idComanda);
-                                    if (comandaCautata != null)
+                                    if (int.TryParse(Console.ReadLine(), out int idComanda))
                                     {
-                                        Console.WriteLine("Comanda a fost gasita: ");
-                                        AfisareComanda(comandaCautata);
+                                        Comanda comandaCautata = gestiuneFisierComenzi.CautareDupaIDComanda(idComanda);
+                                        if (comandaCautata != null)
+                                        {
+                                            Console.WriteLine("Comanda a fost gasita: ");
+                                            AfisareComanda(comandaCautata, gestiuneFisierColete.CautareDupaIDColet(comandaCautata.IDColet));
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine($"Comanda cu ID-ul {idComanda} nu a fost gasita\n");
+                                        }
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"Comanda cu ID-ul {idComanda} nu a fost gasita\n");
+                                        Console.WriteLine("ID-ul introdus nu este valid.");
                                     }
                                     break;
                                 case "2":
                                     Console.WriteLine("Introduceti numele clientului cautat: ");
                                     string numeClient = Console.ReadLine();
-                                    ComandaLivrare comandaCautataNume = gestiuneFisier.CautareDupaNumeClient(numeClient);
+                                    Comanda comandaCautataNume = gestiuneFisierComenzi.CautareDupaNumeClient(numeClient);
                                     if (comandaCautataNume != null)
                                     {
                                         Console.WriteLine("Comanda a fost gasita: ");
-                                        AfisareComanda(comandaCautataNume);
+                                        AfisareComanda(comandaCautataNume, gestiuneFisierColete.CautareDupaIDColet(comandaCautataNume.IDColet));
                                     }
                                     else
                                     {
@@ -105,8 +118,9 @@ namespace FirmaCurierat
             Console.ReadKey();
         }
 
-        public static ComandaLivrare CitireComandaTastatura()
+        public static (Comanda comanda, Colet colet) CitireComandaSiColetTastatura()
         {
+            Console.WriteLine("\n--- Introducere date comanda ---");
             Console.WriteLine("Introduceti ID comanda: ");
             int idComanda = int.Parse(Console.ReadLine());
 
@@ -122,6 +136,9 @@ namespace FirmaCurierat
             Console.WriteLine("Introduceti starea comenzii: ");
             string stareComanda = Console.ReadLine();
 
+            Console.WriteLine("Introduceti ID-ul coletului: ");
+            int idColet = int.Parse(Console.ReadLine());
+
             Console.WriteLine("Introduceti descrierea coletului: ");
             string descriere = Console.ReadLine();
 
@@ -131,40 +148,51 @@ namespace FirmaCurierat
             Console.WriteLine("Introduceti dimensiunea coletului: ");
             string dimensiune = Console.ReadLine();
 
-            Colet colet = new Colet(descriere, greutate, dimensiune);
-            ComandaLivrare comanda = new ComandaLivrare(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, colet);
+            Colet colet = new Colet(idColet, descriere, greutate, dimensiune);
+            Comanda comanda = new Comanda(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, colet, idColet);
 
-            return comanda;
+            return (comanda, colet);
         }
 
-        public static void AfisareComanda(ComandaLivrare comanda)
+        public static void AfisareComanda(Comanda comanda, Colet colet)
         {
-            string infoComanda = string.Format("\nComanda cu ID-ul #{0} are următoarele detalii:\n"
-                                                  + "Nume client: {1}\n"
-                                                  + "Adresa de livrare: {2}\n"
-                                                  + "Data livrării: {3}\n"
-                                                  + "Starea comenzii: {4}\n"
-                                                  + "Descriere Colet: {5}\n"
-                                                  + "Greutate Colet: {6} kg\n"
-                                                  + "Dimensiune Colet: {7} cm\n",
-                                                  comanda.IDComanda,
-                                                  comanda.NumeClient ?? "NECUNOSCUT",
-                                                  comanda.AdresaLivrare ?? "NECUNOSCUT",
-                                                  comanda.DataLivrare ?? "NECUNOSCUT",
-                                                  comanda.StareComanda ?? "NECUNOSCUT",
-                                                  comanda.Colet.Descriere ?? "NECUNOSCUT",
-                                                  comanda.Colet.Greutate,
-                                                  comanda.Colet.Dimensiune ?? "NECUNOSCUT");
+            if (comanda == null)
+            {
+                Console.WriteLine("Nu exista nicio comanda de afisat.");
+                return;
+            }
+
+            string infoComanda = string.Format("Comanda cu ID-ul #{0}:\n"
+                                           + "Nume client: {1}\n"
+                                           + "Adresa de livrare: {2}\n"
+                                           + "Data livrării: {3}\n"
+                                           + "Starea comenzii: {4}",
+                                           comanda.IDComanda,
+                                           comanda.NumeClient ?? "NECUNOSCUT",
+                                           comanda.AdresaLivrare ?? "NECUNOSCUT",
+                                           comanda.DataLivrare ?? "NECUNOSCUT",
+                                           comanda.StareComanda ?? "NECUNOSCUT");
 
             Console.WriteLine(infoComanda);
+
+            string infoColet = string.Format("\nColetul cu ID-ul #{0}:\n"
+                                         + "Descriere: {1}\n"
+                                         + "Greutate: {2} kg\n"
+                                         + "Dimensiune: {3}\n",
+                                         colet.IDColet,
+                                         colet.Descriere ?? "NECUNOSCUT",
+                                         colet.Greutate,
+                                         colet.Dimensiune ?? "NECUNOSCUT");
+
+            Console.WriteLine(infoColet);
         }
 
-        public static void AfisareComenzi(ComandaLivrare[] comenzi, int nrComenzi)
+        public static void AfisareComenzi(Comanda[] comenzi, int nrComenzi, Colet[] colete)
         {
             Console.WriteLine("Comenzile sunt:");
             for (int contor = 0; contor < nrComenzi; contor++)
             {
-                AfisareComanda(comenzi[contor]);
+                AfisareComanda(comenzi[contor], colete[contor]);
             }
         }
     }
