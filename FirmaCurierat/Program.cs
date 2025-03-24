@@ -41,7 +41,7 @@ namespace FirmaCurierat
                         break;
 
                     case "I":
-                        AfisareComanda(comandaNoua, coletNou);
+                        AfisareComandaSiColet(comandaNoua, coletNou);
                         break;
 
                     case "A":
@@ -73,7 +73,7 @@ namespace FirmaCurierat
                                         if (comandaCautata != null)
                                         {
                                             Console.WriteLine("Comanda a fost gasita: ");
-                                            AfisareComanda(comandaCautata, gestiuneFisierColete.CautareDupaIDColet(comandaCautata.IDColet));
+                                            AfisareComandaSiColet(comandaCautata, gestiuneFisierColete.CautareDupaIDColet(comandaCautata.IDColet));
                                         }
                                         else
                                         {
@@ -92,7 +92,7 @@ namespace FirmaCurierat
                                     if (comandaCautataNume != null)
                                     {
                                         Console.WriteLine("Comanda a fost gasita: ");
-                                        AfisareComanda(comandaCautataNume, gestiuneFisierColete.CautareDupaIDColet(comandaCautataNume.IDColet));
+                                        AfisareComandaSiColet(comandaCautataNume, gestiuneFisierColete.CautareDupaIDColet(comandaCautataNume.IDColet));
                                     }
                                     else
                                     {
@@ -133,8 +133,21 @@ namespace FirmaCurierat
             Console.WriteLine("Introduceti data livrarii: ");
             string dataLivrare = Console.ReadLine();
 
-            Console.WriteLine("Introduceti starea comenzii: ");
-            string stareComanda = Console.ReadLine();
+            Console.WriteLine("Selectați starea comenzii (introduceți numărul corespunzător): ");
+            foreach (var stare in Enum.GetValues(typeof(StareComanda)))
+            {
+                Console.WriteLine($"{(int)stare} - {stare}");
+            }
+            int stareInput = int.Parse(Console.ReadLine());
+
+            StareComanda stareComanda;
+            while (!Enum.IsDefined(typeof(StareComanda), stareInput))
+            {
+                Console.WriteLine("Stare invalidă! Introduceți un număr valid: ");
+                stareInput = int.Parse(Console.ReadLine());
+            }
+            stareComanda = (StareComanda)stareInput;
+
 
             Console.WriteLine("Introduceti ID-ul coletului: ");
             int idColet = int.Parse(Console.ReadLine());
@@ -154,7 +167,7 @@ namespace FirmaCurierat
             return (comanda, colet);
         }
 
-        public static void AfisareComanda(Comanda comanda, Colet colet)
+        public static void AfisareComandaSiColet(Comanda comanda, Colet colet)
         {
             if (comanda == null)
             {
@@ -171,7 +184,7 @@ namespace FirmaCurierat
                                            comanda.NumeClient ?? "NECUNOSCUT",
                                            comanda.AdresaLivrare ?? "NECUNOSCUT",
                                            comanda.DataLivrare ?? "NECUNOSCUT",
-                                           comanda.StareComanda ?? "NECUNOSCUT");
+                                           comanda.StareComanda.ToString());
 
             Console.WriteLine(infoComanda);
 
@@ -192,7 +205,7 @@ namespace FirmaCurierat
             Console.WriteLine("Comenzile sunt:");
             for (int contor = 0; contor < nrComenzi; contor++)
             {
-                AfisareComanda(comenzi[contor], colete[contor]);
+                AfisareComandaSiColet(comenzi[contor], colete[contor]);
             }
         }
     }

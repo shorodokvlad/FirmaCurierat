@@ -21,7 +21,7 @@ namespace LibrarieModele
         public string NumeClient { get; set; }
         public string AdresaLivrare { get; set; }
         public string DataLivrare { get; set; }
-        public string StareComanda { get; set; }
+        public StareComanda StareComanda { get; set; }
 
         public int IDColet { get; set; }
         public string Colet { get; set; }
@@ -33,13 +33,13 @@ namespace LibrarieModele
             NumeClient = string.Empty;
             AdresaLivrare = string.Empty;
             DataLivrare = string.Empty;
-            StareComanda = string.Empty;
+            StareComanda = StareComanda.ComandaPlasata;
             IDColet = 0;
         }
 
 
         // Constructor cu parametri
-        public Comanda(int idComanda, string numeClient, string adresaLivrare, string dataLivrare, string stareComanda, Colet colet, int idColet)
+        public Comanda(int idComanda, string numeClient, string adresaLivrare, string dataLivrare, StareComanda stareComanda, Colet colet, int idColet)
         {
             IDComanda = idComanda;
             NumeClient = numeClient;
@@ -57,7 +57,7 @@ namespace LibrarieModele
             NumeClient = date[NUME_CLIENT];
             AdresaLivrare = date[ADRESA_LIVRARE];
             DataLivrare = date[DATA_LIVRARE];
-            StareComanda = date[STARE_COMANDA];
+            StareComanda = (StareComanda)Enum.Parse(typeof(StareComanda), date[STARE_COMANDA]);
             IDColet = int.Parse(date[ID_COLET]);
         }
         public string Info()
