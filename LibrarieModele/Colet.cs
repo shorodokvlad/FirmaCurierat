@@ -51,7 +51,7 @@ namespace LibrarieModele
 
         public string Info()
         {
-            return $"ID Colet: {IDColet} Descriere: {Descriere ?? "NECUNOSCUT"} Greutate: {Greutate} kg Dimensiune: {Dimensiune ?? "NECUNOSCUT"}";
+            return $"ID Colet: {IDColet}\n Descriere: {Descriere ?? "NECUNOSCUT"}\n Greutate: {Greutate} kg\n Dimensiune: {Dimensiune ?? "NECUNOSCUT"}";
         }
 
 

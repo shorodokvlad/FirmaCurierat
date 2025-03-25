@@ -33,11 +33,11 @@ namespace NivelStocareDate
 
         public Colet CautareDupaIDColet(int idColet)
         {
-            for (int i = 0; i < nrColete; i++)
+            foreach (var colet in colete)
             {
-                if (colete[i] != null && colete[i].IDColet == idColet)
+                if (colet != null && colet.IDColet == idColet)
                 {
-                    return colete[i];
+                    return colet;
                 }
             }
             return null;
@@ -45,11 +45,11 @@ namespace NivelStocareDate
 
         public Colet CautareDupaDescriere(string descriere)
         {
-            for (int i = 0; i < nrColete; i++)
+            foreach (var colet in colete)
             {
-                if (colete[i] != null && colete[i].Descriere == descriere)
+                if (colet != null && colet.Descriere == descriere)
                 {
-                    return colete[i];
+                    return colet;
                 }
             }
             return null;
