@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
 using LibrarieModele;
 using NivelStocareDate;
 
@@ -11,9 +12,13 @@ namespace FirmaCurierat
         {
             string numeFisierComenzi = ConfigurationManager.AppSettings["NumeFisierComenzi"];
             string numeFisierColete = ConfigurationManager.AppSettings["NumeFisierColete"];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string caleCompletaFisierComenzi = locatieFisierSolutie + "\\" + numeFisierComenzi;
+            string caleCompletaFisierColete = locatieFisierSolutie + "\\" + numeFisierColete;
 
-            GestionareComenzi_FisierText gestiuneFisierComenzi = new GestionareComenzi_FisierText(numeFisierComenzi);
-            GestionareColete_FisierText gestiuneFisierColete = new GestionareColete_FisierText(numeFisierColete);
+            GestionareComenzi_FisierText gestiuneFisierComenzi = new GestionareComenzi_FisierText(caleCompletaFisierComenzi);
+            GestionareColete_FisierText gestiuneFisierColete = new GestionareColete_FisierText(caleCompletaFisierColete);
+
 
             GestionareComenzi_Memorie gestiuneMemorieComenzi = new GestionareComenzi_Memorie();
             GestionareColete_Memorie gestiuneMemorieColete = new GestionareColete_Memorie();

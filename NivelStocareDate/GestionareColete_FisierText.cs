@@ -40,6 +40,8 @@ namespace NivelStocareDate
                     colete[nrColete++] = new Colet(linieFisier);
                 }
             }
+            Array.Resize(ref colete, nrColete);
+
             return colete;
         }
 

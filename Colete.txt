@@ -1,0 +1,9 @@
+5;Haine;5;25x25x25
+5;Haine;5;25x25x25
+5;Haine;5;25x25x25
+555;Textil;5;25x25x25
+555;Textil;5;25x25x25
+555;Textil;5;25x25x25
+879;Tehnica;50;50x50x50
+879;Tehnica;50;50x50x50
+879;Tehnica;50;50x50x50

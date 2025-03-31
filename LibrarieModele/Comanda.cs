@@ -67,7 +67,7 @@ namespace LibrarieModele
 
         public string ConversieLaSir_PentruFisier()
         {
-            return string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}",
+            string obiectComandaPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 IDComanda,
                 NumeClient,
@@ -75,6 +75,8 @@ namespace LibrarieModele
                 DataLivrare,
                 StareComanda,
                 IDColet);
+
+            return obiectComandaPentruFisier;
         }
     }
 }

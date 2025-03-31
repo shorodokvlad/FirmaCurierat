@@ -11,17 +11,17 @@ namespace NivelStocareDate
     public class GestionareComenzi_FisierText
     {
         private const int NR_MAX_COMENZI = 100;
-        private string numeFisier;
+        private string numeFisierComenzi;
 
-        public GestionareComenzi_FisierText(string numeFisier)
+        public GestionareComenzi_FisierText(string numeFisierComenzi)
         {
-            this.numeFisier = numeFisier;
-            Stream streamFisier = File.Open(numeFisier, FileMode.OpenOrCreate);
+            this.numeFisierComenzi = numeFisierComenzi;
+            Stream streamFisier = File.Open(numeFisierComenzi, FileMode.OpenOrCreate);
             streamFisier.Close();
         }
         public void AddComanda(Comanda comanda)
         {
-            using (StreamWriter streamWriter = new StreamWriter(numeFisier, true))
+            using (StreamWriter streamWriter = new StreamWriter(numeFisierComenzi, true))
             {
                 streamWriter.WriteLine(comanda.ConversieLaSir_PentruFisier());
             }
@@ -30,7 +30,7 @@ namespace NivelStocareDate
         public Comanda[] GetComenzi(out int nrComenzi)
         {
             Comanda[] comenzi = new Comanda[NR_MAX_COMENZI];
-            using (StreamReader streamReader = new StreamReader(numeFisier))
+            using (StreamReader streamReader = new StreamReader(numeFisierComenzi))
             {
                 string linieFisier;
                 nrComenzi = 0;
@@ -39,6 +39,7 @@ namespace NivelStocareDate
                     comenzi[nrComenzi++] = new Comanda(linieFisier);
                 }
             }
+            Array.Resize(ref comenzi, nrComenzi);
             return comenzi;
         }
 
