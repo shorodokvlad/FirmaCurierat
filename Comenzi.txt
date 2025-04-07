@@ -1,5 +1,1 @@
-1;1;1;1;ComandaPlasata;1
-2;2;2;2;InAsteptareLaExpeditor;2
-3;3;3;3;PreluatDeCurier;3
-1;1;1;1;InAsteptareLaExpeditor;3
-33;A;S;34.12.2222;Livrat;45
+234;Vladislav Shorodok;Str. Unirii, 13;13.10.2025;Livrat;45
