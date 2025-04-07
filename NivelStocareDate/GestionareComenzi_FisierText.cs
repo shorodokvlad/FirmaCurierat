@@ -10,7 +10,6 @@ namespace NivelStocareDate
 {
     public class GestionareComenzi_FisierText
     {
-        private const int NR_MAX_COMENZI = 100;
         private string numeFisierComenzi;
 
         public GestionareComenzi_FisierText(string numeFisierComenzi)
@@ -27,25 +26,23 @@ namespace NivelStocareDate
             }
         }
 
-        public Comanda[] GetComenzi(out int nrComenzi)
+        public List<Comanda> GetComenzi()
         {
-            Comanda[] comenzi = new Comanda[NR_MAX_COMENZI];
+            List<Comanda> comenzi = new List<Comanda>();
             using (StreamReader streamReader = new StreamReader(numeFisierComenzi))
             {
                 string linieFisier;
-                nrComenzi = 0;
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    comenzi[nrComenzi++] = new Comanda(linieFisier);
+                    comenzi.Add(new Comanda(linieFisier));
                 }
             }
-            Array.Resize(ref comenzi, nrComenzi);
             return comenzi;
         }
 
         public Comanda CautareDupaIDComanda(int idComanda)
         {
-            Comanda[] comenzi = GetComenzi(out int nrComenzi);
+            List<Comanda> comenzi = GetComenzi();
             foreach (var comanda in comenzi)
             {
                 if (comanda != null && comanda.IDComanda == idComanda)
@@ -58,7 +55,7 @@ namespace NivelStocareDate
 
         public Comanda CautareDupaNumeClient(string numeClient)
         {
-            Comanda[] comenzi = GetComenzi(out int nrComenzi);
+            List<Comanda> comenzi = GetComenzi();
             foreach (var comanda in comenzi)
             {
                 if (comanda != null && comanda.NumeClient == numeClient)

@@ -1,9 +1,5 @@
-1;Vladislav Shorodok;Str. Unirii, 2;13.12.2025;InCursDeLivrare;5
-1;Vladislav Shorodok;Str. Unirii, 2;13.12.2025;InCursDeLivrare;5
-1;Vladislav Shorodok;Str. Unirii, 2;13.12.2025;InCursDeLivrare;5
-1234;Ion Popescu;Str. Universitatii, 23;13.12.2025;ColetPierdut;555
-1234;Ion Popescu;Str. Universitatii, 23;13.12.2025;ColetPierdut;555
-1234;Ion Popescu;Str. Universitatii, 23;13.12.2025;ColetPierdut;555
-9945;Eduard Begu;Str. Centrala, 22;25.04.2025;InTranzit;879
-9945;Eduard Begu;Str. Centrala, 22;25.04.2025;InTranzit;879
-9945;Eduard Begu;Str. Centrala, 22;25.04.2025;InTranzit;879
+1;1;1;1;ComandaPlasata;1
+2;2;2;2;InAsteptareLaExpeditor;2
+3;3;3;3;PreluatDeCurier;3
+1;1;1;1;InAsteptareLaExpeditor;3
+33;A;S;34.12.2222;Livrat;45

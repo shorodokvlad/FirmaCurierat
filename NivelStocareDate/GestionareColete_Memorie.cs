@@ -9,25 +9,20 @@ namespace NivelStocareDate
 {
     public class GestionareColete_Memorie
     {
-        private const int NR_MAX_COLETE = 100;
-        private Colet[] colete;
-        private int nrColete;
+        private List<Colet> colete;
 
         public GestionareColete_Memorie()
         {
-            colete = new Colet[NR_MAX_COLETE];
-            nrColete = 0;
+            colete = new List<Colet>();
         }
 
         public void AddColet(Colet colet)
         {
-            colete[nrColete] = colet;
-            nrColete++;
+            colete.Add(colet);
         }
 
-        public Colet[] GetColete(out int nrColete)
+        public List<Colet> GetColete()
         {
-            nrColete = this.nrColete;
             return colete;
         }
 

@@ -9,24 +9,19 @@ namespace NivelStocareDate
 {
     public class GestionareComenzi_Memorie
     {
-        private const int NR_MAX_COMENZI = 100;
-        private Comanda[] comenzi;
-        private int nrComenzi;
+        private List<Comanda> comenzi;
 
         public GestionareComenzi_Memorie()
         {
-            comenzi = new Comanda[NR_MAX_COMENZI];
-            nrComenzi = 0;
+            comenzi = new List<Comanda>();
         }
         public void AddComanda(Comanda comanda)
         {
-            comenzi[nrComenzi] = comanda;
-            nrComenzi++;
+            comenzi.Add(comanda);
         }
 
-        public Comanda[] GetComenzi(out int nrComenzi)
+        public List<Comanda> GetComenzi()
         {
-            nrComenzi = this.nrComenzi;
             return comenzi;
         }
         public Comanda CautareDupaIDComanda(int idComanda)

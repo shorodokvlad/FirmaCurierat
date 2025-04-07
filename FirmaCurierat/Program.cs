@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
+using System.Collections.Generic;
 using LibrarieModele;
 using NivelStocareDate;
 
@@ -24,10 +25,14 @@ namespace FirmaCurierat
             GestionareColete_Memorie gestiuneMemorieColete = new GestionareColete_Memorie();
 
             Comanda comandaNoua = new Comanda();
-            int nrComenzi = 0;
-
             Colet coletNou = new Colet();
-            int nrColete = 0;
+
+            List<Comanda> comenziFisier = gestiuneFisierComenzi.GetComenzi();
+            List<Colet> coleteFisier = gestiuneFisierColete.GetColete();
+
+            List<Comanda> comenziMemorie = gestiuneMemorieComenzi.GetComenzi();
+            List<Colet> coleteMemorie = gestiuneMemorieColete.GetColete();
+
 
             string optiune;
             do
@@ -56,15 +61,15 @@ namespace FirmaCurierat
                         break;
 
                     case "A":
-                        Comanda[] comenzi = gestiuneFisierComenzi.GetComenzi(out nrComenzi);
-                        Colet[] colete = gestiuneFisierColete.GetColete(out nrColete);
-                        AfisareComenziSiColete(comenzi, nrComenzi, colete);
+                        comenziFisier = gestiuneFisierComenzi.GetComenzi();
+                        coleteFisier = gestiuneFisierColete.GetColete();
+                        AfisareComenziSiColete(comenziFisier, coleteFisier);
                         break;
 
                     case "M":
-                        Comanda[] comenziMemorie = gestiuneMemorieComenzi.GetComenzi(out nrComenzi);
-                        Colet[] coleteMemorie = gestiuneMemorieColete.GetColete(out nrColete);
-                        AfisareComenziSiColete(comenziMemorie, nrComenzi, coleteMemorie);
+                        comenziMemorie = gestiuneMemorieComenzi.GetComenzi();
+                        coleteMemorie = gestiuneMemorieColete.GetColete();
+                        AfisareComenziSiColete(comenziMemorie, coleteMemorie);
                         break;
 
                     case "S":
@@ -307,10 +312,26 @@ namespace FirmaCurierat
             Console.WriteLine("Introduceti greutatea coletului: ");
             double greutate = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Introduceti dimensiunea coletului: ");
-            string dimensiune = Console.ReadLine();
+            Console.WriteLine("Selectati dimensiunea coletului: ");
+            Console.WriteLine("1 - Mic (30x30x30 cm)");
+            Console.WriteLine("2 - Mediu mic (40x40x40 cm)");
+            Console.WriteLine("3 - Mediu standard (50x50x50 cm)");
+            Console.WriteLine("4 - Mediu mare (60x60x60 cm)");
+            Console.WriteLine("5 - Mare mica (70x70x70 cm)");
+            Console.WriteLine("6 - Mare standard (80x80x80 cm)");
+            Console.WriteLine("7 - Mare mare (90x90x90 cm)");
+            Console.WriteLine("8 - Extra mare (100x100x100 cm)");
+            int dimensiuneInput = int.Parse(Console.ReadLine());
 
-            Colet colet = new Colet(idColet, descriere, greutate, dimensiune);
+            DimensiuneColet dimensiuneColet;
+            while (!Enum.IsDefined(typeof(DimensiuneColet), dimensiuneInput))
+            {
+                Console.WriteLine("Dimensiune invalida! Introduceți un numar valid: ");
+                dimensiuneInput = int.Parse(Console.ReadLine());
+            }
+            dimensiuneColet = (DimensiuneColet)dimensiuneInput;
+
+            Colet colet = new Colet(idColet, descriere, greutate, dimensiuneColet);
             Comanda comanda = new Comanda(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, colet, idColet);
 
             return (comanda, colet);
@@ -344,17 +365,25 @@ namespace FirmaCurierat
                                          colet.IDColet,
                                          colet.Descriere ?? "NECUNOSCUT",
                                          colet.Greutate,
-                                         colet.Dimensiune ?? "NECUNOSCUT");
+                                         colet.GetDimensiuneText());
+
 
             Console.WriteLine(infoColet);
         }
 
-        public static void AfisareComenziSiColete(Comanda[] comenzi, int nrComenzi, Colet[] colete)
+        public static void AfisareComenziSiColete(List<Comanda> comenzi, List<Colet> colete)
         {
             Console.WriteLine("Comenzile sunt:");
-            for (int contor = 0; contor < nrComenzi; contor++)
+            foreach (var comanda in comenzi)
             {
-                AfisareComandaSiColet(comenzi[contor], colete[contor]);
+                foreach (var colet in colete)
+                {
+                    if (comanda.IDColet == colet.IDColet)
+                    {
+                        AfisareComandaSiColet(comanda, colet);
+                        break;
+                    }
+                }
             }
         }
     }

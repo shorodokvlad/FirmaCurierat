@@ -18,7 +18,7 @@ namespace LibrarieModele
         public int IDColet { get; set; }
         public string Descriere { get; set; }
         public double Greutate { get; set; }
-        public string Dimensiune { get; set; }
+        public DimensiuneColet Dimensiune { get; set; }
 
         // Constructor fara parametri
         public Colet()
@@ -26,18 +26,17 @@ namespace LibrarieModele
             IDColet = 0;
             Descriere = string.Empty;
             Greutate = 0;
-            Dimensiune = string.Empty;
+            Dimensiune = DimensiuneColet.Mic;
         }
 
         // Constructor cu parametri
-        public Colet(int idColet, string descriere, double greutate, string dimensiune)
+        public Colet(int idColet, string descriere, double greutate, DimensiuneColet dimensiune)
         {
             IDColet = idColet;
             Descriere = descriere;
             Greutate = greutate;
             Dimensiune = dimensiune;
         }
-
 
         // Constructor care preia date dintr-o linie de fișier
         public Colet(string linieFisier)
@@ -46,14 +45,63 @@ namespace LibrarieModele
             IDColet = int.Parse(date[ID_COLET]);
             Descriere = date[DESCRIERE];
             Greutate = double.Parse(date[GREUTATE]);
-            Dimensiune = date[DIMENSIUNE];
+            Dimensiune = GetDimensiuneFromText(date[DIMENSIUNE]);
+        }
+
+        private DimensiuneColet GetDimensiuneFromText(string dimensiuneText)
+        {
+            switch (dimensiuneText)
+            {
+                case "30x30x30 cm":
+                    return DimensiuneColet.Mic;
+                case "40x40x40 cm":
+                    return DimensiuneColet.MediuMic;
+                case "50x50x50 cm":
+                    return DimensiuneColet.MediuStandard;
+                case "60x60x60 cm":
+                    return DimensiuneColet.MediuMare;
+                case "70x70x70 cm":
+                    return DimensiuneColet.MareMica;
+                case "80x80x80 cm":
+                    return DimensiuneColet.MareStandard;
+                case "90x90x90 cm":
+                    return DimensiuneColet.MareMare;
+                case "100x100x100 cm":
+                    return DimensiuneColet.ExtraMare;
+                default:
+                    throw new ArgumentException("Dimensiune necunoscuta");
+            }
+        }
+
+        public string GetDimensiuneText()
+        {
+            switch (Dimensiune)
+            {
+                case DimensiuneColet.Mic:
+                    return "30x30x30 cm";
+                case DimensiuneColet.MediuMic:
+                    return "40x40x40 cm";
+                case DimensiuneColet.MediuStandard:
+                    return "50x50x50 cm";
+                case DimensiuneColet.MediuMare:
+                    return "60x60x60 cm";
+                case DimensiuneColet.MareMica:
+                    return "70x70x70 cm";
+                case DimensiuneColet.MareStandard:
+                    return "80x80x80 cm";
+                case DimensiuneColet.MareMare:
+                    return "90x90x90 cm";
+                case DimensiuneColet.ExtraMare:
+                    return "100x100x100 cm";
+                default:
+                    return "Dimensiune necunoscuta";
+            }
         }
 
         public string Info()
         {
-            return $"ID Colet: {IDColet}\n Descriere: {Descriere ?? "NECUNOSCUT"}\n Greutate: {Greutate} kg\n Dimensiune: {Dimensiune ?? "NECUNOSCUT"}";
+            return $"ID Colet: {IDColet}\nDescriere: {Descriere ?? "NECUNOSCUT"}\nGreutate: {Greutate} kg\nDimensiune: {GetDimensiuneText()}";
         }
-
 
         public string ConversieLaSir_PentruFisier()
         {
@@ -62,7 +110,7 @@ namespace LibrarieModele
                 IDColet,
                 Descriere,
                 Greutate,
-                Dimensiune);
+                GetDimensiuneText());
         }
     }
 }

@@ -10,7 +10,6 @@ namespace NivelStocareDate
 {
     public class GestionareColete_FisierText
     {
-        private const int NR_MAX_COLETE = 100;
         private string numeFisierColete;
 
         public GestionareColete_FisierText(string numeFisierColete)
@@ -27,27 +26,25 @@ namespace NivelStocareDate
                 streamWriter.WriteLine(colet.ConversieLaSir_PentruFisier());
             }
         }
-
-        public Colet[] GetColete(out int nrColete)
+        public List<Colet> GetColete()
         {
-            Colet[] colete = new Colet[NR_MAX_COLETE];
+            List<Colet> colete = new List<Colet>();
             using (StreamReader streamReader = new StreamReader(numeFisierColete))
             {
                 string linieFisier;
-                nrColete = 0;
+ 
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    colete[nrColete++] = new Colet(linieFisier);
+                    colete.Add(new Colet(linieFisier));
                 }
             }
-            Array.Resize(ref colete, nrColete);
 
             return colete;
         }
 
         public Colet CautareDupaIDColet(int idColet)
         {
-            Colet[] colete = GetColete(out int nrColete);
+            List<Colet> colete = GetColete();
             foreach (var colet in colete)
             {
                 if (colet != null && colet.IDColet == idColet)
@@ -60,7 +57,7 @@ namespace NivelStocareDate
 
         public Colet CautareDupaDescriere(string descriere)
         {
-            Colet[] colete = GetColete(out int nrColete);
+            List<Colet> colete = GetColete();
             foreach (var colet in colete)
             {
                 if (colet != null && colet.Descriere == descriere)

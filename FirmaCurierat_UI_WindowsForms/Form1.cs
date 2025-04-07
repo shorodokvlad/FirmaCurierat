@@ -61,7 +61,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(100, 100);
             this.Font = new Font("Arial", 9, FontStyle.Bold);
-            this.ForeColor = Color.Coral;
+            this.ForeColor = Color.FromArgb(0, 112, 116);
             this.Text = "Informatii comenzi si colete";
 
             //adaugare control de tip Label pentru 'IdComanda';
@@ -69,15 +69,16 @@ namespace FirmaCurierat_UI_WindowsForms
             lblIdComanda.Width = LATIME_CONTROL;
             lblIdComanda.Text = "Id Comanda";
             lblIdComanda.Left = DIMENSIUNE_PAS_X;
-            lblIdComanda.ForeColor = Color.Chocolate;
+            lblIdComanda.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblIdComanda);
+
 
             //adaugare control de tip Label pentru 'NumeClient';
             lblNumeClient = new Label();
             lblNumeClient.Width = LATIME_CONTROL;
             lblNumeClient.Text = "Nume Client";
             lblNumeClient.Left = 2 * DIMENSIUNE_PAS_X;
-            lblNumeClient.ForeColor = Color.Chocolate;
+            lblNumeClient.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblNumeClient);
 
             //adaugare control de tip Label pentru 'AdresaLivrare';
@@ -85,7 +86,7 @@ namespace FirmaCurierat_UI_WindowsForms
             lblAdresaLivrare.Width = LATIME_CONTROL;
             lblAdresaLivrare.Text = "Adresa Livrare";
             lblAdresaLivrare.Left = 3 * DIMENSIUNE_PAS_X;
-            lblAdresaLivrare.ForeColor = Color.Chocolate;
+            lblAdresaLivrare.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblAdresaLivrare);
 
             //adaugare control de tip Label pentru 'DataLivrare';
@@ -93,7 +94,7 @@ namespace FirmaCurierat_UI_WindowsForms
             lblDataLivrare.Width = LATIME_CONTROL;
             lblDataLivrare.Text = "Data Livrare";
             lblDataLivrare.Left = 4 * DIMENSIUNE_PAS_X;
-            lblDataLivrare.ForeColor = Color.Chocolate;
+            lblDataLivrare.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblDataLivrare);
 
             //adaugare control de tip Label pentru 'StareComanda';
@@ -101,7 +102,7 @@ namespace FirmaCurierat_UI_WindowsForms
             lblStareComanda.Width = LATIME_CONTROL;
             lblStareComanda.Text = "Stare Comanda";
             lblStareComanda.Left = 5 * DIMENSIUNE_PAS_X;
-            lblStareComanda.ForeColor = Color.Chocolate;
+            lblStareComanda.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblStareComanda);
 
             //adaugare control de tip Label pentru 'IdColet';
@@ -109,7 +110,7 @@ namespace FirmaCurierat_UI_WindowsForms
             lblIdColet.Width = LATIME_CONTROL;
             lblIdColet.Text = "Id Colet";
             lblIdColet.Left = 6 * DIMENSIUNE_PAS_X;
-            lblIdColet.ForeColor = Color.Chocolate;
+            lblIdColet.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblIdColet);
 
             //adaugare control de tip Label pentru 'Descriere';
@@ -117,7 +118,7 @@ namespace FirmaCurierat_UI_WindowsForms
             lblDescriere.Width = LATIME_CONTROL;
             lblDescriere.Text = "Descriere";
             lblDescriere.Left = 7 * DIMENSIUNE_PAS_X;
-            lblDescriere.ForeColor = Color.Chocolate;
+            lblDescriere.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblDescriere);
 
             //adaugare control de tip Label pentru 'Greutate';
@@ -125,7 +126,7 @@ namespace FirmaCurierat_UI_WindowsForms
             lblGreutate.Width = LATIME_CONTROL;
             lblGreutate.Text = "Greutate";
             lblGreutate.Left = 8 * DIMENSIUNE_PAS_X;
-            lblGreutate.ForeColor = Color.Chocolate;
+            lblGreutate.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblGreutate);
 
             //adaugare control de tip Label pentru 'Dimensiune';
@@ -133,7 +134,7 @@ namespace FirmaCurierat_UI_WindowsForms
             lblDimensiune.Width = LATIME_CONTROL;
             lblDimensiune.Text = "Dimensiune";
             lblDimensiune.Left = 9 * DIMENSIUNE_PAS_X;
-            lblDimensiune.ForeColor = Color.Chocolate;
+            lblDimensiune.ForeColor = Color.FromArgb(3, 76, 83);
             this.Controls.Add(lblDimensiune);
 
             this.Load += new EventHandler(Form1_Load);
@@ -146,8 +147,10 @@ namespace FirmaCurierat_UI_WindowsForms
 
         private void AfiseazaComenziSiColete()
         {
-            Comanda[] comenzi = gestiuneComenzi.GetComenzi(out int nrComenzi);
-            Colet[] colete = gestiuneColete.GetColete(out int nrColete);
+            List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
+            List<Colet> colete = gestiuneColete.GetColete();
+            int nrComenzi = comenzi.Count;
+            int nrColete = colete.Count;
 
             lblsIdComanda = new Label[nrComenzi];
             lblsNumeClient = new Label[nrComenzi];
@@ -234,7 +237,7 @@ namespace FirmaCurierat_UI_WindowsForms
                 //adaugare control de tip Label pentru dimensiunea coletului
                 lblsDimensiune[j] = new Label();
                 lblsDimensiune[j].Width = LATIME_CONTROL;
-                lblsDimensiune[j].Text = colet.Dimensiune;
+                lblsDimensiune[j].Text = colet.GetDimensiuneText();
                 lblsDimensiune[j].Left = 9 * DIMENSIUNE_PAS_X;
                 lblsDimensiune[j].Top = (j + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsDimensiune[j]);
