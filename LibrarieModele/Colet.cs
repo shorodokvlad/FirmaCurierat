@@ -45,32 +45,7 @@ namespace LibrarieModele
             IDColet = int.Parse(date[ID_COLET]);
             Descriere = date[DESCRIERE];
             Greutate = double.Parse(date[GREUTATE]);
-            Dimensiune = GetDimensiuneFromText(date[DIMENSIUNE]);
-        }
-
-        private DimensiuneColet GetDimensiuneFromText(string dimensiuneText)
-        {
-            switch (dimensiuneText)
-            {
-                case "30x30x30 cm":
-                    return DimensiuneColet.Mic;
-                case "40x40x40 cm":
-                    return DimensiuneColet.MediuMic;
-                case "50x50x50 cm":
-                    return DimensiuneColet.MediuStandard;
-                case "60x60x60 cm":
-                    return DimensiuneColet.MediuMare;
-                case "70x70x70 cm":
-                    return DimensiuneColet.MareMica;
-                case "80x80x80 cm":
-                    return DimensiuneColet.MareStandard;
-                case "90x90x90 cm":
-                    return DimensiuneColet.MareMare;
-                case "100x100x100 cm":
-                    return DimensiuneColet.ExtraMare;
-                default:
-                    throw new ArgumentException("Dimensiune necunoscuta");
-            }
+            Dimensiune = (DimensiuneColet)Enum.Parse(typeof(DimensiuneColet), date[DIMENSIUNE]);
         }
 
         public string GetDimensiuneText()
@@ -105,12 +80,14 @@ namespace LibrarieModele
 
         public string ConversieLaSir_PentruFisier()
         {
-            return string.Format("{1}{0}{2}{0}{3}{0}{4}",
+            string obiecteColetPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 IDColet,
                 Descriere,
                 Greutate,
-                GetDimensiuneText());
+                Dimensiune);
+
+            return obiecteColetPentruFisier;
         }
     }
 }

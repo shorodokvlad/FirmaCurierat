@@ -1,1 +1,4 @@
-234;Vladislav Shorodok;Str. Unirii, 13;13.10.2025;Livrat;45
+0;Andrei Popescu;Str. Floriilor, 3;13.12.2025;ComandaPlasata;0
+1;Maria Ionescu;Str. Centrala, 2;21.02.2025;InAsteptareLaExpeditor;1
+2;Bianca Petrescu;Str. Unirii, 22;15.04.2025;PreluatDeCurier;2
+3;Vladislav Shorodok;Str. Universitatii, 2;13.13.2025;InProcesareLaCentruLogistic;3

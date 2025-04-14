@@ -60,9 +60,52 @@ namespace LibrarieModele
             StareComanda = (StareComanda)Enum.Parse(typeof(StareComanda), date[STARE_COMANDA]);
             IDColet = int.Parse(date[ID_COLET]);
         }
+
+ 
+            public string GetStareComandaText()
+            {
+            switch (StareComanda)
+            {
+                case StareComanda.ComandaPlasata:
+                    return "Comanda Plasata";
+                case StareComanda.InAsteptareLaExpeditor:
+                    return "In Asteptare La Expeditor";
+                case StareComanda.PreluatDeCurier:
+                    return "Preluat De Curier";
+                case StareComanda.InProcesareLaCentruLogistic:
+                    return "In Procesare La Centru Logistic";
+                case StareComanda.InTranzit:
+                    return "In Tranzit";
+                case StareComanda.InTranzitRedirectionat:
+                    return "In Tranzit Redirectionat";
+                case StareComanda.InCursDeLivrare:
+                    return "In Curs De Livrare";
+                case StareComanda.Livrat:
+                    return "Livrat";
+                case StareComanda.AdresaIncorectaIncompleta:
+                    return "Adresa Incorecta Incompleta";
+                case StareComanda.DestinatarIndisponibil:
+                    return "Destinatar Indisponibil";
+                case StareComanda.RetinutInVama:
+                    return "Retinut In Vama";
+                case StareComanda.IntarziereConditiiMeteoLogistice:
+                    return "Intarziere Conditii Meteo Logistice";
+                case StareComanda.InProcesDeReturnare:
+                    return "In Proces De Returnare";
+                case StareComanda.ReturnatLaExpeditor:
+                    return "Returnat La Expeditor";
+                case StareComanda.ColetPierdut:
+                    return "Colet Pierdut";
+                case StareComanda.ColetDeteriorat:
+                    return "Colet Deteriorat";
+                default:
+                    return "Stare Comanda necunoscuta";
+            }
+        }
+      
         public string Info()
         {
-            return $"ID Comanda: {IDComanda}, Nume Client: {NumeClient}, Adresa: {AdresaLivrare}, Data Livrare: {DataLivrare}, Stare: {StareComanda}, ID Colet: {IDColet}";
+            return $"ID Comanda: {IDComanda}\n Nume Client: {NumeClient}\n Adresa: {AdresaLivrare}\n Data Livrare: {DataLivrare}\n Stare: {GetStareComandaText()}\n ID Colet: {IDColet}\n";
         }
 
         public string ConversieLaSir_PentruFisier()

@@ -1,1 +1,4 @@
-45;Textil;5;40x40x40 cm
+0;Carti;3;Mic
+1;Mobilier ;35;MareMica
+2;Piese auto;10;MediuMare
+3;Haine;1.5;Mic
