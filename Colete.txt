@@ -1,4 +1,30 @@
-0;Carti;3;Mic
-1;Mobilier ;35;MareMica
-2;Piese auto;10;MediuMare
-3;Haine;1.5;Mic
+0;Haine;1.5;MediuStandard
+1;Telefon mobil;1;Mic
+2;Bijuterii;2;MediuMic
+3;HDD extern 1TB;7.5;MediuStandard
+4;Casti wireless;0.2;MediuMare
+5;Set cărți;3.8;MediuStandard
+6;Piese auto Logan;6.2;MareMica
+7;Aparat foto DSLR;4.5;MediuMare
+8;Laptop 15 inch;2.4;MediuStandard
+9;Parfumuri;1.3;MediuMic
+10;Baterie auto;12.5;MareStandard
+11;Espressor;6.9;MediuMare
+12;Echipament sportiv;9.7;MareMica
+13;Set farfurii;5.4;MediuMare
+14;Aspirator;7.8;MareStandard
+15;Mixer bucatarie;3.1;MediuStandard
+16;Placa video;1.2;MediuMic
+17;Telefon + accesorii;1.5;MediuMic
+18;Cutie cu scule;8.6;MareMare
+19;Tabletă grafică;2.2;MediuMic
+20;Ochelari VR;1.7;MediuMic
+21;Router wireless;1.1;Mic
+22;Casti gaming;0.9;Mic
+23;Mini-frigider;18.3;ExtraMare
+24;Căști studio;1.6;MediuMic
+25;Tricouri + Blugi;2.5;MediuStandard
+26;Kit ambreiaj;10.2;MareStandard
+27;Camera de supraveghere;1.3;MediuMic
+28;TV 32 inch;11.0;MareMica
+29;Set boxe audio;13.5;MareMare

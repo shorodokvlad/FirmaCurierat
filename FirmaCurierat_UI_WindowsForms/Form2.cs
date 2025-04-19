@@ -11,15 +11,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Forms;
+using MetroFramework.Controls;
+
 
 namespace FirmaCurierat_UI_WindowsForms
 {
-    public partial class Form2: Form
+    public partial class Form2: MetroForm
     {
         GestionareComenzi_FisierText gestiuneComenzi;
         GestionareColete_FisierText gestiuneColete;
 
-        private int NR_MAX_CARACTERE = 20;
+        private const int NR_MAX_CARACTERE = 50;
         public Form2()
         {
             InitializeComponent();
@@ -33,21 +36,105 @@ namespace FirmaCurierat_UI_WindowsForms
             gestiuneComenzi = new GestionareComenzi_FisierText(caleCompletaFisierComenzi);
             gestiuneColete = new GestionareColete_FisierText(caleCompletaFisierColete);
 
-            this.Font = new Font("Arial", 9, FontStyle.Bold);
-            this.ForeColor = Color.LightSlateGray;
-            this.Text = "Adaugare comnzi si colete";
+        }
+        private void ClearTextBoxes()
+        {
+            var textBoxes = new MetroTextBox[] { txtNumeClient, txtAdresaLivrare, txtDataLivrare, txtStareComanda, txtDescriere, txtGreutate, txtDimensiune };
+
+            foreach (var textBox in textBoxes)
+            {
+                textBox.Clear();
+            }
         }
 
-        private void buttonSalveaza_Click(object sender, EventArgs e)
+        public bool Prevalidare()
+        {
+            bool areErori = false;
+
+            var campuriDeValidat = new (MetroTextBox TextBox, MetroLabel LabelEroare)[]
+            {
+                (txtNumeClient, txtEroareNumeClient),
+                (txtAdresaLivrare, txtEroareAdresaLivrare),
+                (txtDataLivrare, txtEroareDataLivrare),
+                (txtStareComanda, txtEroareStareComanda),
+                (txtDescriere, txtEroareDescriere),
+                (txtGreutate, txtEroareGreutate),
+                (txtDimensiune, txtEroareDimensiune)
+            };
+
+            foreach (var (textBox, labelEroare) in campuriDeValidat)
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    labelEroare.Text = "Nu poate fi gol!";
+                    labelEroare.ForeColor = Color.Red;
+                    areErori = true;
+                }
+            }
+
+            return areErori;
+        }
+
+
+        public bool Validare()
+        {
+            bool areErori = false;
+
+            var campuriDeValidat = new (MetroTextBox TextBox, MetroLabel LabelEroare)[]
+            {
+                (txtNumeClient, txtEroareNumeClient),
+                (txtAdresaLivrare, txtEroareAdresaLivrare),
+                (txtDataLivrare, txtEroareDataLivrare),
+                (txtDescriere, txtEroareDescriere)
+            };
+
+            foreach (var (textBox, labelEroare) in campuriDeValidat)
+            {
+                if (textBox.Text.Length > NR_MAX_CARACTERE)
+                {
+                    labelEroare.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
+                    labelEroare.ForeColor = Color.Red;
+                    areErori = true;
+                }
+   
+            }
+
+            // Validare specifică pentru alte câmpuri
+            if (!string.IsNullOrWhiteSpace(txtGreutate.Text) && !double.TryParse(txtGreutate.Text, out _))
+            {
+                txtEroareGreutate.Text = "Trebuie sa fie un numar!";
+                txtEroareGreutate.ForeColor = Color.Red;
+                areErori = true;
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtStareComanda.Text) && !Enum.TryParse<StareComanda>(txtStareComanda.Text, out _))
+            {
+                txtEroareStareComanda.Text = "Valoarea nu este validă!";
+                txtEroareStareComanda.ForeColor = Color.Red;
+                areErori = true;
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtDimensiune.Text) && !Enum.TryParse<DimensiuneColet>(txtDimensiune.Text, out _))
+            {
+                txtEroareDimensiune.Text = "Valoarea nu este validă!";
+                txtEroareDimensiune.ForeColor = Color.Red;
+                areErori = true;
+            }
+
+            return areErori;
+        }
+
+        private void mtSalveaza_Click(object sender, EventArgs e)
         {
             // Resetăm mesajele de eroare
-            eroareNumeClient.Text = "";
-            eroareAdresaLivrare.Text = "";
-            eroareDataLivrare.Text = "";
-            eroareStareComanda.Text = "";
-            eroareDescriere.Text = "";
-            eroareGreutate.Text = "";
-            eroareDimensiune.Text = "";
+            txtEroareNumeClient.Text = "";
+            txtEroareAdresaLivrare.Text = "";
+            txtEroareDataLivrare.Text = "";
+            txtEroareStareComanda.Text = "";
+            txtEroareDescriere.Text = "";
+            txtEroareGreutate.Text = "";
+            txtEroareDimensiune.Text = "";
+
 
             // Verificăm câmpurile goale
             bool areEroriPrevalidare = Prevalidare();
@@ -78,133 +165,9 @@ namespace FirmaCurierat_UI_WindowsForms
             gestiuneColete.AddColet(colet);
             gestiuneComenzi.AddComanda(comanda);
 
-            MessageBox.Show("Comanda si coletul au fost adaugate cu succes!");
+            MessageBox.Show("Comanda a fost adaugata cu succes!");
 
             ClearTextBoxes();
-        }
-        private void ClearTextBoxes()
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox textBox)
-                {
-                    textBox.Text = string.Empty;
-                }
-            }
-        }
-
-        public bool Prevalidare()
-        {
-            bool areErori = false;
-
-            if (string.IsNullOrWhiteSpace(txtNumeClient.Text))
-            {
-                eroareNumeClient.Text = "Nu poate fi gol!";
-                eroareNumeClient.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtAdresaLivrare.Text))
-            {
-                eroareAdresaLivrare.Text = "Nu poate fi gol!";
-                eroareAdresaLivrare.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtDataLivrare.Text))
-            {
-                eroareDataLivrare.Text = "Nu poate fi gol!";
-                eroareDataLivrare.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtStareComanda.Text))
-            {
-                eroareStareComanda.Text = "Nu poate fi gol!";
-                eroareStareComanda.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtDescriere.Text))
-            {
-                eroareDescriere.Text = "Nu poate fi gol!";
-                eroareDescriere.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtGreutate.Text))
-            {
-                eroareGreutate.Text = "Nu poate fi gol!";
-                eroareGreutate.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtDimensiune.Text))
-            {
-                eroareDimensiune.Text = "Nu poate fi gol!";
-                eroareDimensiune.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            return areErori;
-        }
-
-
-        public bool Validare()
-        {
-            bool areErori = false;
-
-
-            if (!string.IsNullOrWhiteSpace(txtGreutate.Text) && !double.TryParse(txtGreutate.Text, out _))
-            {
-                eroareGreutate.Text = "Trebuie sa fie un numar!";
-                eroareGreutate.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (!string.IsNullOrWhiteSpace(txtStareComanda.Text) && !Enum.TryParse<StareComanda>(txtStareComanda.Text, out _))
-            {
-                eroareStareComanda.Text = "Valoarea nu este validă!";
-                eroareStareComanda.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (!string.IsNullOrWhiteSpace(txtDimensiune.Text) && !Enum.TryParse<DimensiuneColet>(txtDimensiune.Text, out _))
-            {
-                eroareDimensiune.Text = "Valoarea nu este validă!";
-                eroareDimensiune.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (txtNumeClient.Text.Length > NR_MAX_CARACTERE)
-            {
-                eroareNumeClient.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
-                eroareNumeClient.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (txtAdresaLivrare.Text.Length > NR_MAX_CARACTERE)
-            {
-                eroareAdresaLivrare.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
-                eroareAdresaLivrare.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (txtDataLivrare.Text.Length > NR_MAX_CARACTERE)
-            {
-                eroareDataLivrare.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
-                eroareDataLivrare.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            if (txtDescriere.Text.Length > NR_MAX_CARACTERE)
-            {
-                eroareDescriere.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
-                eroareDescriere.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            return areErori;
         }
     }
 }

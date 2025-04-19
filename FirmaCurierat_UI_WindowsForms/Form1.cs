@@ -12,17 +12,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using MetroFramework.Forms;
+using MetroFramework.Controls;
+
 
 namespace FirmaCurierat_UI_WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroForm
     {
         GestionareComenzi_FisierText gestiuneComenzi;
         GestionareColete_FisierText gestiuneColete;
-
-        private const int LATIME_CONTROL = 150;
-        private const int DIMENSIUNE_PAS_Y = 40;
-        private const int DIMENSIUNE_PAS_X = 160;
 
         public Form1()
         {
@@ -37,129 +36,95 @@ namespace FirmaCurierat_UI_WindowsForms
             gestiuneComenzi = new GestionareComenzi_FisierText(caleCompletaFisierComenzi);
             gestiuneColete = new GestionareColete_FisierText(caleCompletaFisierColete);
 
-
-            // setare proprietati
-            this.Size = new Size(1000, 500);
-            this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(100, 100);
-            this.Font = new Font("Arial", 9, FontStyle.Bold);
-            this.ForeColor = Color.LightSlateGray;
-            this.Text = "Informatii comnzi si colete";
-           
             this.Load += new EventHandler(Form1_Load);
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            AfiseazaComenziSiColete();
-        }
-
-        private void AfiseazaComenziSiColete()
-        {
             List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
             List<Colet> colete = gestiuneColete.GetColete();
-            int nrComenzi = comenzi.Count;
-            int nrColete = colete.Count;
 
-            Label[,] lblsComenzi = new Label[nrComenzi, 5];
-            Label[,] lblsColete = new Label[nrColete, 4];
+            AfiseazaComenziSiColeteInControlDataViewGrid(comenzi, colete);
 
-            int i = 0;
-            foreach (Comanda comanda in comenzi)
-            {
-                //adaugare control de tip Label pentru id-ul comenzii;
-                lblsComenzi[i, 0] = new Label();
-                lblsComenzi[i, 0].Width = LATIME_CONTROL;
-                lblsComenzi[i, 0].Text = comanda.IDComanda.ToString();
-                lblsComenzi[i, 0].Left = DIMENSIUNE_PAS_X;
-                lblsComenzi[i, 0].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsComenzi[i, 0]);
-
-                //adaugare control de tip Label pentru numele clientului
-                lblsComenzi[i, 1] = new Label();
-                lblsComenzi[i, 1].Width = LATIME_CONTROL;
-                lblsComenzi[i, 1].Text = comanda.NumeClient;
-                lblsComenzi[i, 1].Left = 2 * DIMENSIUNE_PAS_X;
-                lblsComenzi[i, 1].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsComenzi[i, 1]);
-
-                //adaugare control de tip Label pentru adresa livrarii
-                lblsComenzi[i, 2] = new Label();
-                lblsComenzi[i, 2].Width = LATIME_CONTROL;
-                lblsComenzi[i, 2].Text = comanda.AdresaLivrare;
-                lblsComenzi[i, 2].Left = 3 * DIMENSIUNE_PAS_X;
-                lblsComenzi[i, 2].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsComenzi[i, 2]);
-
-                //adaugare control de tip Label pentru data livrarii
-                lblsComenzi[i, 3] = new Label();
-                lblsComenzi[i, 3].Width = LATIME_CONTROL;
-                lblsComenzi[i, 3].Text = comanda.DataLivrare.ToString();
-                lblsComenzi[i, 3].Left = 4 * DIMENSIUNE_PAS_X;
-                lblsComenzi[i, 3].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsComenzi[i, 3]);
-
-                //adaugare control de tip Label pentru starea comenzii
-                lblsComenzi[i, 4] = new Label();
-                lblsComenzi[i, 4].Width = LATIME_CONTROL;
-                lblsComenzi[i, 4].Text = comanda.GetStareComandaText();
-                lblsComenzi[i, 4].Left = 5 * DIMENSIUNE_PAS_X;
-                lblsComenzi[i, 4].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsComenzi[i, 4]);
-                i++;
-            }
-
-            int j = 0;
-            foreach (Colet colet in colete)
-            {
-                //adaugare control de tip Label pentru id-ul coletului;
-                lblsColete[j, 0] = new Label();
-                lblsColete[j, 0].Width = LATIME_CONTROL;
-                lblsColete[j, 0].Text = colet.IDColet.ToString();
-                lblsColete[j, 0].Left = 6 * DIMENSIUNE_PAS_X;
-                lblsColete[j, 0].Top = (j + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsColete[j, 0]);
-
-                //adaugare control de tip Label pentru descrierea coletului
-                lblsColete[j, 1] = new Label();
-                lblsColete[j, 1].Width = LATIME_CONTROL;
-                lblsColete[j, 1].Text = colet.Descriere;
-                lblsColete[j, 1].Left = 7 * DIMENSIUNE_PAS_X;
-                lblsColete[j, 1].Top = (j + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsColete[j, 1]);
-
-                //adaugare control de tip Label pentru greutatea coletului
-                lblsColete[j, 2] = new Label();
-                lblsColete[j, 2].Width = LATIME_CONTROL;
-                lblsColete[j, 2].Text = colet.Greutate.ToString();
-                lblsColete[j, 2].Left = 8 * DIMENSIUNE_PAS_X;
-                lblsColete[j, 2].Top = (j + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsColete[j, 2]);
-
-                //adaugare control de tip Label pentru dimensiunea coletului
-                lblsColete[j, 3] = new Label();
-                lblsColete[j, 3].Width = LATIME_CONTROL;
-                lblsColete[j, 3].Text = colet.GetDimensiuneText();
-                lblsColete[j, 3].Left = 9 * DIMENSIUNE_PAS_X;
-                lblsColete[j, 3].Top = (j + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsColete[j, 3]);
-                j++;
-            }
         }
 
-        private void buttonAdauga_Click(object sender, EventArgs e)
+       
+        private void AfiseazaComenziSiColeteInControlDataViewGrid(List<Comanda> comenzi, List<Colet> colete)
+        {
+            dataGridComenziSiColete.DataSource = null;
+
+            if (comenzi.Count == 0)
+            {
+                MessageBox.Show("Nu exista comenzi in fisier!");
+                return;
+            }
+
+            DataTable dataTable = new DataTable();
+
+            dataTable.Columns.Add("ID Comanda");
+            dataTable.Columns.Add("Nume Client");
+            dataTable.Columns.Add("Aresa Livrare");
+            dataTable.Columns.Add("Data Livrare");
+            dataTable.Columns.Add("Stare Comanda");
+            dataTable.Columns.Add("ID Colet");
+            dataTable.Columns.Add("Descriere Colet");
+            dataTable.Columns.Add("Greutate Colet [kg]");
+            dataTable.Columns.Add("Dimensiune Colet");
+
+            foreach (Comanda comanda in comenzi)
+            {
+                Colet colet = colete.FirstOrDefault(c => c.IDColet == comanda.IDColet);
+
+                DataRow row = dataTable.NewRow();
+                row["ID Comanda"] = comanda.IDComanda.ToString();
+                row["Nume Client"] = comanda.NumeClient;
+                row["Aresa Livrare"] = comanda.AdresaLivrare;
+                row["Data Livrare"] = comanda.DataLivrare.ToString();
+                row["Stare Comanda"] = comanda.GetStareComandaText();
+
+                if (colet != null)
+                {
+                    row["ID Colet"] = colet.IDColet.ToString();
+                    row["Descriere Colet"] = colet.Descriere;
+                    row["Greutate Colet [kg]"] = colet.Greutate.ToString();
+                    row["Dimensiune Colet"] = colet.GetDimensiuneText();
+                }
+                else
+                {
+                    row["ID Colet"] = "N/A";
+                    row["Descriere Colet"] = "N/A";
+                    row["Greutate Colet"] = "N/A";
+                    row["Dimensiune Colet"] = "N/A";
+                }
+
+                dataTable.Rows.Add(row);
+            }
+
+            dataGridComenziSiColete.DataSource = dataTable;
+
+            dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.ForeColor = Color.DarkSlateGray;
+            dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+            dataGridComenziSiColete.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
+            dataGridComenziSiColete.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Regular);
+            dataGridComenziSiColete.EnableHeadersVisualStyles = false;
+        }
+
+
+        private void mTileAdauga_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
         }
 
-        private void buttonRefresh_Click(object sender, EventArgs e)
+        private void mTileActualizeazaLista_Click(object sender, EventArgs e)
         {
-            AfiseazaComenziSiColete();
+            List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
+            List<Colet> colete = gestiuneColete.GetColete();
+            AfiseazaComenziSiColeteInControlDataViewGrid(comenzi, colete);
         }
 
-        private void buttoCautare_Click(object sender, EventArgs e)
+        private void mTileCautare_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
             form3.Show();

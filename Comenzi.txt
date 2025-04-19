@@ -1,4 +1,30 @@
-0;Andrei Popescu;Str. Floriilor, 3;13.12.2025;ComandaPlasata;0
-1;Maria Ionescu;Str. Centrala, 2;21.02.2025;InAsteptareLaExpeditor;1
-2;Bianca Petrescu;Str. Unirii, 22;15.04.2025;PreluatDeCurier;2
-3;Vladislav Shorodok;Str. Universitatii, 2;13.13.2025;InProcesareLaCentruLogistic;3
+0;Andrei Popescu;Bld. 1 Mai, 1;20.04.2025;ComandaPlasata;0
+1;Raul Munteanu;Str. Lalelelor, nr. 14, Bucuresti;13.04.2025;ComandaPlasata;1
+2;Alin Neagu;Str. Constructorilor nr. 8, Pitesti;14.04.2025;InAsteptareLaExpeditor;2
+3;Ionut Florescu;Str. Zorilor nr. 31, Brasov;31.05.2025;PreluatDeCurier;3
+4;Laura Dragan;Str. Constructorilor nr. 8, Iasi;02.05.2025;InProcesareLaCentruLogistic;4
+5;Bianca Ilie;Str. Plopilor nr. 22A, Cluj-Napoca;10.04.2025;InTranzit;5
+6;Radu Enache;Str. Garii nr. 4, Timisoara;11.04.2025;InTranzitRedirectionat;6
+7;Teodora Lupu;Str. Vișinilor nr. 17, Sibiu;15.04.2025;InCursDeLivrare;7
+8;Cristian Dumitrescu;Str. Mioritei nr. 6, Bacau;12.04.2025;Livrat;8
+9;Maria Ionescu;Str. Florilor nr. 12, Buzau;18.04.2025;AdresaIncorectaIncompleta;9
+10;Cătălin Moise;Str. Recoltei nr. 5B, Iasi;09.04.2025;DestinatarIndisponibil;10
+11;Vlad Georgescu;Str. Libertății nr. 9, Arad;17.04.2025;RetinutInVama;11
+12;Elena Radu;Str. Stejarului nr. 2, Alba Iulia;13.04.2025;IntarziereConditiiMeteoLogistice;12
+13;Roxana Enache;Str. Bujorului nr. 3, Targu Mures;07.04.2025;InProcesDeReturnare;13
+14;Sorin Tănase;Str. Rozelor nr. 15, Craiova;08.04.2025;ReturnatLaExpeditor;14
+15;Ana Cojocaru;Str. Libertății nr. 44, Galați;05.04.2025;ColetPierdut;15
+16;Mihai Dobre;Str. Aviatorilor nr. 10, Bucuresti;19.04.2025;ColetDeteriorat;16
+17;Raluca Petrescu;Str. Eroilor nr. 20, Ploiesti;16.04.2025;ComandaPlasata;17
+18;George Stan;Str. Trandafirilor nr. 7, Constanta;17.04.2025;PreluatDeCurier;18
+19;Ileana Sasu;Str. Fabricii nr. 12, Oradea;20.04.2025;InTranzit;19
+20;Florin Cristea;Str. Independentei nr. 3, Baia Mare;21.04.2025;InCursDeLivrare;20
+21;Oana Badea;Str. Castanilor nr. 18, Ramnicu Valcea;18.04.2025;Livrat;21
+22;Adrian Pop;Str. Cuza Voda nr. 33, Tulcea;12.04.2025;InProcesareLaCentruLogistic;22
+23;Larisa Vasile;Str. Scolii nr. 5, Giurgiu;13.04.2025;DestinatarIndisponibil;23
+24;Daniel Manole;Str. Metalurgiei nr. 2, Bucuresti;16.04.2025;ComandaPlasata;24
+25;Simona Mihai;Str. Narciselor nr. 11, Focsani;11.04.2025;InAsteptareLaExpeditor;25
+26;Bogdan Iacob;Str. Dacia nr. 27, Slatina;09.04.2025;RetinutInVama;26
+27;Diana Chiriac;Str. Mihai Viteazul nr. 8, Deva;22.04.2025;InTranzitRedirectionat;27
+28;Lucian Pavel;Str. Grivitei nr. 19, Bistrita;23.04.2025;Livrat;28
+29;Alexandra Roman;Str. Primaverii nr. 6, Suceava;24.04.2025;IntarziereConditiiMeteoLogistice;29
