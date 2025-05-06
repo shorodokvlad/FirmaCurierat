@@ -1,0 +1,10 @@
+0;Andrei Popescu;Bld. 1 Mai, nr. 1, Suceava;20.04.2025;ComandaPlasata;Perisabil;0
+1;Raul Munteanu;Str. Lalelelor, nr. 14, Bucuresti;13.04.2025;ComandaPlasata;None;1
+2;Alin Neagu;Str. Constructorilor nr. 8, Pitesti;14.04.2025;InAsteptareLaExpeditor;Livrare-Rapida,Fragil;2
+3;Ionut Florescu;Str. Zorilor nr. 31, Brasov;31.05.2025;PreluatDeCurier;Asigurare-Colet;3
+4;Laura Dragan;Str. Constructorilor nr. 8, Iasi;02.05.2025;InProcesareLaCentruLogistic;Perisabil,Livrare-Rapida;4
+5;Bianca Ilie;Str. Plopilor nr. 22A, Cluj-Napoca;10.04.2025;InTranzit;None;5
+6;Radu Enache;Str. Garii nr. 4, Timisoara;11.04.2025;InTranzitRedirectionat;Fragil;6
+7;Teodora Lupu;Str. Vișinilor nr. 17, Sibiu;15.04.2025;InCursDeLivrare;Asigurare-Colet,Fragil;7
+8;Cristian Dumitrescu;Str. Mioritei nr. 6, Bacau;12.04.2025;Livrat;Perisabil;8
+9;Adrian Pop;Str. Cuza Voda nr. 33, Iasi;12.05.2025;PreluatDeCurier;Livrare-Rapida Fragil;9

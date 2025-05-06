@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+
 
 namespace LibrarieModele
 {
@@ -10,23 +12,35 @@ namespace LibrarieModele
     {
         // Constante pentru delimitarea în fișier
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
+        private const char SEPARATOR_SECUNDAR_FISIER = ' ';
+
         private const int ID_COMANDA = 0;
         private const int NUME_CLIENT = 1;
         private const int ADRESA_LIVRARE = 2;
         private const int DATA_LIVRARE = 3;
         private const int STARE_COMANDA = 4;
-        private const int ID_COLET = 5;
+        private const int OPTIUNI_LIVRARE = 5;
+        private const int ID_COLET = 6;
 
         public int IDComanda { get; set; }
         public string NumeClient { get; set; }
         public string AdresaLivrare { get; set; }
         public string DataLivrare { get; set; }
         public StareComanda StareComanda { get; set; }
-
         public int IDColet { get; set; }
         public string Colet { get; set; }
 
-        // Constructor fara parametri
+        public ArrayList OptiuniLivrare { get; set; } 
+
+        public string OptiuniLivrareAsString
+        {
+            get
+            {
+                return string.Join(SEPARATOR_SECUNDAR_FISIER.ToString(), OptiuniLivrare.ToArray());
+            }
+        }
+
+        // Constructor fără parametri
         public Comanda()
         {
             IDComanda = 0;
@@ -35,11 +49,11 @@ namespace LibrarieModele
             DataLivrare = string.Empty;
             StareComanda = StareComanda.ComandaPlasata;
             IDColet = 0;
+            OptiuniLivrare = new ArrayList();
         }
 
-
         // Constructor cu parametri
-        public Comanda(int idComanda, string numeClient, string adresaLivrare, string dataLivrare, StareComanda stareComanda, Colet colet, int idColet)
+        public Comanda(int idComanda, string numeClient, string adresaLivrare, string dataLivrare, StareComanda stareComanda, ArrayList optiuniLivrare, int idColet)
         {
             IDComanda = idComanda;
             NumeClient = numeClient;
@@ -47,6 +61,7 @@ namespace LibrarieModele
             DataLivrare = dataLivrare;
             StareComanda = stareComanda;
             IDColet = idColet;
+            OptiuniLivrare = optiuniLivrare;
         }
 
         // Constructor care preia date dintr-o linie de fișier
@@ -59,11 +74,19 @@ namespace LibrarieModele
             DataLivrare = date[DATA_LIVRARE];
             StareComanda = (StareComanda)Enum.Parse(typeof(StareComanda), date[STARE_COMANDA]);
             IDColet = int.Parse(date[ID_COLET]);
+
+            OptiuniLivrare = new ArrayList();
+            OptiuniLivrare.AddRange(date[OPTIUNI_LIVRARE].Split(SEPARATOR_SECUNDAR_FISIER));
         }
 
- 
-            public string GetStareComandaText()
-            {
+        public string OptiuniLivrareToString()
+        {
+            return string.Join(", ", OptiuniLivrare.ToArray());
+
+        }
+
+        public string GetStareComandaText()
+        {
             switch (StareComanda)
             {
                 case StareComanda.ComandaPlasata:
@@ -102,24 +125,23 @@ namespace LibrarieModele
                     return "Stare Comanda necunoscuta";
             }
         }
-      
+
         public string Info()
         {
-            return $"ID Comanda: {IDComanda}\n Nume Client: {NumeClient}\n Adresa: {AdresaLivrare}\n Data Livrare: {DataLivrare}\n Stare: {GetStareComandaText()}\n ID Colet: {IDColet}\n";
+            return $"ID Comanda: {IDComanda}\nNume Client: {NumeClient}\nAdresa: {AdresaLivrare}\nData Livrare: {DataLivrare}\nStare: {StareComanda}\nID Colet: {IDColet}\nOptiuni Livrare: {OptiuniLivrareAsString}\n";
         }
 
         public string ConversieLaSir_PentruFisier()
         {
-            string obiectComandaPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}",
+            return string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 IDComanda,
                 NumeClient,
                 AdresaLivrare,
                 DataLivrare,
                 StareComanda,
+                OptiuniLivrareAsString,
                 IDColet);
-
-            return obiectComandaPentruFisier;
         }
     }
 }

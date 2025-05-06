@@ -18,12 +18,12 @@ using MetroFramework.Controls;
 
 namespace FirmaCurierat_UI_WindowsForms
 {
-    public partial class Form1 : MetroForm
+    public partial class FormaAfisare : MetroForm
     {
         GestionareComenzi_FisierText gestiuneComenzi;
         GestionareColete_FisierText gestiuneColete;
 
-        public Form1()
+        public FormaAfisare()
         {
             InitializeComponent();
 
@@ -42,31 +42,24 @@ namespace FirmaCurierat_UI_WindowsForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
-            List<Colet> colete = gestiuneColete.GetColete();
+            //List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
+            //List<Colet> colete = gestiuneColete.GetColete();
 
-            AfiseazaComenziSiColeteInControlDataViewGrid(comenzi, colete);
+            //AfiseazaComenziSiColeteInControlDataViewGrid(comenzi, colete);
 
         }
-
-       
         private void AfiseazaComenziSiColeteInControlDataViewGrid(List<Comanda> comenzi, List<Colet> colete)
         {
             dataGridComenziSiColete.DataSource = null;
-
-            if (comenzi.Count == 0)
-            {
-                MessageBox.Show("Nu exista comenzi in fisier!");
-                return;
-            }
 
             DataTable dataTable = new DataTable();
 
             dataTable.Columns.Add("ID Comanda");
             dataTable.Columns.Add("Nume Client");
-            dataTable.Columns.Add("Aresa Livrare");
+            dataTable.Columns.Add("Adresa Livrare");
             dataTable.Columns.Add("Data Livrare");
             dataTable.Columns.Add("Stare Comanda");
+            dataTable.Columns.Add("Optiuni Livrare");
             dataTable.Columns.Add("ID Colet");
             dataTable.Columns.Add("Descriere Colet");
             dataTable.Columns.Add("Greutate Colet [kg]");
@@ -79,9 +72,10 @@ namespace FirmaCurierat_UI_WindowsForms
                 DataRow row = dataTable.NewRow();
                 row["ID Comanda"] = comanda.IDComanda.ToString();
                 row["Nume Client"] = comanda.NumeClient;
-                row["Aresa Livrare"] = comanda.AdresaLivrare;
+                row["Adresa Livrare"] = comanda.AdresaLivrare;
                 row["Data Livrare"] = comanda.DataLivrare.ToString();
                 row["Stare Comanda"] = comanda.GetStareComandaText();
+                row["Optiuni Livrare"] = comanda.OptiuniLivrareToString();
 
                 if (colet != null)
                 {
@@ -111,23 +105,29 @@ namespace FirmaCurierat_UI_WindowsForms
         }
 
 
-        private void mTileAdauga_Click(object sender, EventArgs e)
+        private void mtAdauga_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            FormAdaugare form2 = new FormAdaugare();
             form2.Show();
         }
 
-        private void mTileActualizeazaLista_Click(object sender, EventArgs e)
+        private void mtActualizeazaLista_Click(object sender, EventArgs e)
         {
             List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
             List<Colet> colete = gestiuneColete.GetColete();
             AfiseazaComenziSiColeteInControlDataViewGrid(comenzi, colete);
         }
 
-        private void mTileCautare_Click(object sender, EventArgs e)
+        private void mtCautare_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
+            FormaCautareComanda form3 = new FormaCautareComanda();
             form3.Show();
+        }
+
+        private void mtCautaColet_Click(object sender, EventArgs e)
+        {
+            FormCautareColet form4 = new FormCautareColet();
+            form4.Show();
         }
     }
 }

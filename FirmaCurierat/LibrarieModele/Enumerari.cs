@@ -38,6 +38,4 @@ namespace LibrarieModele
         ExtraMare = 8        // 100x100x100 cm
     }
 
-
-
 }
