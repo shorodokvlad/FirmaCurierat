@@ -1,0 +1,5 @@
+0;Haine;0.5;MediuMic
+1;Bijuterii;0.5;Mic
+2;Haine;0.75;MareStandard
+3;Casti wireless;0.25;Mic
+4;Aparat foto DSLR;0.5;MediuMic

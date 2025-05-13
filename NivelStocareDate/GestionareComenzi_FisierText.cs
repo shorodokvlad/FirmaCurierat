@@ -133,5 +133,53 @@ namespace NivelStocareDate
             // Returnează null dacă nu a fost găsită nicio comandă cu ID-ul specificat
             return null;
         }
+
+        public bool UpdateComanda(Comanda comandaActualizata)
+        {
+            List<Comanda> comenzi = GetComenzi();
+            bool actualizareCuSucces = false;
+
+            //instructiunea 'using' va apela la final swFisierText.Close();
+            //al doilea parametru setat la 'false' al constructorului StreamWriter indica modul 'overwrite' de deschidere al fisierului
+            using (StreamWriter streamWriter = new StreamWriter(numeFisierComenzi, false))
+            {
+                foreach (Comanda comanda in comenzi)
+                {
+                    //informatiile despre comanda actualizata vor fi preluate din parametrul "comandaActualizata"
+                    Comanda comandaPentruScriereInFisier = comanda;
+                    if (comanda.IDComanda == comandaActualizata.IDComanda)
+                    {
+                        comandaPentruScriereInFisier = comandaActualizata;
+                    }
+                    streamWriter.WriteLine(comandaPentruScriereInFisier.ConversieLaSir_PentruFisier());
+
+                }
+                actualizareCuSucces = true;
+            }
+            return actualizareCuSucces;
+        }
+
+        public Comanda GetComandaByIndex(int index)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(numeFisierComenzi))
+                {
+                    string linie;
+                    while ((linie = sr.ReadLine()) != null)
+                    {
+                        Comanda comanda = new Comanda(linie);
+                        if (comanda.IDComanda == index)
+                            return comanda;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Optionally log or handle the exception
+            }
+            return null;
+        }
+
     }
 }

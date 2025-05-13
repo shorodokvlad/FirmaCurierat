@@ -39,6 +39,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mtCautare = new MetroFramework.Controls.MetroTile();
             this.dataGridComenziSiColete = new System.Windows.Forms.DataGridView();
             this.mtCautaColet = new MetroFramework.Controls.MetroTile();
+            this.mtModifica = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComenziSiColete)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mtAdauga.CustomBackground = true;
             this.mtAdauga.ForeColor = System.Drawing.SystemColors.Info;
             this.mtAdauga.Location = new System.Drawing.Point(18, 71);
-            this.mtAdauga.Margin = new System.Windows.Forms.Padding(2);
+            this.mtAdauga.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mtAdauga.Name = "mtAdauga";
             this.mtAdauga.Size = new System.Drawing.Size(181, 51);
             this.mtAdauga.Style = MetroFramework.MetroColorStyle.Silver;
@@ -65,7 +66,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mtActualizeazaLista.CustomBackground = true;
             this.mtActualizeazaLista.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.mtActualizeazaLista.Location = new System.Drawing.Point(18, 140);
-            this.mtActualizeazaLista.Margin = new System.Windows.Forms.Padding(2);
+            this.mtActualizeazaLista.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mtActualizeazaLista.Name = "mtActualizeazaLista";
             this.mtActualizeazaLista.Size = new System.Drawing.Size(181, 58);
             this.mtActualizeazaLista.TabIndex = 14;
@@ -81,7 +82,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mtCautare.CustomBackground = true;
             this.mtCautare.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.mtCautare.Location = new System.Drawing.Point(18, 219);
-            this.mtCautare.Margin = new System.Windows.Forms.Padding(2);
+            this.mtCautare.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mtCautare.Name = "mtCautare";
             this.mtCautare.Size = new System.Drawing.Size(181, 58);
             this.mtCautare.TabIndex = 15;
@@ -102,14 +103,15 @@ namespace FirmaCurierat_UI_WindowsForms
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridComenziSiColete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridComenziSiColete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridComenziSiColete.Location = new System.Drawing.Point(242, 68);
-            this.dataGridComenziSiColete.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridComenziSiColete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridComenziSiColete.Name = "dataGridComenziSiColete";
+            this.dataGridComenziSiColete.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,7 +125,8 @@ namespace FirmaCurierat_UI_WindowsForms
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SlateGray;
             this.dataGridComenziSiColete.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridComenziSiColete.RowTemplate.Height = 33;
-            this.dataGridComenziSiColete.Size = new System.Drawing.Size(1407, 562);
+            this.dataGridComenziSiColete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridComenziSiColete.Size = new System.Drawing.Size(1378, 562);
             this.dataGridComenziSiColete.TabIndex = 16;
             // 
             // mtCautaColet
@@ -132,7 +135,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mtCautaColet.CustomBackground = true;
             this.mtCautaColet.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.mtCautaColet.Location = new System.Drawing.Point(18, 297);
-            this.mtCautaColet.Margin = new System.Windows.Forms.Padding(2);
+            this.mtCautaColet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mtCautaColet.Name = "mtCautaColet";
             this.mtCautaColet.Size = new System.Drawing.Size(181, 58);
             this.mtCautaColet.TabIndex = 17;
@@ -142,13 +145,31 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mtCautaColet.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.mtCautaColet.Click += new System.EventHandler(this.mtCautaColet_Click);
             // 
+            // mtModifica
+            // 
+            this.mtModifica.BackColor = System.Drawing.Color.SlateGray;
+            this.mtModifica.CustomBackground = true;
+            this.mtModifica.ForeColor = System.Drawing.SystemColors.Info;
+            this.mtModifica.Location = new System.Drawing.Point(18, 372);
+            this.mtModifica.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mtModifica.Name = "mtModifica";
+            this.mtModifica.Size = new System.Drawing.Size(181, 51);
+            this.mtModifica.Style = MetroFramework.MetroColorStyle.Silver;
+            this.mtModifica.TabIndex = 18;
+            this.mtModifica.Text = "Modifica comanda";
+            this.mtModifica.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mtModifica.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mtModifica.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mtModifica.Click += new System.EventHandler(this.mtModifica_Click);
+            // 
             // FormaAfisare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1680, 567);
+            this.ClientSize = new System.Drawing.Size(1685, 567);
+            this.Controls.Add(this.mtModifica);
             this.Controls.Add(this.mtCautaColet);
             this.Controls.Add(this.dataGridComenziSiColete);
             this.Controls.Add(this.mtCautare);
@@ -156,7 +177,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.Controls.Add(this.mtAdauga);
             this.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormaAfisare";
             this.Padding = new System.Windows.Forms.Padding(10, 60, 10, 10);
             this.Style = MetroFramework.MetroColorStyle.Silver;
@@ -172,6 +193,7 @@ namespace FirmaCurierat_UI_WindowsForms
         private MetroTile mtCautare;
         private System.Windows.Forms.DataGridView dataGridComenziSiColete;
         private MetroTile mtCautaColet;
+        private MetroTile mtModifica;
     }
 }
 

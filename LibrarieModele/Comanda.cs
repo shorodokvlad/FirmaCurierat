@@ -85,7 +85,7 @@ namespace LibrarieModele
 
         }
 
-        public string GetStareComandaText()
+        public string StareComandaToString()
         {
             switch (StareComanda)
             {
@@ -128,7 +128,7 @@ namespace LibrarieModele
 
         public string Info()
         {
-            return $"ID Comanda: {IDComanda}\nNume Client: {NumeClient}\nAdresa: {AdresaLivrare}\nData Livrare: {DataLivrare}\nStare: {StareComanda}\nID Colet: {IDColet}\nOptiuni Livrare: {OptiuniLivrareAsString}\n";
+            return $"ID Comanda: {IDComanda}\nNume Client: {NumeClient}\nAdresa: {AdresaLivrare}\nData Livrare: {DataLivrare}\nStare: {StareComanda}\nOptiuni Livrare: {OptiuniLivrareAsString}\nID Colet: {IDColet}\n";
         }
 
         public string ConversieLaSir_PentruFisier()

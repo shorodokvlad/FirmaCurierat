@@ -111,6 +111,12 @@
     <Compile Include="FormaCautareComanda.Designer.cs">
       <DependentUpon>FormaCautareComanda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormaModificare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaModificare.Designer.cs">
+      <DependentUpon>FormaModificare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormaAfisare.resx">
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormaCautareComanda.resx">
       <DependentUpon>FormaCautareComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormaModificare.resx">
+      <DependentUpon>FormaModificare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

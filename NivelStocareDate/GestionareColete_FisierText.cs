@@ -134,6 +134,56 @@ namespace NivelStocareDate
             // Returnează null dacă nu a fost găsită nicio comandă cu ID-ul specificat
             return null;
         }
+
+        public bool UpdateColet(Colet coletActualizat)
+        {
+            List<Colet> colete = GetColete();
+            bool actualizareCuSucces = false;
+
+            //instructiunea 'using' va apela la final swFisierText.Close();
+            //al doilea parametru setat la 'false' al constructorului StreamWriter indica modul 'overwrite' de deschidere al fisierului
+            using (StreamWriter streamWriter = new StreamWriter(numeFisierColete, false))
+            {
+                foreach (Colet colet in colete)
+                {
+                    //informatiile despre comanda actualizata vor fi preluate din parametrul "comandaActualizata"
+                    Colet coletPentruScriereInFisier = colet;
+                    if (colet.IDColet == coletActualizat.IDColet)
+                    {
+                        coletPentruScriereInFisier = coletActualizat;
+                    }
+                    streamWriter.WriteLine(coletPentruScriereInFisier.ConversieLaSir_PentruFisier());
+
+                }
+                actualizareCuSucces = true;
+            }
+            return actualizareCuSucces;
+        }
+
+
+        public Colet GetColetByIndex(int index)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(numeFisierColete))
+                {
+                    string linie;
+                    while ((linie = sr.ReadLine()) != null)
+                    {
+                        Colet colet = new Colet(linie);
+                        if (colet.IDColet == index)
+                        {
+                            return colet;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Optionally log or handle the exception
+            }
+            return null;
+        }
     }
 }
 

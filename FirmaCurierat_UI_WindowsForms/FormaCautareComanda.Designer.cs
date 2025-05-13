@@ -38,7 +38,6 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mtCautaDupaNumeClient = new MetroFramework.Controls.MetroTile();
             this.mlblEroareIDComanda = new MetroFramework.Controls.MetroLabel();
             this.mlblEroareNumeClient = new MetroFramework.Controls.MetroLabel();
-            this.SuspendLayout();
             // 
             // mlblIDComanda
             // 

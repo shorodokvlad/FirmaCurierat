@@ -3,62 +3,70 @@
   "WorkspaceRootPath": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formcautarecomanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formcautarecomanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|c:\\users\\vladshorodok\\source\\repos\\firmacurierat\\firmacurierat_ui_windowsforms\\formamodificare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formamodificare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formcautarecolet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formcautarecolet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|c:\\users\\vladshorodok\\source\\repos\\firmacurierat\\firmacurierat_ui_windowsforms\\formaadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formaadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formcautarecolet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formcautarecolet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formamodificare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formamodificare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|c:\\users\\vladshorodok\\source\\repos\\firmacurierat\\firmacurierat_ui_windowsforms\\formadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formaafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formaafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formaafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formaafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formafisare.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formafisare.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formafisare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formcautarecomanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formcautarecomanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\nivelstocaredate\\gestionarecomenzi_memorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\gestionarecomenzi_memorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladshorodok\\source\\repos\\firmacurierat\\nivelstocaredate\\gestionarecolete_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\gestionarecolete_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\nivelstocaredate\\gestionarecomenzi_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\gestionarecomenzi_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formcautarecomanda.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formcautarecomanda.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formaadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formaadaugare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formamodificare.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formamodificare.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladshorodok\\source\\repos\\firmacurierat\\nivelstocaredate\\gestionarecomenzi_memorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{866F6D5B-288B-45B0-A124-D2B357F3CEAE}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\gestionarecomenzi_memorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formacautarecolet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formacautarecolet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formaafisare.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formaafisare.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\firmacurierat_ui_windowsforms\\formacautarecomanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76E9B7FD-B9AC-4C28-AF72-597938A9F537}|FirmaCurierat_UI_WindowsForms\\FirmaCurierat_UI_WindowsForms.csproj|solutionrelative:firmacurierat_ui_windowsforms\\formacautarecomanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1360B449-8841-4545-8B9F-131AFB4CD3D1}|LibrarieModele\\LibrarieModele.csproj|C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\librariemodele\\comanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1360B449-8841-4545-8B9F-131AFB4CD3D1}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\comanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 9,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,124 +98,120 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormAdaugare.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs [Design]",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs [Design]",
+              "DocumentIndex": 4,
+              "Title": "FormaAfisare.cs",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAHEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:30:39.241Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormCautareColet.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs [Design]",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:55:24.31Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-12T18:00:21.945Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormCautareComanda.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs [Design]",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs [Design]",
+              "Title": "FormaModificare.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaModificare.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaModificare.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaModificare.cs [Design]",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaModificare.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:54:58.757Z",
+              "WhenOpened": "2025-05-12T19:00:31.373Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormaAfisare.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs [Design]",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaAfisare.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T19:31:36.233Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormCautareColet.cs",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormCautareColet.cs",
-              "ViewState": "AgIAAAEAAABA+P///18ywCwAAAAsAAAAAAAAAA==",
+              "Title": "FormaAdaugare.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs [Design]",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:55:31.818Z",
+              "WhenOpened": "2025-05-13T10:59:52.983Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GestionareColete_FisierText.cs",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\NivelStocareDate\\GestionareColete_FisierText.cs",
+              "RelativeDocumentMoniker": "NivelStocareDate\\GestionareColete_FisierText.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\NivelStocareDate\\GestionareColete_FisierText.cs",
+              "RelativeToolTip": "NivelStocareDate\\GestionareColete_FisierText.cs",
+              "ViewState": "AgIAAJUAAAAAv5mZmRkywKEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T10:30:46.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FormAdaugare.cs",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormAdaugare.cs",
-              "ViewState": "AgIAAFwAAAAAyczMzAwiwCYAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "FormaModificare.cs",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaModificare.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaModificare.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaModificare.cs",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaModificare.cs",
+              "ViewState": "AgIAAOEAAAAAUzMzMzMywPUAAACbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:34:16.164Z",
+              "WhenOpened": "2025-05-12T19:00:34.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
+              "Title": "FormaAdaugare.cs",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaAdaugare.cs",
+              "ViewState": "AgIAAC0AAACAlpmZmRk7wJYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T07:53:46.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GestionareComenzi_FisierText.cs",
               "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\NivelStocareDate\\GestionareComenzi_FisierText.cs",
               "RelativeDocumentMoniker": "NivelStocareDate\\GestionareComenzi_FisierText.cs",
               "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\NivelStocareDate\\GestionareComenzi_FisierText.cs",
               "RelativeToolTip": "NivelStocareDate\\GestionareComenzi_FisierText.cs",
-              "ViewState": "AgIAAEQAAACAcGZmZmYhwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAACAAAAADsv58AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T20:45:38.707Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormAfisare.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAfisare.Designer.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormAfisare.Designer.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAfisare.Designer.cs",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormAfisare.Designer.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAMAywH4AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T23:12:17.231Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FormAfisare.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAfisare.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormAfisare.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAfisare.cs [Design]",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormAfisare.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:37:25.418Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormAfisare.cs",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAfisare.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormAfisare.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormAfisare.cs",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormAfisare.cs",
-              "ViewState": "AgIAABcAAACAy8zMzMwbwC0AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:37:54.646Z"
+              "WhenOpened": "2025-05-12T18:11:52.991Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "FormCautareComanda.cs",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormCautareComanda.cs",
-              "ViewState": "AgIAADMAAAAAMjMzM/MpwEcAAAA1AAAAAAAAAA==",
+              "Title": "FormaModificare.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaModificare.Designer.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaModificare.Designer.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaModificare.Designer.cs",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaModificare.Designer.cs",
+              "ViewState": "AgIAAIQAAAAAcGZmZqYkwGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T18:57:53.598Z",
+              "WhenOpened": "2025-05-12T19:34:08.786Z",
               "EditorCaption": ""
             },
             {
@@ -220,19 +224,57 @@
               "RelativeToolTip": "NivelStocareDate\\GestionareComenzi_Memorie.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T20:45:52.914Z"
+              "WhenOpened": "2025-05-13T10:35:59.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FormaCautareColet.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaCautareColet.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaCautareColet.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaCautareColet.cs [Design]",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaCautareColet.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T19:00:02.028Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "FormCautareComanda.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareComanda.Designer.cs",
-              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormCautareComanda.Designer.cs",
-              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormCautareComanda.Designer.cs",
-              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormCautareComanda.Designer.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAIAywFgAAABoAAAAAAAAAA==",
+              "Title": "FormaAfisare.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAfisare.Designer.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaAfisare.Designer.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaAfisare.Designer.cs",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaAfisare.Designer.cs",
+              "ViewState": "AgIAAJAAAAAAAAAAAAASwKEAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T19:14:44.092Z",
+              "WhenOpened": "2025-05-12T18:02:16.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FormaCautareComanda.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaCautareComanda.cs",
+              "RelativeDocumentMoniker": "FirmaCurierat_UI_WindowsForms\\FormaCautareComanda.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\FirmaCurierat_UI_WindowsForms\\FormaCautareComanda.cs [Design]",
+              "RelativeToolTip": "FirmaCurierat_UI_WindowsForms\\FormaCautareComanda.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T19:00:06.131Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Comanda.cs",
+              "DocumentMoniker": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\LibrarieModele\\Comanda.cs",
+              "RelativeDocumentMoniker": "LibrarieModele\\Comanda.cs",
+              "ToolTip": "C:\\Users\\vladshorodok\\source\\repos\\FirmaCurierat\\LibrarieModele\\Comanda.cs",
+              "RelativeToolTip": "LibrarieModele\\Comanda.cs",
+              "ViewState": "AgIAAFIAAAAAZmZmZmYmwFcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T08:00:32.56Z",
               "EditorCaption": ""
             }
           ]

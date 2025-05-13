@@ -36,19 +36,9 @@ namespace FirmaCurierat_UI_WindowsForms
             gestiuneComenzi = new GestionareComenzi_FisierText(caleCompletaFisierComenzi);
             gestiuneColete = new GestionareColete_FisierText(caleCompletaFisierColete);
 
-            this.Load += new EventHandler(Form1_Load);
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
-            //List<Colet> colete = gestiuneColete.GetColete();
-
-            //AfiseazaComenziSiColeteInControlDataViewGrid(comenzi, colete);
-
-        }
-        private void AfiseazaComenziSiColeteInControlDataViewGrid(List<Comanda> comenzi, List<Colet> colete)
+        private void AfisareComenziSiColete(List<Comanda> comenzi, List<Colet> colete)
         {
             dataGridComenziSiColete.DataSource = null;
 
@@ -74,7 +64,7 @@ namespace FirmaCurierat_UI_WindowsForms
                 row["Nume Client"] = comanda.NumeClient;
                 row["Adresa Livrare"] = comanda.AdresaLivrare;
                 row["Data Livrare"] = comanda.DataLivrare.ToString();
-                row["Stare Comanda"] = comanda.GetStareComandaText();
+                row["Stare Comanda"] = comanda.StareComandaToString();
                 row["Optiuni Livrare"] = comanda.OptiuniLivrareToString();
 
                 if (colet != null)
@@ -88,7 +78,7 @@ namespace FirmaCurierat_UI_WindowsForms
                 {
                     row["ID Colet"] = "N/A";
                     row["Descriere Colet"] = "N/A";
-                    row["Greutate Colet"] = "N/A";
+                    row["Greutate Colet [kg]"] = "N/A";
                     row["Dimensiune Colet"] = "N/A";
                 }
 
@@ -115,7 +105,7 @@ namespace FirmaCurierat_UI_WindowsForms
         {
             List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
             List<Colet> colete = gestiuneColete.GetColete();
-            AfiseazaComenziSiColeteInControlDataViewGrid(comenzi, colete);
+            AfisareComenziSiColete(comenzi, colete);
         }
 
         private void mtCautare_Click(object sender, EventArgs e)
@@ -128,6 +118,18 @@ namespace FirmaCurierat_UI_WindowsForms
         {
             FormCautareColet form4 = new FormCautareColet();
             form4.Show();
+        }
+
+        private void mtModifica_Click(object sender, EventArgs e)
+        { 
+            if (dataGridComenziSiColete.CurrentRow == null)
+            {
+                MessageBox.Show("Selectati o comanda pentru a o modifica.");
+                return;
+            }
+
+            FormaModificare form5 = new FormaModificare(Convert.ToInt32(dataGridComenziSiColete.CurrentRow.Cells[0].Value));
+            form5.ShowDialog();
         }
     }
 }
