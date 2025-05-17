@@ -1,0 +1,8 @@
+100;Haine;1.2;MediuMic
+101;Bijuterii;0.5;Mic
+102;Haine;0.75;MareStandard
+103;Casti wireless;0.25;Mic
+104;Casti wireless;0.5;MediuMic
+105;Telefon mobil;2;MediuMic
+106;Laptop;2;MediuMic
+107;Piese auto;0.25;MediuMic

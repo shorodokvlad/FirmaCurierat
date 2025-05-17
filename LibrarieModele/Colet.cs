@@ -48,7 +48,7 @@ namespace LibrarieModele
             Dimensiune = (DimensiuneColet)Enum.Parse(typeof(DimensiuneColet), date[DIMENSIUNE]);
         }
 
-        public string GetDimensiuneText()
+        public string DimensiuneToString()
         {
             switch (Dimensiune)
             {
@@ -73,9 +73,14 @@ namespace LibrarieModele
             }
         }
 
+        public string GreutateToString()
+        {
+            return Greutate.ToString() + " kg";
+        }
+
         public string Info()
         {
-            return $"ID Colet: {IDColet}\nDescriere: {Descriere ?? "NECUNOSCUT"}\nGreutate: {Greutate} kg\nDimensiune: {GetDimensiuneText()}";
+            return $"ID Colet: {IDColet}\nDescriere: {Descriere ?? "NECUNOSCUT"}\nGreutate: {Greutate} kg\nDimensiune: {DimensiuneToString()}";
         }
 
         public string ConversieLaSir_PentruFisier()

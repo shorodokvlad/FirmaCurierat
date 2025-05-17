@@ -19,7 +19,7 @@ namespace FirmaCurierat_UI_WindowsForms
     {
         GestionareComenzi_FisierText gestiuneComenzi;
 
-        private const int NR_MAX_CARACTERE = 30;
+        private const int NR_MAX_CARACTERE = 50;
         public FormaCautareComanda()
 
         {
@@ -32,73 +32,50 @@ namespace FirmaCurierat_UI_WindowsForms
             gestiuneComenzi = new GestionareComenzi_FisierText(caleCompletaFisierComenzi);
 
         }
+        public string NumeClient { get; set; }
 
-        private void mtCautaDupaIDComanda_Click(object sender, EventArgs e)
-        {
-            string idText = mtxtIDComanda.Text;
-
-            // Verificare dacă este gol
-            if (string.IsNullOrWhiteSpace(idText))
-            {
-                mlblEroareIDComanda.Text = "Nu poate fi gol!";
-                return;
-            }
-
-            // Verificare dacă este un număr
-            if (!int.TryParse(idText, out int idComanda))
-            {
-                mlblEroareIDComanda.Text = "Trebuie să fie un număr!";
-                return;
-            }
-
-            // Dacă este valid, ascundem mesajul de eroare
-            mlblEroareIDComanda.Text = string.Empty;
-
-            // Căutare colet
-            Comanda comandaGasita = gestiuneComenzi.GetComanda(idComanda);
-
-            if (comandaGasita != null)
-            {
-                MessageBox.Show(comandaGasita.Info(), "Comanda găsita");
-            }
-            else
-            {
-                MessageBox.Show($"Comanda cu ID-ul #{mtxtIDComanda.Text} nu a fost gasita.");
-            }
-        }
-
-        private void mtCautaDupaNumeClient_Click(object sender, EventArgs e)
+        private void btnCauta_Click(object sender, EventArgs e)
         {
             string numeClient = mtxtNumeClient.Text;
 
-            // Verificare dacă este gol
             if (string.IsNullOrWhiteSpace(numeClient))
             {
                 mlblEroareNumeClient.Text = "Nu poate fi gol!";
                 return;
             }
 
-            // Verificare dacă depășește 30 de caractere
-            if (numeClient.Length > 30)
+            if (numeClient.Length > NR_MAX_CARACTERE)
             {
                 mlblEroareNumeClient.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
                 return;
             }
 
-            // Dacă este valid, ascundem mesajul de eroare
             mlblEroareNumeClient.Text = string.Empty;
 
-            // Căutare colet
-            Comanda comandaGasita = gestiuneComenzi.GetComanda(numeClient);
-
-            if (comandaGasita != null)
+            List<Comanda> comenziGasite = gestiuneComenzi.GetComenzi(numeClient);
+            if (comenziGasite.Count > 0)
             {
-                MessageBox.Show(comandaGasita.Info(), "Comanda găsita");
+                NumeClient = mtxtNumeClient.Text;
+                Close();
             }
             else
             {
-                MessageBox.Show($"Comanda cu nume {numeClient} nu a fost gasita.");
+                mtxtNumeClient.Text = string.Empty;
+                MessageBox.Show("Nu a fost gasita nicio comanda cu numele specificat.");
             }
         }
+
+        private void btnCauta_MouseEnter(object sender, EventArgs e)
+        {
+            btnCauta.BackColor = Color.FromArgb(65, 111, 139);
+        }
+
+        private void btnCauta_MouseLeave(object sender, EventArgs e)
+        {
+            btnCauta.BackColor = Color.FromArgb(42, 71, 89);
+
+        }
+
+
     }
 }

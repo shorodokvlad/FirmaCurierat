@@ -30,6 +30,7 @@ namespace FirmaCurierat_UI_WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdaugare));
             this.mlblNumeClient = new MetroFramework.Controls.MetroLabel();
             this.mlblAdresaLivrare = new MetroFramework.Controls.MetroLabel();
             this.mlblDataLivrare = new MetroFramework.Controls.MetroLabel();
@@ -39,7 +40,6 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblDimensiune = new MetroFramework.Controls.MetroLabel();
             this.mtxtNumeClient = new MetroFramework.Controls.MetroTextBox();
             this.mtxtAdresaLivrare = new MetroFramework.Controls.MetroTextBox();
-            this.mtxtDataLivrare = new MetroFramework.Controls.MetroTextBox();
             this.mtxtDescriere = new MetroFramework.Controls.MetroTextBox();
             this.mlblEroareNumeClient = new MetroFramework.Controls.MetroLabel();
             this.mlblEroareAdresaLivrare = new MetroFramework.Controls.MetroLabel();
@@ -47,20 +47,18 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareDescriere = new MetroFramework.Controls.MetroLabel();
             this.mlblEroareGreutate = new MetroFramework.Controls.MetroLabel();
             this.mlblEroareDimensiune = new MetroFramework.Controls.MetroLabel();
-            this.mtSalveaza = new MetroFramework.Controls.MetroTile();
             this.nUDGreutate = new System.Windows.Forms.NumericUpDown();
             this.mlblOptiuniLivrare = new MetroFramework.Controls.MetroLabel();
             this.mlblEroareOptiuniLivrare = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.mCmbStareComanda = new MetroFramework.Controls.MetroComboBox();
-            this.mlblEroareStareComanda = new MetroFramework.Controls.MetroLabel();
             this.ckbLivrareDuminica = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckbPerisabil = new System.Windows.Forms.CheckBox();
             this.ckbLivrareSambata = new System.Windows.Forms.CheckBox();
             this.ckbNone = new System.Windows.Forms.CheckBox();
             this.ckbAsigurareColet = new System.Windows.Forms.CheckBox();
             this.ckbFragil = new System.Windows.Forms.CheckBox();
             this.ckbLivrareRapida = new System.Windows.Forms.CheckBox();
+            this.mlblEroareStareComanda = new MetroFramework.Controls.MetroLabel();
             this.gpbDimensiuneColet = new System.Windows.Forms.GroupBox();
             this.rdbExtraMare = new System.Windows.Forms.RadioButton();
             this.rdbMic = new System.Windows.Forms.RadioButton();
@@ -70,9 +68,19 @@ namespace FirmaCurierat_UI_WindowsForms
             this.rdbMediuStandard = new System.Windows.Forms.RadioButton();
             this.rdbMareMica = new System.Windows.Forms.RadioButton();
             this.rdbMediuMare = new System.Windows.Forms.RadioButton();
+            this.mCmbStareComanda = new MetroFramework.Controls.MetroComboBox();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.pbMenu = new System.Windows.Forms.PictureBox();
+            this.pnlAdauga = new System.Windows.Forms.Panel();
+            this.btnSalveaza = new System.Windows.Forms.Button();
+            this.dtpDataLivrare = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.nUDGreutate)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gpbDimensiuneColet.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
+            this.pnlAdauga.SuspendLayout();
             this.SuspendLayout();
             // 
             // mlblNumeClient
@@ -80,7 +88,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblNumeClient.AutoSize = true;
             this.mlblNumeClient.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblNumeClient.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblNumeClient.Location = new System.Drawing.Point(15, 80);
+            this.mlblNumeClient.Location = new System.Drawing.Point(12, 60);
             this.mlblNumeClient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblNumeClient.Name = "mlblNumeClient";
             this.mlblNumeClient.Size = new System.Drawing.Size(85, 19);
@@ -92,7 +100,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblAdresaLivrare.AutoSize = true;
             this.mlblAdresaLivrare.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblAdresaLivrare.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblAdresaLivrare.Location = new System.Drawing.Point(15, 107);
+            this.mlblAdresaLivrare.Location = new System.Drawing.Point(12, 87);
             this.mlblAdresaLivrare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblAdresaLivrare.Name = "mlblAdresaLivrare";
             this.mlblAdresaLivrare.Size = new System.Drawing.Size(96, 19);
@@ -104,7 +112,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblDataLivrare.AutoSize = true;
             this.mlblDataLivrare.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblDataLivrare.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblDataLivrare.Location = new System.Drawing.Point(15, 133);
+            this.mlblDataLivrare.Location = new System.Drawing.Point(12, 113);
             this.mlblDataLivrare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblDataLivrare.Name = "mlblDataLivrare";
             this.mlblDataLivrare.Size = new System.Drawing.Size(83, 19);
@@ -116,7 +124,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblStareComanda.AutoSize = true;
             this.mlblStareComanda.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblStareComanda.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblStareComanda.Location = new System.Drawing.Point(15, 167);
+            this.mlblStareComanda.Location = new System.Drawing.Point(12, 147);
             this.mlblStareComanda.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblStareComanda.Name = "mlblStareComanda";
             this.mlblStareComanda.Size = new System.Drawing.Size(103, 19);
@@ -128,7 +136,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblDescriere.AutoSize = true;
             this.mlblDescriere.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblDescriere.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblDescriere.Location = new System.Drawing.Point(15, 303);
+            this.mlblDescriere.Location = new System.Drawing.Point(12, 283);
             this.mlblDescriere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblDescriere.Name = "mlblDescriere";
             this.mlblDescriere.Size = new System.Drawing.Size(101, 19);
@@ -140,7 +148,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblGreutate.AutoSize = true;
             this.mlblGreutate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblGreutate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblGreutate.Location = new System.Drawing.Point(17, 331);
+            this.mlblGreutate.Location = new System.Drawing.Point(14, 311);
             this.mlblGreutate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblGreutate.Name = "mlblGreutate";
             this.mlblGreutate.Size = new System.Drawing.Size(103, 19);
@@ -152,7 +160,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblDimensiune.AutoSize = true;
             this.mlblDimensiune.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblDimensiune.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblDimensiune.Location = new System.Drawing.Point(15, 358);
+            this.mlblDimensiune.Location = new System.Drawing.Point(12, 338);
             this.mlblDimensiune.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblDimensiune.Name = "mlblDimensiune";
             this.mlblDimensiune.Size = new System.Drawing.Size(121, 19);
@@ -162,7 +170,7 @@ namespace FirmaCurierat_UI_WindowsForms
             // mtxtNumeClient
             // 
             this.mtxtNumeClient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.mtxtNumeClient.Location = new System.Drawing.Point(153, 80);
+            this.mtxtNumeClient.Location = new System.Drawing.Point(150, 60);
             this.mtxtNumeClient.Margin = new System.Windows.Forms.Padding(2);
             this.mtxtNumeClient.Name = "mtxtNumeClient";
             this.mtxtNumeClient.Size = new System.Drawing.Size(242, 16);
@@ -170,23 +178,15 @@ namespace FirmaCurierat_UI_WindowsForms
             // 
             // mtxtAdresaLivrare
             // 
-            this.mtxtAdresaLivrare.Location = new System.Drawing.Point(153, 107);
+            this.mtxtAdresaLivrare.Location = new System.Drawing.Point(150, 87);
             this.mtxtAdresaLivrare.Margin = new System.Windows.Forms.Padding(2);
             this.mtxtAdresaLivrare.Name = "mtxtAdresaLivrare";
             this.mtxtAdresaLivrare.Size = new System.Drawing.Size(242, 16);
             this.mtxtAdresaLivrare.TabIndex = 11;
             // 
-            // mtxtDataLivrare
-            // 
-            this.mtxtDataLivrare.Location = new System.Drawing.Point(153, 133);
-            this.mtxtDataLivrare.Margin = new System.Windows.Forms.Padding(2);
-            this.mtxtDataLivrare.Name = "mtxtDataLivrare";
-            this.mtxtDataLivrare.Size = new System.Drawing.Size(242, 16);
-            this.mtxtDataLivrare.TabIndex = 12;
-            // 
             // mtxtDescriere
             // 
-            this.mtxtDescriere.Location = new System.Drawing.Point(153, 303);
+            this.mtxtDescriere.Location = new System.Drawing.Point(150, 283);
             this.mtxtDescriere.Margin = new System.Windows.Forms.Padding(2);
             this.mtxtDescriere.Name = "mtxtDescriere";
             this.mtxtDescriere.Size = new System.Drawing.Size(242, 16);
@@ -197,7 +197,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareNumeClient.AutoSize = true;
             this.mlblEroareNumeClient.CustomForeColor = true;
             this.mlblEroareNumeClient.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareNumeClient.Location = new System.Drawing.Point(411, 77);
+            this.mlblEroareNumeClient.Location = new System.Drawing.Point(408, 57);
             this.mlblEroareNumeClient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblEroareNumeClient.Name = "mlblEroareNumeClient";
             this.mlblEroareNumeClient.Size = new System.Drawing.Size(0, 0);
@@ -208,7 +208,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareAdresaLivrare.AutoSize = true;
             this.mlblEroareAdresaLivrare.CustomForeColor = true;
             this.mlblEroareAdresaLivrare.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareAdresaLivrare.Location = new System.Drawing.Point(411, 104);
+            this.mlblEroareAdresaLivrare.Location = new System.Drawing.Point(408, 84);
             this.mlblEroareAdresaLivrare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblEroareAdresaLivrare.Name = "mlblEroareAdresaLivrare";
             this.mlblEroareAdresaLivrare.Size = new System.Drawing.Size(0, 0);
@@ -219,7 +219,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareDataLivrare.AutoSize = true;
             this.mlblEroareDataLivrare.CustomForeColor = true;
             this.mlblEroareDataLivrare.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareDataLivrare.Location = new System.Drawing.Point(411, 131);
+            this.mlblEroareDataLivrare.Location = new System.Drawing.Point(408, 111);
             this.mlblEroareDataLivrare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblEroareDataLivrare.Name = "mlblEroareDataLivrare";
             this.mlblEroareDataLivrare.Size = new System.Drawing.Size(0, 0);
@@ -230,7 +230,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareDescriere.AutoSize = true;
             this.mlblEroareDescriere.CustomForeColor = true;
             this.mlblEroareDescriere.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareDescriere.Location = new System.Drawing.Point(411, 303);
+            this.mlblEroareDescriere.Location = new System.Drawing.Point(408, 283);
             this.mlblEroareDescriere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblEroareDescriere.Name = "mlblEroareDescriere";
             this.mlblEroareDescriere.Size = new System.Drawing.Size(0, 0);
@@ -241,7 +241,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareGreutate.AutoSize = true;
             this.mlblEroareGreutate.CustomForeColor = true;
             this.mlblEroareGreutate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareGreutate.Location = new System.Drawing.Point(411, 332);
+            this.mlblEroareGreutate.Location = new System.Drawing.Point(408, 312);
             this.mlblEroareGreutate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblEroareGreutate.Name = "mlblEroareGreutate";
             this.mlblEroareGreutate.Size = new System.Drawing.Size(0, 0);
@@ -252,24 +252,11 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareDimensiune.AutoSize = true;
             this.mlblEroareDimensiune.CustomForeColor = true;
             this.mlblEroareDimensiune.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareDimensiune.Location = new System.Drawing.Point(411, 358);
+            this.mlblEroareDimensiune.Location = new System.Drawing.Point(408, 338);
             this.mlblEroareDimensiune.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblEroareDimensiune.Name = "mlblEroareDimensiune";
             this.mlblEroareDimensiune.Size = new System.Drawing.Size(0, 0);
             this.mlblEroareDimensiune.TabIndex = 26;
-            // 
-            // mtSalveaza
-            // 
-            this.mtSalveaza.BackColor = System.Drawing.Color.LightSlateGray;
-            this.mtSalveaza.CustomBackground = true;
-            this.mtSalveaza.Location = new System.Drawing.Point(153, 493);
-            this.mtSalveaza.Margin = new System.Windows.Forms.Padding(2);
-            this.mtSalveaza.Name = "mtSalveaza";
-            this.mtSalveaza.Size = new System.Drawing.Size(242, 44);
-            this.mtSalveaza.TabIndex = 28;
-            this.mtSalveaza.Text = "Salveaza";
-            this.mtSalveaza.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mtSalveaza.Click += new System.EventHandler(this.mtSalveaza_Click);
             // 
             // nUDGreutate
             // 
@@ -279,7 +266,7 @@ namespace FirmaCurierat_UI_WindowsForms
             0,
             0,
             131072});
-            this.nUDGreutate.Location = new System.Drawing.Point(153, 331);
+            this.nUDGreutate.Location = new System.Drawing.Point(150, 311);
             this.nUDGreutate.Name = "nUDGreutate";
             this.nUDGreutate.Size = new System.Drawing.Size(243, 20);
             this.nUDGreutate.TabIndex = 29;
@@ -289,7 +276,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblOptiuniLivrare.AutoSize = true;
             this.mlblOptiuniLivrare.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.mlblOptiuniLivrare.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.mlblOptiuniLivrare.Location = new System.Drawing.Point(15, 200);
+            this.mlblOptiuniLivrare.Location = new System.Drawing.Point(12, 180);
             this.mlblOptiuniLivrare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblOptiuniLivrare.Name = "mlblOptiuniLivrare";
             this.mlblOptiuniLivrare.Size = new System.Drawing.Size(100, 19);
@@ -301,7 +288,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareOptiuniLivrare.AutoSize = true;
             this.mlblEroareOptiuniLivrare.CustomForeColor = true;
             this.mlblEroareOptiuniLivrare.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareOptiuniLivrare.Location = new System.Drawing.Point(411, 200);
+            this.mlblEroareOptiuniLivrare.Location = new System.Drawing.Point(408, 180);
             this.mlblEroareOptiuniLivrare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblEroareOptiuniLivrare.Name = "mlblEroareOptiuniLivrare";
             this.mlblEroareOptiuniLivrare.Size = new System.Drawing.Size(0, 0);
@@ -310,59 +297,39 @@ namespace FirmaCurierat_UI_WindowsForms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ckbLivrareDuminica);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.ckbPerisabil);
             this.groupBox1.Controls.Add(this.ckbLivrareSambata);
             this.groupBox1.Controls.Add(this.ckbNone);
             this.groupBox1.Controls.Add(this.ckbAsigurareColet);
             this.groupBox1.Controls.Add(this.ckbFragil);
             this.groupBox1.Controls.Add(this.ckbLivrareRapida);
-            this.groupBox1.Location = new System.Drawing.Point(152, 197);
+            this.groupBox1.Location = new System.Drawing.Point(149, 177);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(241, 92);
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             // 
-            // mCmbStareComanda
-            // 
-            this.mCmbStareComanda.FormattingEnabled = true;
-            this.mCmbStareComanda.ItemHeight = 23;
-            this.mCmbStareComanda.Location = new System.Drawing.Point(152, 162);
-            this.mCmbStareComanda.Name = "mCmbStareComanda";
-            this.mCmbStareComanda.Size = new System.Drawing.Size(243, 29);
-            this.mCmbStareComanda.TabIndex = 50;
-            // 
-            // mlblEroareStareComanda
-            // 
-            this.mlblEroareStareComanda.AutoSize = true;
-            this.mlblEroareStareComanda.CustomForeColor = true;
-            this.mlblEroareStareComanda.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblEroareStareComanda.Location = new System.Drawing.Point(411, 165);
-            this.mlblEroareStareComanda.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mlblEroareStareComanda.Name = "mlblEroareStareComanda";
-            this.mlblEroareStareComanda.Size = new System.Drawing.Size(0, 0);
-            this.mlblEroareStareComanda.TabIndex = 22;
-            // 
             // ckbLivrareDuminica
             // 
             this.ckbLivrareDuminica.AutoSize = true;
-            this.ckbLivrareDuminica.Location = new System.Drawing.Point(118, 70);
+            this.ckbLivrareDuminica.Location = new System.Drawing.Point(126, 70);
             this.ckbLivrareDuminica.Name = "ckbLivrareDuminica";
             this.ckbLivrareDuminica.Size = new System.Drawing.Size(105, 17);
             this.ckbLivrareDuminica.TabIndex = 90;
-            this.ckbLivrareDuminica.Text = "Livrare-Duminica";
+            this.ckbLivrareDuminica.Text = "Livrare Duminica";
             this.ckbLivrareDuminica.UseVisualStyleBackColor = true;
             this.ckbLivrareDuminica.CheckedChanged += new System.EventHandler(this.CkbOptiuniLivare_CheckedChanged);
             // 
-            // checkBox1
+            // ckbPerisabil
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(146, 18);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(65, 17);
-            this.checkBox1.TabIndex = 86;
-            this.checkBox1.Text = "Perisabil";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.CkbOptiuniLivare_CheckedChanged);
+            this.ckbPerisabil.AutoSize = true;
+            this.ckbPerisabil.Location = new System.Drawing.Point(158, 18);
+            this.ckbPerisabil.Name = "ckbPerisabil";
+            this.ckbPerisabil.Size = new System.Drawing.Size(65, 17);
+            this.ckbPerisabil.TabIndex = 86;
+            this.ckbPerisabil.Text = "Perisabil";
+            this.ckbPerisabil.UseVisualStyleBackColor = true;
+            this.ckbPerisabil.CheckedChanged += new System.EventHandler(this.CkbOptiuniLivare_CheckedChanged);
             // 
             // ckbLivrareSambata
             // 
@@ -371,7 +338,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.ckbLivrareSambata.Name = "ckbLivrareSambata";
             this.ckbLivrareSambata.Size = new System.Drawing.Size(103, 17);
             this.ckbLivrareSambata.TabIndex = 89;
-            this.ckbLivrareSambata.Text = "Livrare-Sambata";
+            this.ckbLivrareSambata.Text = "Livrare Sambata";
             this.ckbLivrareSambata.UseVisualStyleBackColor = true;
             this.ckbLivrareSambata.CheckedChanged += new System.EventHandler(this.CkbOptiuniLivare_CheckedChanged);
             // 
@@ -389,18 +356,18 @@ namespace FirmaCurierat_UI_WindowsForms
             // ckbAsigurareColet
             // 
             this.ckbAsigurareColet.AutoSize = true;
-            this.ckbAsigurareColet.Location = new System.Drawing.Point(118, 46);
+            this.ckbAsigurareColet.Location = new System.Drawing.Point(126, 46);
             this.ckbAsigurareColet.Name = "ckbAsigurareColet";
             this.ckbAsigurareColet.Size = new System.Drawing.Size(97, 17);
             this.ckbAsigurareColet.TabIndex = 88;
-            this.ckbAsigurareColet.Text = "Asigurare-Colet";
+            this.ckbAsigurareColet.Text = "Asigurare Colet";
             this.ckbAsigurareColet.UseVisualStyleBackColor = true;
             this.ckbAsigurareColet.CheckedChanged += new System.EventHandler(this.CkbOptiuniLivare_CheckedChanged);
             // 
             // ckbFragil
             // 
             this.ckbFragil.AutoSize = true;
-            this.ckbFragil.Location = new System.Drawing.Point(75, 18);
+            this.ckbFragil.Location = new System.Drawing.Point(92, 18);
             this.ckbFragil.Name = "ckbFragil";
             this.ckbFragil.Size = new System.Drawing.Size(51, 17);
             this.ckbFragil.TabIndex = 85;
@@ -415,9 +382,20 @@ namespace FirmaCurierat_UI_WindowsForms
             this.ckbLivrareRapida.Name = "ckbLivrareRapida";
             this.ckbLivrareRapida.Size = new System.Drawing.Size(95, 17);
             this.ckbLivrareRapida.TabIndex = 87;
-            this.ckbLivrareRapida.Text = "Livrare-Rapida";
+            this.ckbLivrareRapida.Text = "Livrare Rapida";
             this.ckbLivrareRapida.UseVisualStyleBackColor = true;
             this.ckbLivrareRapida.CheckedChanged += new System.EventHandler(this.CkbOptiuniLivare_CheckedChanged);
+            // 
+            // mlblEroareStareComanda
+            // 
+            this.mlblEroareStareComanda.AutoSize = true;
+            this.mlblEroareStareComanda.CustomForeColor = true;
+            this.mlblEroareStareComanda.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.mlblEroareStareComanda.Location = new System.Drawing.Point(408, 145);
+            this.mlblEroareStareComanda.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mlblEroareStareComanda.Name = "mlblEroareStareComanda";
+            this.mlblEroareStareComanda.Size = new System.Drawing.Size(0, 0);
+            this.mlblEroareStareComanda.TabIndex = 22;
             // 
             // gpbDimensiuneColet
             // 
@@ -429,7 +407,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.gpbDimensiuneColet.Controls.Add(this.rdbMediuStandard);
             this.gpbDimensiuneColet.Controls.Add(this.rdbMareMica);
             this.gpbDimensiuneColet.Controls.Add(this.rdbMediuMare);
-            this.gpbDimensiuneColet.Location = new System.Drawing.Point(152, 358);
+            this.gpbDimensiuneColet.Location = new System.Drawing.Point(149, 338);
             this.gpbDimensiuneColet.Name = "gpbDimensiuneColet";
             this.gpbDimensiuneColet.Size = new System.Drawing.Size(243, 118);
             this.gpbDimensiuneColet.TabIndex = 73;
@@ -523,6 +501,81 @@ namespace FirmaCurierat_UI_WindowsForms
             this.rdbMediuMare.Text = "60x60x60 cm";
             this.rdbMediuMare.UseVisualStyleBackColor = true;
             // 
+            // mCmbStareComanda
+            // 
+            this.mCmbStareComanda.FormattingEnabled = true;
+            this.mCmbStareComanda.ItemHeight = 23;
+            this.mCmbStareComanda.Location = new System.Drawing.Point(149, 142);
+            this.mCmbStareComanda.Name = "mCmbStareComanda";
+            this.mCmbStareComanda.Size = new System.Drawing.Size(243, 29);
+            this.mCmbStareComanda.TabIndex = 50;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.White;
+            this.pnlHeader.Controls.Add(this.lblHeader);
+            this.pnlHeader.Controls.Add(this.pbMenu);
+            this.pnlHeader.Location = new System.Drawing.Point(0, 6);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(272, 42);
+            this.pnlHeader.TabIndex = 74;
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHeader.Location = new System.Drawing.Point(49, 12);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(205, 17);
+            this.lblHeader.TabIndex = 21;
+            this.lblHeader.Text = "ADUAGARE COMANDA SI COLET";
+            // 
+            // pbMenu
+            // 
+            this.pbMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbMenu.Image")));
+            this.pbMenu.Location = new System.Drawing.Point(3, 2);
+            this.pbMenu.Name = "pbMenu";
+            this.pbMenu.Size = new System.Drawing.Size(40, 37);
+            this.pbMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMenu.TabIndex = 20;
+            this.pbMenu.TabStop = false;
+            // 
+            // pnlAdauga
+            // 
+            this.pnlAdauga.Controls.Add(this.btnSalveaza);
+            this.pnlAdauga.Location = new System.Drawing.Point(150, 472);
+            this.pnlAdauga.Name = "pnlAdauga";
+            this.pnlAdauga.Size = new System.Drawing.Size(243, 47);
+            this.pnlAdauga.TabIndex = 75;
+            // 
+            // btnSalveaza
+            // 
+            this.btnSalveaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
+            this.btnSalveaza.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalveaza.ForeColor = System.Drawing.Color.White;
+            this.btnSalveaza.Image = ((System.Drawing.Image)(resources.GetObject("btnSalveaza.Image")));
+            this.btnSalveaza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalveaza.Location = new System.Drawing.Point(-20, -6);
+            this.btnSalveaza.Name = "btnSalveaza";
+            this.btnSalveaza.Padding = new System.Windows.Forms.Padding(25, 0, 0, 13);
+            this.btnSalveaza.Size = new System.Drawing.Size(278, 74);
+            this.btnSalveaza.TabIndex = 21;
+            this.btnSalveaza.Text = "               Salveaza";
+            this.btnSalveaza.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalveaza.UseVisualStyleBackColor = false;
+            this.btnSalveaza.Click += new System.EventHandler(this.btnAdauga_Click);
+            this.btnSalveaza.MouseEnter += new System.EventHandler(this.btnAdauga_MouseEnter);
+            this.btnSalveaza.MouseLeave += new System.EventHandler(this.btnAdauga_MouseLeave);
+            // 
+            // dtpDataLivrare
+            // 
+            this.dtpDataLivrare.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
+            this.dtpDataLivrare.Location = new System.Drawing.Point(149, 113);
+            this.dtpDataLivrare.Name = "dtpDataLivrare";
+            this.dtpDataLivrare.Size = new System.Drawing.Size(243, 20);
+            this.dtpDataLivrare.TabIndex = 76;
+            // 
             // FormAdaugare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,13 +583,15 @@ namespace FirmaCurierat_UI_WindowsForms
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(865, 567);
+            this.Controls.Add(this.dtpDataLivrare);
+            this.Controls.Add(this.pnlAdauga);
+            this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.gpbDimensiuneColet);
             this.Controls.Add(this.mCmbStareComanda);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mlblEroareOptiuniLivrare);
             this.Controls.Add(this.mlblOptiuniLivrare);
             this.Controls.Add(this.nUDGreutate);
-            this.Controls.Add(this.mtSalveaza);
             this.Controls.Add(this.mlblEroareDimensiune);
             this.Controls.Add(this.mlblEroareGreutate);
             this.Controls.Add(this.mlblEroareDescriere);
@@ -545,7 +600,6 @@ namespace FirmaCurierat_UI_WindowsForms
             this.Controls.Add(this.mlblEroareAdresaLivrare);
             this.Controls.Add(this.mlblEroareNumeClient);
             this.Controls.Add(this.mtxtDescriere);
-            this.Controls.Add(this.mtxtDataLivrare);
             this.Controls.Add(this.mtxtAdresaLivrare);
             this.Controls.Add(this.mtxtNumeClient);
             this.Controls.Add(this.mlblDimensiune);
@@ -556,17 +610,21 @@ namespace FirmaCurierat_UI_WindowsForms
             this.Controls.Add(this.mlblAdresaLivrare);
             this.Controls.Add(this.mlblNumeClient);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAdaugare";
             this.Padding = new System.Windows.Forms.Padding(10, 60, 10, 10);
             this.Style = MetroFramework.MetroColorStyle.Silver;
-            this.Text = "Adaugare comanda si colet";
             this.Theme = MetroFramework.MetroThemeStyle.Light;
             ((System.ComponentModel.ISupportInitialize)(this.nUDGreutate)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gpbDimensiuneColet.ResumeLayout(false);
             this.gpbDimensiuneColet.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).EndInit();
+            this.pnlAdauga.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,7 +642,6 @@ namespace FirmaCurierat_UI_WindowsForms
         private MetroLabel mlblDimensiune;
         private MetroTextBox mtxtNumeClient;
         private MetroTextBox mtxtAdresaLivrare;
-        private MetroTextBox mtxtDataLivrare;
         private MetroTextBox mtxtDescriere;
         private MetroLabel mlblEroareNumeClient;
         private MetroLabel mlblEroareAdresaLivrare;
@@ -592,15 +649,13 @@ namespace FirmaCurierat_UI_WindowsForms
         private MetroLabel mlblEroareDescriere;
         private MetroLabel mlblEroareGreutate;
         private MetroLabel mlblEroareDimensiune;
-        private MetroTile mtSalveaza;
         private System.Windows.Forms.NumericUpDown nUDGreutate;
         private MetroLabel mlblOptiuniLivrare;
         private MetroLabel mlblEroareOptiuniLivrare;
         private System.Windows.Forms.GroupBox groupBox1;
-        private MetroComboBox mCmbStareComanda;
         private MetroLabel mlblEroareStareComanda;
         private System.Windows.Forms.CheckBox ckbLivrareDuminica;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ckbPerisabil;
         private System.Windows.Forms.CheckBox ckbLivrareSambata;
         private System.Windows.Forms.CheckBox ckbNone;
         private System.Windows.Forms.CheckBox ckbAsigurareColet;
@@ -615,5 +670,12 @@ namespace FirmaCurierat_UI_WindowsForms
         private System.Windows.Forms.RadioButton rdbMediuStandard;
         private System.Windows.Forms.RadioButton rdbMareMica;
         private System.Windows.Forms.RadioButton rdbMediuMare;
+        private MetroComboBox mCmbStareComanda;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.PictureBox pbMenu;
+        private System.Windows.Forms.Panel pnlAdauga;
+        private System.Windows.Forms.Button btnSalveaza;
+        private System.Windows.Forms.DateTimePicker dtpDataLivrare;
     }
 }

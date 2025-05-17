@@ -12,7 +12,7 @@ namespace LibrarieModele
     {
         // Constante pentru delimitarea în fișier
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
-        private const char SEPARATOR_SECUNDAR_FISIER = ' ';
+        private const char SEPARATOR_SECUNDAR_FISIER = ',';
 
         private const int ID_COMANDA = 0;
         private const int NUME_CLIENT = 1;
@@ -25,7 +25,7 @@ namespace LibrarieModele
         public int IDComanda { get; set; }
         public string NumeClient { get; set; }
         public string AdresaLivrare { get; set; }
-        public string DataLivrare { get; set; }
+        public DateTime DataLivrare { get; set; }
         public StareComanda StareComanda { get; set; }
         public int IDColet { get; set; }
         public string Colet { get; set; }
@@ -46,14 +46,14 @@ namespace LibrarieModele
             IDComanda = 0;
             NumeClient = string.Empty;
             AdresaLivrare = string.Empty;
-            DataLivrare = string.Empty;
+            DataLivrare = DateTime.Now;
             StareComanda = StareComanda.ComandaPlasata;
             IDColet = 0;
             OptiuniLivrare = new ArrayList();
         }
 
         // Constructor cu parametri
-        public Comanda(int idComanda, string numeClient, string adresaLivrare, string dataLivrare, StareComanda stareComanda, ArrayList optiuniLivrare, int idColet)
+        public Comanda(int idComanda, string numeClient, string adresaLivrare, DateTime dataLivrare, StareComanda stareComanda, ArrayList optiuniLivrare, int idColet)
         {
             IDComanda = idComanda;
             NumeClient = numeClient;
@@ -71,7 +71,7 @@ namespace LibrarieModele
             IDComanda = int.Parse(date[ID_COMANDA]);
             NumeClient = date[NUME_CLIENT];
             AdresaLivrare = date[ADRESA_LIVRARE];
-            DataLivrare = date[DATA_LIVRARE];
+            DataLivrare = DateTime.Parse(date[DATA_LIVRARE]);
             StareComanda = (StareComanda)Enum.Parse(typeof(StareComanda), date[STARE_COMANDA]);
             IDColet = int.Parse(date[ID_COLET]);
 
@@ -128,7 +128,7 @@ namespace LibrarieModele
 
         public string Info()
         {
-            return $"ID Comanda: {IDComanda}\nNume Client: {NumeClient}\nAdresa: {AdresaLivrare}\nData Livrare: {DataLivrare}\nStare: {StareComanda}\nOptiuni Livrare: {OptiuniLivrareAsString}\nID Colet: {IDColet}\n";
+            return $"ID Comanda: {IDComanda}\nNume Client: {NumeClient}\nAdresa: {AdresaLivrare}\nData Livrare: {DataLivrare.ToShortDateString()}\nStare: {StareComanda}\nOptiuni Livrare: {OptiuniLivrareAsString}\nID Colet: {IDColet}\n";
         }
 
         public string ConversieLaSir_PentruFisier()

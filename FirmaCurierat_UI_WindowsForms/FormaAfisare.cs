@@ -52,7 +52,7 @@ namespace FirmaCurierat_UI_WindowsForms
             dataTable.Columns.Add("Optiuni Livrare");
             dataTable.Columns.Add("ID Colet");
             dataTable.Columns.Add("Descriere Colet");
-            dataTable.Columns.Add("Greutate Colet [kg]");
+            dataTable.Columns.Add("Greutate Colet");
             dataTable.Columns.Add("Dimensiune Colet");
 
             foreach (Comanda comanda in comenzi)
@@ -63,7 +63,7 @@ namespace FirmaCurierat_UI_WindowsForms
                 row["ID Comanda"] = comanda.IDComanda.ToString();
                 row["Nume Client"] = comanda.NumeClient;
                 row["Adresa Livrare"] = comanda.AdresaLivrare;
-                row["Data Livrare"] = comanda.DataLivrare.ToString();
+                row["Data Livrare"] = comanda.DataLivrare.ToString("dd/MM/yyyy"); 
                 row["Stare Comanda"] = comanda.StareComandaToString();
                 row["Optiuni Livrare"] = comanda.OptiuniLivrareToString();
 
@@ -71,14 +71,14 @@ namespace FirmaCurierat_UI_WindowsForms
                 {
                     row["ID Colet"] = colet.IDColet.ToString();
                     row["Descriere Colet"] = colet.Descriere;
-                    row["Greutate Colet [kg]"] = colet.Greutate.ToString();
-                    row["Dimensiune Colet"] = colet.GetDimensiuneText();
+                    row["Greutate Colet"] = colet.GreutateToString();
+                    row["Dimensiune Colet"] = colet.DimensiuneToString();
                 }
                 else
                 {
                     row["ID Colet"] = "N/A";
                     row["Descriere Colet"] = "N/A";
-                    row["Greutate Colet [kg]"] = "N/A";
+                    row["Greutate Colet"] = "N/A";
                     row["Dimensiune Colet"] = "N/A";
                 }
 
@@ -87,49 +87,89 @@ namespace FirmaCurierat_UI_WindowsForms
 
             dataGridComenziSiColete.DataSource = dataTable;
 
-            dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.ForeColor = Color.DarkSlateGray;
-            dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
-            dataGridComenziSiColete.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
-            dataGridComenziSiColete.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Regular);
-            dataGridComenziSiColete.EnableHeadersVisualStyles = false;
+            dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10);
+            
         }
-
-
-        private void mtAdauga_Click(object sender, EventArgs e)
+        private void btnAdauga_Click(object sender, EventArgs e)
         {
             FormAdaugare form2 = new FormAdaugare();
             form2.Show();
         }
 
-        private void mtActualizeazaLista_Click(object sender, EventArgs e)
+        private void btnCautaComanda_Click(object sender, EventArgs e)
+        {
+            FormaCautareComanda form3 = new FormaCautareComanda();
+            form3.ShowDialog();
+
+            string numeClient = form3.NumeClient;
+
+            if (!string.IsNullOrEmpty(numeClient))
+            {
+                List<Comanda> comenzi = gestiuneComenzi.GetComenzi(numeClient);
+                List<Colet> colete = gestiuneColete.GetColete().Where(c => comenzi.Any(comanda => comanda.IDColet == c.IDColet)).ToList();
+
+                AfisareComenziSiColete(comenzi, colete);
+            }
+        }
+
+        private void btnCautaColet_Click(object sender, EventArgs e)
+        {
+            FormCautareColet form4 = new FormCautareColet();
+            form4.ShowDialog();
+
+            string descriere = form4.DescriereCautata;
+            if (!string.IsNullOrEmpty(descriere))
+            {
+                List<Colet> colete = gestiuneColete.GetColete(descriere);
+                List<Comanda> comenzi = gestiuneComenzi.GetComenzi().Where(c => colete.Any(colet => colet.IDColet == c.IDColet)).ToList();
+
+                AfisareComenziSiColete(comenzi, colete);
+            }
+        }
+
+        private void btnModifica_Click(object sender, EventArgs e)
+        {
+            if (dataGridComenziSiColete.CurrentRow == null)
+            {
+                MessageBox.Show("Selectati o comanda pentru a o modifica.");
+                return;
+            }
+            int idComanda = Convert.ToInt32(dataGridComenziSiColete.CurrentRow.Cells[0].Value);
+
+            FormaModificare form5 = new FormaModificare(idComanda);
+            form5.ShowDialog();
+        }
+
+        private void btnActualizare_Click(object sender, EventArgs e)
         {
             List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
             List<Colet> colete = gestiuneColete.GetColete();
             AfisareComenziSiColete(comenzi, colete);
         }
 
-        private void mtCautare_Click(object sender, EventArgs e)
+        private void FormaAfisare_Load(object sender, EventArgs e)
         {
-            FormaCautareComanda form3 = new FormaCautareComanda();
-            form3.Show();
+            List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
+            List<Colet> colete = gestiuneColete.GetColete();
+            AfisareComenziSiColete(comenzi, colete);
         }
-
-        private void mtCautaColet_Click(object sender, EventArgs e)
+        private void btn_MouseEnter(object sender, EventArgs e)
         {
-            FormCautareColet form4 = new FormCautareColet();
-            form4.Show();
-        }
-
-        private void mtModifica_Click(object sender, EventArgs e)
-        { 
-            if (dataGridComenziSiColete.CurrentRow == null)
+            var btn = sender as Button;
+            if (btn != null)
             {
-                MessageBox.Show("Selectati o comanda pentru a o modifica.");
-                return;
+                btn.BackColor = Color.FromArgb(65, 111, 139);
             }
+        }
 
-            FormaModificare form5 = new FormaModificare(Convert.ToInt32(dataGridComenziSiColete.CurrentRow.Cells[0].Value));
-            form5.ShowDialog();
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                btn.BackColor = Color.FromArgb(42, 71, 89);
+            }
         }
     }
 }

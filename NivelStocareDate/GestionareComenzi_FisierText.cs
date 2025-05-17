@@ -43,42 +43,15 @@ namespace NivelStocareDate
             }
             return comenzi;
         }
-
-        public Comanda CautareDupaIDComanda(int idComanda)
-        {
-            List<Comanda> comenzi = GetComenzi();
-            foreach (var comanda in comenzi)
-            {
-                if (comanda != null && comanda.IDComanda == idComanda)
-                {
-                    return comanda;
-                }
-            }
-            return null;
-        }
-
-        public Comanda CautareDupaNumeClient(string numeClient)
-        {
-            List<Comanda> comenzi = GetComenzi();
-            foreach (var comanda in comenzi)
-            {
-                if (comanda != null && comanda.NumeClient == numeClient)
-                {
-                    return comanda;
-                }
-            }
-            return null;
-        }
+  
         public int GetId()
         {
             int IDComanda = ID_COMANDA;
 
-            // instructiunea 'using' va apela sr.Close()
             using (StreamReader streamReader = new StreamReader(numeFisierComenzi))
             {
                 string linieFisier;
 
-                //citeste cate o linie si creaza un obiect de tip Student pe baza datelor din linia citita
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
                     Comanda comanda = new Comanda(linieFisier);
@@ -90,48 +63,40 @@ namespace NivelStocareDate
         }
         public Comanda GetComanda(int idComanda)
         {
-            // Folosește 'using' pentru a închide automat StreamReader
             using (StreamReader streamReader = new StreamReader(numeFisierComenzi))
             {
                 string linieFisier;
 
-                // Citește fiecare linie din fișier
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    // Creează un obiect de tip Comanda pe baza liniei citite
                     Comanda comanda = new Comanda(linieFisier);
 
-                    // Verifică dacă ID-ul comenzii corespunde
                     if (comanda.IDComanda == idComanda)
                         return comanda;
                 }
             }
 
-            // Returnează null dacă nu a fost găsită nicio comandă cu ID-ul specificat
             return null;
         }
 
-        public Comanda GetComanda(string numeClient)
+
+        public List<Comanda> GetComenzi(string numeClient)
         {
-            // Folosește 'using' pentru a închide automat StreamReader
+            List<Comanda> comenzi = new List<Comanda>();
             using (StreamReader streamReader = new StreamReader(numeFisierComenzi))
             {
                 string linieFisier;
-
-                // Citește fiecare linie din fișier
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    // Creează un obiect de tip Comanda pe baza liniei citite
                     Comanda comanda = new Comanda(linieFisier);
-
-                    // Verifică dacă ID-ul comenzii corespunde
-                    if (comanda.NumeClient == numeClient)
-                        return comanda;
+                    if (!string.IsNullOrEmpty(comanda.NumeClient) &&
+                        comanda.NumeClient.IndexOf(numeClient, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        comenzi.Add(comanda);
+                    }
                 }
             }
-
-            // Returnează null dacă nu a fost găsită nicio comandă cu ID-ul specificat
-            return null;
+            return comenzi;
         }
 
         public bool UpdateComanda(Comanda comandaActualizata)
@@ -139,13 +104,10 @@ namespace NivelStocareDate
             List<Comanda> comenzi = GetComenzi();
             bool actualizareCuSucces = false;
 
-            //instructiunea 'using' va apela la final swFisierText.Close();
-            //al doilea parametru setat la 'false' al constructorului StreamWriter indica modul 'overwrite' de deschidere al fisierului
             using (StreamWriter streamWriter = new StreamWriter(numeFisierComenzi, false))
             {
                 foreach (Comanda comanda in comenzi)
                 {
-                    //informatiile despre comanda actualizata vor fi preluate din parametrul "comandaActualizata"
                     Comanda comandaPentruScriereInFisier = comanda;
                     if (comanda.IDComanda == comandaActualizata.IDComanda)
                     {
@@ -158,28 +120,5 @@ namespace NivelStocareDate
             }
             return actualizareCuSucces;
         }
-
-        public Comanda GetComandaByIndex(int index)
-        {
-            try
-            {
-                using (StreamReader sr = new StreamReader(numeFisierComenzi))
-                {
-                    string linie;
-                    while ((linie = sr.ReadLine()) != null)
-                    {
-                        Comanda comanda = new Comanda(linie);
-                        if (comanda.IDComanda == index)
-                            return comanda;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                // Optionally log or handle the exception
-            }
-            return null;
-        }
-
     }
 }

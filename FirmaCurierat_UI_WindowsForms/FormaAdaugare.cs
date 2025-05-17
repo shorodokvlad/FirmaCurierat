@@ -25,8 +25,6 @@ namespace FirmaCurierat_UI_WindowsForms
 
         ArrayList optiuniSelectate = new ArrayList();
 
-        private const int NR_MAX_CARACTERE = 50;
-
         public FormAdaugare()
         {
             InitializeComponent();
@@ -42,151 +40,6 @@ namespace FirmaCurierat_UI_WindowsForms
 
             mCmbStareComanda.DataSource = Enum.GetValues(typeof(StareComanda));
         }
-
-        public bool Prevalidare()
-        {
-            bool areErori = false;
-
-            var campuriDeValidat = new (MetroTextBox TextBox, MetroLabel LabelEroare)[]
-            {
-                (mtxtNumeClient, mlblEroareNumeClient),
-                (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
-                (mtxtDataLivrare, mlblEroareDataLivrare),
-                (mtxtDescriere, mlblEroareDescriere)
-            };
-
-            foreach (var (textBox, labelEroare) in campuriDeValidat)
-            {
-                if (string.IsNullOrWhiteSpace(textBox.Text))
-                {
-                    labelEroare.Text = "Campul nu poate fi gol!";
-                    labelEroare.ForeColor = Color.Red;
-                    areErori = true;
-                }
-                else
-                {
-                    labelEroare.Text = string.Empty;
-                }
-            }
-
-            if (decimal.TryParse(nUDGreutate.Text, out decimal greutate))
-            {
-                if (greutate < 0.01m)
-                {
-                    mlblEroareGreutate.Text = "Valoarea nu poate fi 0!";
-                    mlblEroareGreutate.ForeColor = Color.Red;
-                    areErori = true;
-                }
-                else
-                {
-                    mlblEroareGreutate.Text = string.Empty;
-                }
-            }
-            else
-            {
-                mlblEroareGreutate.Text = "Campul nu poate fi gol!";
-                mlblEroareGreutate.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            // Validare pentru checkbox-uri (optiuni livrare)
-            var checkBoxes = new CheckBox[] { ckbNone, ckbFragil, ckbFragil, ckbLivrareRapida, ckbAsigurareColet, ckbLivrareSambata, ckbLivrareDuminica };
-            if (!checkBoxes.Any(cb => cb.Checked))
-            {
-                mlblEroareOptiuniLivrare.Text = "Trebuie să selectați cel puțin o opțiune de livrare!";
-                mlblEroareOptiuniLivrare.ForeColor = Color.Red;
-                areErori = true;
-            }
-            else
-            {
-                mlblEroareOptiuniLivrare.Text = string.Empty;
-            }
-
-            // Validare pentru radio butoane (dimensiune colet)
-            var radioButtons = new RadioButton[] { rdbMic, rdbMediuMic, rdbMediuStandard, rdbMediuMare, rdbMareMica, rdbMareStandard, rdbMareMare };
-            if (!radioButtons.Any(rb => rb.Checked))
-            {
-                mlblEroareDimensiune.Text = "Trebuie să selectați o dimensiune pentru colet!";
-                mlblEroareDimensiune.ForeColor = Color.Red;
-                areErori = true;
-            }
-            else
-            {
-                mlblEroareDimensiune.Text = string.Empty;
-            }
-
-            return areErori;
-        }
-
-
-        public bool Validare()
-        {
-            bool areErori = false;
-
-            var campuriDeValidat = new (MetroTextBox TextBox, MetroLabel LabelEroare)[]
-            {
-                (mtxtNumeClient, mlblEroareNumeClient),
-                (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
-                (mtxtDataLivrare, mlblEroareDataLivrare),
-                (mtxtDescriere, mlblEroareDescriere)
-            };
-
-            foreach (var (textBox, labelEroare) in campuriDeValidat)
-            {
-                if (textBox.Text.Length > NR_MAX_CARACTERE)
-                {
-                    labelEroare.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
-                    labelEroare.ForeColor = Color.Red;
-                    areErori = true;
-                }
-
-            }
-
-            return areErori;
-        }
-
-        // Updated code to read StareComanda from the combo box
-        private void mtSalveaza_Click(object sender, EventArgs e)
-        {
-            // Verificăm câmpurile goale
-            bool areEroriPrevalidare = Prevalidare();
-
-            // Verificăm validitatea datelor
-            bool areEroriValidare = Validare();
-
-            // Dacă există erori în oricare dintre metode, nu continuăm
-            if (areEroriPrevalidare || areEroriValidare)
-            {
-                return;
-            }
-
-            // Dacă nu există erori, adăugăm comanda și coletul
-            int idComanda = gestiuneComenzi.GetId();
-            string numeClient = mtxtNumeClient.Text;
-            string adresaLivrare = mtxtAdresaLivrare.Text;
-            string dataLivrare = mtxtDataLivrare.Text;
-
-            // Read StareComanda from the combo box
-            StareComanda stareComanda = (StareComanda)mCmbStareComanda.SelectedItem;
-
-            int idColet = gestiuneColete.GetId();
-            string descriere = mtxtDescriere.Text;
-            double greutate = double.Parse(nUDGreutate.Text);
-
-            ArrayList OptiuniLivrare = new ArrayList();
-            OptiuniLivrare.AddRange(optiuniSelectate);
-
-            DimensiuneColet dimensiuneSelectata = GetDimensiuneColetSelectat();
-
-            Comanda comanda = new Comanda(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, OptiuniLivrare, idColet);
-            Colet colet = new Colet(idColet, descriere, greutate, dimensiuneSelectata);
-
-            gestiuneColete.AddColet(colet);
-            gestiuneComenzi.AddComanda(comanda);
-
-            ResetareControale();
-        }
-
 
         private DimensiuneColet GetDimensiuneColetSelectat()
         {
@@ -208,32 +61,6 @@ namespace FirmaCurierat_UI_WindowsForms
                 return DimensiuneColet.ExtraMare;
         }
 
-        private void ResetareControale()
-        {
-            var textBoxes = new MetroTextBox[] { mtxtNumeClient, mtxtAdresaLivrare, mtxtDataLivrare, mtxtDescriere };
-
-            foreach (var textBox in textBoxes)
-            {
-                textBox.Text = string.Empty;
-            }
-
-            var checkBoxes = new CheckBox[] { ckbNone, ckbFragil, ckbFragil, ckbLivrareRapida, ckbAsigurareColet, ckbLivrareSambata, ckbLivrareDuminica };
-            foreach (var checkBox in checkBoxes)
-            {
-                checkBox.Checked = false;
-            }
-
-            var radioButtons = new RadioButton[] { rdbMic, rdbMediuMic, rdbMediuStandard, rdbMediuMare, rdbMareMica, rdbMareStandard, rdbMareMare };
-            foreach (var radioButton in radioButtons)
-            {
-                radioButton.Checked = false;
-            }
-
-            nUDGreutate.Value = 0.00m;
-            mCmbStareComanda.SelectedIndex = -1;
-
-        }
-
         private void CkbOptiuniLivare_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBoxControl = sender as CheckBox;
@@ -242,6 +69,85 @@ namespace FirmaCurierat_UI_WindowsForms
                 optiuniSelectate.Add(optiuneSelectata);
             else
                 optiuniSelectate.Remove(optiuneSelectata);
+        }
+
+        private void ResetareControale()
+        {
+            mtxtNumeClient.Text = mtxtAdresaLivrare.Text = mtxtDescriere.Text = string.Empty;
+            ckbNone.Checked = ckbFragil.Checked = ckbPerisabil.Checked = ckbLivrareRapida.Checked = ckbAsigurareColet.Checked = ckbLivrareSambata.Checked = ckbLivrareDuminica.Checked = false;
+            rdbMic.Checked = rdbMediuMic.Checked = rdbMediuStandard.Checked = rdbMediuMare.Checked = rdbMareMica.Checked = rdbMareStandard.Checked = rdbMareMare.Checked = false;
+            dtpDataLivrare.Value = DateTime.Now;
+            nUDGreutate.Value = 0.00m;
+            mCmbStareComanda.SelectedIndex = 0;
+
+        }
+
+        private void btnAdauga_Click(object sender, EventArgs e)
+        {
+            bool areEroriPrevalidare = FormValidator.Prevalidare(
+                new (MetroTextBox, MetroLabel)[]
+                {
+                    (mtxtNumeClient, mlblEroareNumeClient),
+                    (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
+                    (mtxtDescriere, mlblEroareDescriere)
+                },
+                mlblEroareGreutate, nUDGreutate.Text,
+
+                mlblEroareOptiuniLivrare,
+                new CheckBox[] { ckbNone, ckbFragil, ckbPerisabil, ckbLivrareRapida, ckbAsigurareColet, ckbLivrareSambata, ckbLivrareDuminica },
+
+                mlblEroareDimensiune,
+                new RadioButton[] { rdbMic, rdbMediuMic, rdbMediuStandard, rdbMediuMare, rdbMareMica, rdbMareStandard, rdbMareMare }
+            );
+
+            bool areEroriValidare = FormValidator.Validare(
+                new (MetroTextBox, MetroLabel)[]
+                {
+                    (mtxtNumeClient, mlblEroareNumeClient),
+                    (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
+                    (mtxtDescriere, mlblEroareDescriere)
+                }
+            );
+
+            if (areEroriPrevalidare || areEroriValidare)
+            {
+                return;
+            }
+
+            int idComanda = gestiuneComenzi.GetId();
+            string numeClient = mtxtNumeClient.Text;
+            string adresaLivrare = mtxtAdresaLivrare.Text;
+            DateTime dataLivrare = dtpDataLivrare.Value;
+
+            StareComanda stareComanda = (StareComanda)mCmbStareComanda.SelectedItem;
+
+            int idColet = gestiuneColete.GetId();
+            string descriere = mtxtDescriere.Text;
+            double greutate = double.Parse(nUDGreutate.Text);
+
+            ArrayList OptiuniLivrare = new ArrayList();
+            OptiuniLivrare.AddRange(optiuniSelectate);
+
+            DimensiuneColet dimensiuneSelectata = GetDimensiuneColetSelectat();
+
+            Comanda comanda = new Comanda(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, OptiuniLivrare, idColet);
+            Colet colet = new Colet(idColet, descriere, greutate, dimensiuneSelectata);
+
+            gestiuneColete.AddColet(colet);
+            gestiuneComenzi.AddComanda(comanda);
+
+            ResetareControale();
+        }
+
+        private void btnAdauga_MouseEnter(object sender, EventArgs e)
+        {
+            btnSalveaza.BackColor = Color.FromArgb(65, 111, 139);
+
+        }
+
+        private void btnAdauga_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalveaza.BackColor = Color.FromArgb(42, 71, 89);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace NivelStocareDate
 {
     public class GestionareColete_FisierText
     {
-        private const int ID_COLET = 0;
+        private const int ID_COLET = 100;
         private const int INCREMENTARE_ID = 1;
         private string numeFisierColete;
 
@@ -35,7 +35,7 @@ namespace NivelStocareDate
             using (StreamReader streamReader = new StreamReader(numeFisierColete))
             {
                 string linieFisier;
- 
+
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
                     colete.Add(new Colet(linieFisier));
@@ -45,41 +45,14 @@ namespace NivelStocareDate
             return colete;
         }
 
-        public Colet CautareDupaIDColet(int idColet)
-        {
-            List<Colet> colete = GetColete();
-            foreach (var colet in colete)
-            {
-                if (colet != null && colet.IDColet == idColet)
-                {
-                    return colet;
-                }
-            }
-            return null;
-        }
-
-        public Colet CautareDupaDescriere(string descriere)
-        {
-            List<Colet> colete = GetColete();
-            foreach (var colet in colete)
-            {
-                if (colet != null && colet.Descriere == descriere)
-                {
-                    return colet;
-                }
-            }
-            return null;
-        }
         public int GetId()
         {
             int IDColet = ID_COLET;
 
-            // instructiunea 'using' va apela sr.Close()
             using (StreamReader streamReader = new StreamReader(numeFisierColete))
             {
                 string linieFisier;
 
-                //citeste cate o linie si creaza un obiect de tip Student pe baza datelor din linia citita
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
                     Colet colet = new Colet(linieFisier);
@@ -91,62 +64,54 @@ namespace NivelStocareDate
         }
         public Colet GetColet(int idColet)
         {
-            // Folosește 'using' pentru a închide automat StreamReader
             using (StreamReader streamReader = new StreamReader(numeFisierColete))
             {
                 string linieFisier;
 
-                // Citește fiecare linie din fișier
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    // Creează un obiect de tip Colet pe baza liniei citite
                     Colet colet = new Colet(linieFisier);
 
-                    // Verifică dacă ID-ul comenzii corespunde
                     if (colet.IDColet == idColet)
                         return colet;
                 }
             }
 
-            // Returnează null dacă nu a fost găsită nicio comandă cu ID-ul specificat
             return null;
         }
 
-        public Colet GetColet(string descriere)
+        public List<Colet> GetColete(string descriere)
         {
-            // Folosește 'using' pentru a închide automat StreamReader
+            List<Colet> colete = new List<Colet>();
             using (StreamReader streamReader = new StreamReader(numeFisierColete))
             {
                 string linieFisier;
 
-                // Citește fiecare linie din fișier
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    // Creează un obiect de tip Colet pe baza liniei citite
                     Colet colet = new Colet(linieFisier);
 
-                    // Verifică dacă ID-ul comenzii corespunde
-                    if (colet.Descriere == descriere)
-                        return colet;
+                    if (!string.IsNullOrEmpty(colet.Descriere) &&
+                        colet.Descriere.IndexOf(descriere, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        colete.Add(colet);
+                    }
                 }
             }
 
-            // Returnează null dacă nu a fost găsită nicio comandă cu ID-ul specificat
-            return null;
+            return colete;
         }
+
 
         public bool UpdateColet(Colet coletActualizat)
         {
             List<Colet> colete = GetColete();
             bool actualizareCuSucces = false;
 
-            //instructiunea 'using' va apela la final swFisierText.Close();
-            //al doilea parametru setat la 'false' al constructorului StreamWriter indica modul 'overwrite' de deschidere al fisierului
             using (StreamWriter streamWriter = new StreamWriter(numeFisierColete, false))
             {
                 foreach (Colet colet in colete)
                 {
-                    //informatiile despre comanda actualizata vor fi preluate din parametrul "comandaActualizata"
                     Colet coletPentruScriereInFisier = colet;
                     if (colet.IDColet == coletActualizat.IDColet)
                     {
@@ -160,30 +125,6 @@ namespace NivelStocareDate
             return actualizareCuSucces;
         }
 
-
-        public Colet GetColetByIndex(int index)
-        {
-            try
-            {
-                using (StreamReader sr = new StreamReader(numeFisierColete))
-                {
-                    string linie;
-                    while ((linie = sr.ReadLine()) != null)
-                    {
-                        Colet colet = new Colet(linie);
-                        if (colet.IDColet == index)
-                        {
-                            return colet;
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                // Optionally log or handle the exception
-            }
-            return null;
-        }
     }
 }
 

@@ -30,96 +30,107 @@ namespace FirmaCurierat_UI_WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.mlblIDComanda = new MetroFramework.Controls.MetroLabel();
-            this.mtxtIDComanda = new MetroFramework.Controls.MetroTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormaCautareComanda));
             this.mtxtNumeClient = new MetroFramework.Controls.MetroTextBox();
             this.mlblNumeClient = new MetroFramework.Controls.MetroLabel();
-            this.mtCautaDupaIDComanda = new MetroFramework.Controls.MetroTile();
-            this.mtCautaDupaNumeClient = new MetroFramework.Controls.MetroTile();
-            this.mlblEroareIDComanda = new MetroFramework.Controls.MetroLabel();
             this.mlblEroareNumeClient = new MetroFramework.Controls.MetroLabel();
-            // 
-            // mlblIDComanda
-            // 
-            this.mlblIDComanda.AutoSize = true;
-            this.mlblIDComanda.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblIDComanda.Location = new System.Drawing.Point(38, 74);
-            this.mlblIDComanda.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mlblIDComanda.Name = "mlblIDComanda";
-            this.mlblIDComanda.Size = new System.Drawing.Size(86, 19);
-            this.mlblIDComanda.TabIndex = 1;
-            this.mlblIDComanda.Text = "ID Comanda";
-            // 
-            // mtxtIDComanda
-            // 
-            this.mtxtIDComanda.Location = new System.Drawing.Point(128, 73);
-            this.mtxtIDComanda.Margin = new System.Windows.Forms.Padding(2);
-            this.mtxtIDComanda.Name = "mtxtIDComanda";
-            this.mtxtIDComanda.Size = new System.Drawing.Size(147, 20);
-            this.mtxtIDComanda.TabIndex = 2;
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.pbCautareColet = new System.Windows.Forms.PictureBox();
+            this.pnlCauta = new System.Windows.Forms.Panel();
+            this.btnCauta = new System.Windows.Forms.Button();
+            this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCautareColet)).BeginInit();
+            this.pnlCauta.SuspendLayout();
+            this.SuspendLayout();
             // 
             // mtxtNumeClient
             // 
-            this.mtxtNumeClient.Location = new System.Drawing.Point(128, 131);
+            this.mtxtNumeClient.Location = new System.Drawing.Point(93, 72);
             this.mtxtNumeClient.Margin = new System.Windows.Forms.Padding(2);
             this.mtxtNumeClient.Name = "mtxtNumeClient";
-            this.mtxtNumeClient.Size = new System.Drawing.Size(147, 20);
+            this.mtxtNumeClient.Size = new System.Drawing.Size(198, 20);
             this.mtxtNumeClient.TabIndex = 4;
             // 
             // mlblNumeClient
             // 
             this.mlblNumeClient.AutoSize = true;
             this.mlblNumeClient.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlblNumeClient.Location = new System.Drawing.Point(38, 131);
+            this.mlblNumeClient.Location = new System.Drawing.Point(3, 72);
             this.mlblNumeClient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlblNumeClient.Name = "mlblNumeClient";
             this.mlblNumeClient.Size = new System.Drawing.Size(85, 19);
             this.mlblNumeClient.TabIndex = 3;
             this.mlblNumeClient.Text = "Nume Client";
             // 
-            // mtCautaDupaIDComanda
-            // 
-            this.mtCautaDupaIDComanda.BackColor = System.Drawing.Color.SlateGray;
-            this.mtCautaDupaIDComanda.CustomBackground = true;
-            this.mtCautaDupaIDComanda.Location = new System.Drawing.Point(307, 74);
-            this.mtCautaDupaIDComanda.Name = "mtCautaDupaIDComanda";
-            this.mtCautaDupaIDComanda.Size = new System.Drawing.Size(107, 19);
-            this.mtCautaDupaIDComanda.TabIndex = 8;
-            this.mtCautaDupaIDComanda.Text = "Cauta ";
-            this.mtCautaDupaIDComanda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mtCautaDupaIDComanda.Click += new System.EventHandler(this.mtCautaDupaIDComanda_Click);
-            // 
-            // mtCautaDupaNumeClient
-            // 
-            this.mtCautaDupaNumeClient.BackColor = System.Drawing.Color.SlateGray;
-            this.mtCautaDupaNumeClient.CustomBackground = true;
-            this.mtCautaDupaNumeClient.Location = new System.Drawing.Point(307, 130);
-            this.mtCautaDupaNumeClient.Name = "mtCautaDupaNumeClient";
-            this.mtCautaDupaNumeClient.Size = new System.Drawing.Size(107, 20);
-            this.mtCautaDupaNumeClient.TabIndex = 9;
-            this.mtCautaDupaNumeClient.Text = "Cauta ";
-            this.mtCautaDupaNumeClient.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mtCautaDupaNumeClient.Click += new System.EventHandler(this.mtCautaDupaNumeClient_Click);
-            // 
-            // mlblEroareIDComanda
-            // 
-            this.mlblEroareIDComanda.AutoSize = true;
-            this.mlblEroareIDComanda.CustomForeColor = true;
-            this.mlblEroareIDComanda.ForeColor = System.Drawing.Color.Red;
-            this.mlblEroareIDComanda.Location = new System.Drawing.Point(128, 99);
-            this.mlblEroareIDComanda.Name = "mlblEroareIDComanda";
-            this.mlblEroareIDComanda.Size = new System.Drawing.Size(0, 0);
-            this.mlblEroareIDComanda.TabIndex = 10;
-            // 
             // mlblEroareNumeClient
             // 
             this.mlblEroareNumeClient.AutoSize = true;
             this.mlblEroareNumeClient.CustomForeColor = true;
             this.mlblEroareNumeClient.ForeColor = System.Drawing.Color.Red;
-            this.mlblEroareNumeClient.Location = new System.Drawing.Point(128, 153);
+            this.mlblEroareNumeClient.Location = new System.Drawing.Point(93, 98);
             this.mlblEroareNumeClient.Name = "mlblEroareNumeClient";
             this.mlblEroareNumeClient.Size = new System.Drawing.Size(0, 0);
             this.mlblEroareNumeClient.TabIndex = 11;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.White;
+            this.pnlHeader.Controls.Add(this.lblHeader);
+            this.pnlHeader.Controls.Add(this.pbCautareColet);
+            this.pnlHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlHeader.Location = new System.Drawing.Point(3, 8);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(272, 42);
+            this.pnlHeader.TabIndex = 76;
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHeader.Location = new System.Drawing.Point(49, 12);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(135, 17);
+            this.lblHeader.TabIndex = 21;
+            this.lblHeader.Text = "CAUTARE COMANDA";
+            // 
+            // pbCautareColet
+            // 
+            this.pbCautareColet.Image = ((System.Drawing.Image)(resources.GetObject("pbCautareColet.Image")));
+            this.pbCautareColet.Location = new System.Drawing.Point(3, 2);
+            this.pbCautareColet.Name = "pbCautareColet";
+            this.pbCautareColet.Size = new System.Drawing.Size(40, 37);
+            this.pbCautareColet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCautareColet.TabIndex = 20;
+            this.pbCautareColet.TabStop = false;
+            // 
+            // pnlCauta
+            // 
+            this.pnlCauta.Controls.Add(this.btnCauta);
+            this.pnlCauta.Location = new System.Drawing.Point(324, 73);
+            this.pnlCauta.Name = "pnlCauta";
+            this.pnlCauta.Size = new System.Drawing.Size(123, 21);
+            this.pnlCauta.TabIndex = 80;
+            // 
+            // btnCauta
+            // 
+            this.btnCauta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
+            this.btnCauta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCauta.ForeColor = System.Drawing.Color.White;
+            this.btnCauta.Image = ((System.Drawing.Image)(resources.GetObject("btnCauta.Image")));
+            this.btnCauta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCauta.Location = new System.Drawing.Point(-20, -6);
+            this.btnCauta.Name = "btnCauta";
+            this.btnCauta.Padding = new System.Windows.Forms.Padding(25, 0, 0, 13);
+            this.btnCauta.Size = new System.Drawing.Size(151, 50);
+            this.btnCauta.TabIndex = 21;
+            this.btnCauta.Text = "             Cauta";
+            this.btnCauta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCauta.UseVisualStyleBackColor = false;
+            this.btnCauta.Click += new System.EventHandler(this.btnCauta_Click);
+            this.btnCauta.MouseEnter += new System.EventHandler(this.btnCauta_MouseEnter);
+            this.btnCauta.MouseLeave += new System.EventHandler(this.btnCauta_MouseLeave);
             // 
             // FormaCautareComanda
             // 
@@ -128,32 +139,33 @@ namespace FirmaCurierat_UI_WindowsForms
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(865, 567);
+            this.Controls.Add(this.pnlCauta);
+            this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.mlblEroareNumeClient);
-            this.Controls.Add(this.mlblEroareIDComanda);
-            this.Controls.Add(this.mtCautaDupaNumeClient);
-            this.Controls.Add(this.mtCautaDupaIDComanda);
             this.Controls.Add(this.mtxtNumeClient);
             this.Controls.Add(this.mlblNumeClient);
-            this.Controls.Add(this.mtxtIDComanda);
-            this.Controls.Add(this.mlblIDComanda);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormaCautareComanda";
             this.Padding = new System.Windows.Forms.Padding(10, 60, 10, 10);
             this.Style = MetroFramework.MetroColorStyle.Silver;
-            this.Text = "Cautare comanda";
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCautareColet)).EndInit();
+            this.pnlCauta.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MetroTextBox mtxtIDComanda;
-        private MetroLabel mlblIDComanda;
         private MetroTextBox mtxtNumeClient;
         private MetroLabel mlblNumeClient;
-        private MetroTile mtCautaDupaIDComanda;
-        private MetroTile mtCautaDupaNumeClient;
-        private MetroLabel mlblEroareIDComanda;
         private MetroLabel mlblEroareNumeClient;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.PictureBox pbCautareColet;
+        private System.Windows.Forms.Panel pnlCauta;
+        private System.Windows.Forms.Button btnCauta;
     }
 }

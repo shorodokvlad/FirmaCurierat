@@ -43,40 +43,46 @@ namespace FirmaCurierat_UI_WindowsForms
             mCmbStareComanda.DataSource = Enum.GetValues(typeof(StareComanda));
 
             mlblIDComanda.Text = idComanda.ToString();
-            mlblIDColet.Text = gestiuneComenzi.GetComandaByIndex(idComanda).IDColet.ToString();
+            mlblIDColet.Text = gestiuneComenzi.GetComanda(idComanda).IDColet.ToString();
 
             SetareControale();
 
         }
 
-        private void SetareControale()
+        public void SetareControale()
         {
-            Comanda c = gestiuneComenzi.GetComandaByIndex(Int32.Parse(mlblIDComanda.Text));
-            Colet colet = gestiuneColete.GetColetByIndex(Int32.Parse(mlblIDColet.Text));
+            Comanda comanda = gestiuneComenzi.GetComanda(Int32.Parse(mlblIDComanda.Text));
 
-                mtxtNumeClient.Text = c.NumeClient;
-                mtxtAdresaLivrare.Text = c.AdresaLivrare;
-                mtxtDataLivrare.Text = c.DataLivrare;
-                mCmbStareComanda.SelectedItem = c.StareComanda;
+            if (comanda != null)
+            {
+                mtxtNumeClient.Text = comanda.NumeClient;
+                mtxtAdresaLivrare.Text = comanda.AdresaLivrare;
+                dtpDataLivrare.Value = comanda.DataLivrare;
+                mCmbStareComanda.SelectedItem = comanda.StareComanda;
 
                 foreach (var opt in gpbOptiuniLivrare.Controls)
                 {
                     if (opt is CheckBox)
                     {
                         var optiune = opt as CheckBox;
-                        foreach (String dis in c.OptiuniLivrare)
+                        foreach (String dis in comanda.OptiuniLivrare)
                             if (optiune.Text == dis)
                             {
                                 optiune.Checked = true;
                             }
                     }
                 }
+            }
 
+            Colet colet = gestiuneColete.GetColet(Int32.Parse(mlblIDColet.Text));
+
+            if (colet != null)
+            {
                 mtxtDescriere.Text = colet.Descriere;
 
                 nUDGreutate.Text = colet.Greutate.ToString();
 
-               double greutate = double.Parse(nUDGreutate.Text);
+                double greutate = double.Parse(nUDGreutate.Text);
 
                 switch (colet.Dimensiune)
                 {
@@ -105,54 +111,9 @@ namespace FirmaCurierat_UI_WindowsForms
                         rdbExtraMare.Checked = true;
                         break;
                 }
-
-        }
-           
-
-        private void mtModifica_Click(object sender, EventArgs e)
-        {
-            // Verificăm câmpurile goale
-            bool areEroriPrevalidare = Prevalidare();
-
-            // Verificăm validitatea datelor
-            bool areEroriValidare = Validare();
-
-            // Dacă există erori în oricare dintre metode, nu continuăm
-            if (areEroriPrevalidare || areEroriValidare)
-            {
-                return;
             }
-
-            int idComanda = Int32.Parse(mlblIDComanda.Text);
-            string numeClient = mtxtNumeClient.Text;
-            string adresaLivrare = mtxtAdresaLivrare.Text;
-            string dataLivrare = mtxtDataLivrare.Text;
-
-            StareComanda stareComanda = (StareComanda)mCmbStareComanda.SelectedItem;
-
-            int idColet = Int32.Parse(mlblIDColet.Text);
-            string descriere = mtxtDescriere.Text;
-            double greutate = double.Parse(nUDGreutate.Text);
-
-            ArrayList OptiuniLivrare = new ArrayList();
-            OptiuniLivrare.AddRange(optiuniSelectate);
-
-            DimensiuneColet dimensiuneSelectata = GetDimensiuneColetSelectat();
-
-            Comanda comanda = new Comanda(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, OptiuniLivrare, idColet);
-            Colet colet = new Colet(idColet, descriere, greutate, dimensiuneSelectata);
-
-            gestiuneComenzi.UpdateComanda(comanda);
-            gestiuneColete.UpdateColet(colet);
-
-            if (gestiuneComenzi.UpdateComanda(comanda) || gestiuneColete.UpdateColet(colet) == true)
-            {
-                this.Close();
-            }
-
-            ResetareControale();
         }
-
+            
         private DimensiuneColet GetDimensiuneColetSelectat()
         {
             if (rdbMic.Checked)
@@ -191,7 +152,6 @@ namespace FirmaCurierat_UI_WindowsForms
             {
                 (mtxtNumeClient, mlblEroareNumeClient),
                 (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
-                (mtxtDataLivrare, mlblEroareDataLivrare),
                 (mtxtDescriere, mlblEroareDescriere)
             };
 
@@ -229,7 +189,6 @@ namespace FirmaCurierat_UI_WindowsForms
                 areErori = true;
             }
 
-            // Validare pentru checkbox-uri (optiuni livrare)
             var checkBoxes = new CheckBox[] { ckbNone, ckbFragil, ckbFragil, ckbLivrareRapida, ckbAsigurareColet, ckbLivrareSambata, ckbLivrareDuminica };
             if (!checkBoxes.Any(cb => cb.Checked))
             {
@@ -242,7 +201,6 @@ namespace FirmaCurierat_UI_WindowsForms
                 mlblEroareOptiuniLivrare.Text = string.Empty;
             }
 
-            // Validare pentru radio butoane (dimensiune colet)
             var radioButtons = new RadioButton[] { rdbMic, rdbMediuMic, rdbMediuStandard, rdbMediuMare, rdbMareMica, rdbMareStandard, rdbMareMare, rdbExtraMare };
             if (!radioButtons.Any(rb => rb.Checked))
             {
@@ -267,7 +225,6 @@ namespace FirmaCurierat_UI_WindowsForms
             {
                 (mtxtNumeClient, mlblEroareNumeClient),
                 (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
-                (mtxtDataLivrare, mlblEroareDataLivrare),
                 (mtxtDescriere, mlblEroareDescriere)
             };
 
@@ -285,29 +242,52 @@ namespace FirmaCurierat_UI_WindowsForms
             return areErori;
         }
 
-        private void ResetareControale()
+        private void btnModifica_Click(object sender, EventArgs e)
         {
-            var textBoxes = new MetroTextBox[] { mtxtNumeClient, mtxtAdresaLivrare, mtxtDataLivrare, mtxtDescriere };
+            bool areEroriPrevalidare = Prevalidare();
 
-            foreach (var textBox in textBoxes)
+            bool areEroriValidare = Validare();
+
+            if (areEroriPrevalidare || areEroriValidare)
             {
-                textBox.Text = string.Empty;
+                return;
             }
 
-            var checkBoxes = new CheckBox[] { ckbNone, ckbFragil, ckbFragil, ckbLivrareRapida, ckbAsigurareColet, ckbLivrareSambata, ckbLivrareDuminica };
-            foreach (var checkBox in checkBoxes)
-            {
-                checkBox.Checked = false;
-            }
+            int idComanda = Int32.Parse(mlblIDComanda.Text);
+            string numeClient = mtxtNumeClient.Text;
+            string adresaLivrare = mtxtAdresaLivrare.Text;
+            DateTime dataLivrare = dtpDataLivrare.Value;
 
-            var radioButtons = new RadioButton[] { rdbMic, rdbMediuMic, rdbMediuStandard, rdbMediuMare, rdbMareMica, rdbMareStandard, rdbMareMare };
-            foreach (var radioButton in radioButtons)
-            {
-                radioButton.Checked = false;
-            }
 
-            nUDGreutate.Value = 0.00m;
-            mCmbStareComanda.SelectedIndex = -1;
+            StareComanda stareComanda = (StareComanda)mCmbStareComanda.SelectedItem;
+
+            int idColet = Int32.Parse(mlblIDColet.Text);
+            string descriere = mtxtDescriere.Text;
+            double greutate = double.Parse(nUDGreutate.Text);
+
+            ArrayList OptiuniLivrare = new ArrayList();
+            OptiuniLivrare.AddRange(optiuniSelectate);
+
+            DimensiuneColet dimensiuneSelectata = GetDimensiuneColetSelectat();
+
+            Comanda comanda = new Comanda(idComanda, numeClient, adresaLivrare, dataLivrare, stareComanda, OptiuniLivrare, idColet);
+            Colet colet = new Colet(idColet, descriere, greutate, dimensiuneSelectata);
+
+            gestiuneComenzi.UpdateComanda(comanda);
+            gestiuneColete.UpdateColet(colet);
+
+            this.Close();
+        }
+
+        private void btnModifica_MouseEnter(object sender, EventArgs e)
+        {
+            btnModifica.BackColor = Color.FromArgb(65, 111, 139);
+
+        }
+
+        private void btnModifica_MouseLeave(object sender, EventArgs e)
+        {
+            btnModifica.BackColor = Color.FromArgb(42, 71, 89);
 
         }
     }

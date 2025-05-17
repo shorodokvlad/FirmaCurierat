@@ -20,7 +20,7 @@ namespace FirmaCurierat_UI_WindowsForms
     {
         GestionareColete_FisierText gestiuneColete;
 
-        private const int NR_MAX_CARACTERE = 30;
+        private const int NR_MAX_CARACTERE = 50;
         public FormCautareColet()
         {
             InitializeComponent();
@@ -31,95 +31,47 @@ namespace FirmaCurierat_UI_WindowsForms
 
             gestiuneColete = new GestionareColete_FisierText(caleCompletaFisierColete);
         }
+        public string DescriereCautata { get; set; }
 
-        private void mtCautaDupaIDColet_Click(object sender, EventArgs e)
-        {
-            string idText = mtxtIDColet.Text;
-
-            // Verificare dacă este gol
-            if (string.IsNullOrWhiteSpace(idText))
-            {
-                mlblEroareIDColet.Text = "Nu poate fi gol!";
-                return;
-            }
-
-            // Verificare dacă este un număr
-            if (!int.TryParse(idText, out int idColet))
-            {
-                mlblEroareIDColet.Text = "Trebuie să fie un număr!";
-                return;
-            }
-
-            // Dacă este valid, ascundem mesajul de eroare
-            mlblEroareIDColet.Text = string.Empty;
-
-            // Căutare colet
-            Colet coletGasit = gestiuneColete.GetColet(idColet);
-
-            if (coletGasit != null)
-            {
-                MessageBox.Show(coletGasit.Info(), "Colet găsit");
-            }
-            else
-            {
-                MessageBox.Show($"Coletul cu ID-ul #{idText} nu a fost găsit.");
-            }
-
-            ResetareControale();
-        }
-
-        private void mtCautaDupaDescriereColet_Click(object sender, EventArgs e)
+        private void btnCauta_Click(object sender, EventArgs e)
         {
             string descriere = mtxtDescriere.Text;
 
-            // Verificare dacă este gol
             if (string.IsNullOrWhiteSpace(descriere))
             {
                 mlblEroareDescriere.Text = "Nu poate fi gol!";
                 return;
             }
 
-            // Verificare dacă depășește 30 de caractere
-            if (descriere.Length > 30)
+            if (descriere.Length > NR_MAX_CARACTERE)
             {
                 mlblEroareDescriere.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
                 return;
             }
 
-            // Dacă este valid, ascundem mesajul de eroare
             mlblEroareDescriere.Text = string.Empty;
 
-            // Căutare colet
-            Colet coletGasit = gestiuneColete.GetColet(descriere);
-
-            if (coletGasit != null)
+            List<Colet> coleteGasite = gestiuneColete.GetColete(descriere);
+            if (coleteGasite.Count > 0)
             {
-                MessageBox.Show(coletGasit.Info(), "Colet găsit");
+                DescriereCautata = mtxtDescriere.Text;
+                Close();
             }
             else
             {
-                MessageBox.Show("Coletul cu descrierea specificată nu a fost găsit.");
+                mtxtDescriere.Text = string.Empty;
+                MessageBox.Show("Nu a fost gasit niciun colet cu descrierea specificata.");
             }
-
-            ResetareControale();
         }
 
-        private void ResetareControale()
+        private void btnCauta_MouseEnter(object sender, EventArgs e)
         {
-            var textBoxes = new MetroTextBox[] { mtxtIDColet, mtxtDescriere };
-            var mlblsEroare = new MetroLabel[] { mlblEroareIDColet, mlblEroareDescriere };
-
-            foreach (var textBox in textBoxes)
-            {
-                textBox.Text = string.Empty;
-            }
-
-            foreach (var lblEroare in mlblsEroare)
-            {
-                lblEroare.Text = string.Empty;
-            }
-
+            btnCauta.BackColor = Color.FromArgb(65, 111, 139);
         }
 
+        private void btnCauta_MouseLeave(object sender, EventArgs e)
+        {
+            btnCauta.BackColor = Color.FromArgb(42, 71, 89);
+        }
     }
 }

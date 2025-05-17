@@ -1,5 +1,3 @@
-0;Andrei Popescu;Bld. 1 Mai, nr. 1, Suceava;15.05.2025;ComandaPlasata;Livrare-Rapida;0
-1;Alin Neagu;Str. Constructorilor nr. 8, Pitesti;20.05.2025;InAsteptareLaExpeditor;Perisabil Livrare-Rapida;1
-2;Ion Popescu;Str. Unirii, nr. 3, Suceava;20.05.2025;InTranzit;None;2
-3;Laura Dragan;Str. Constructorilor nr. 8, Iasi;20.05.2025;InProcesareLaCentruLogistic;Fragil Livrare-Rapida;3
-4;Bianca Ilie;Str. Plopilor nr. 22A, Cluj-Napoca;25.05.2025;PreluatDeCurier;Livrare-Rapida;4
+0;Andrei Ionescu;Str. Universitatii, nr. 2, Suceava;5/31/2025 1:01:43 AM;InProcesareLaCentruLogistic;Fragil,Livrare Rapida;100
+1;a;aa;5/17/2025 1:08:27 AM;ComandaPlasata;Asigurare Colet,Livrare Rapida;101
+2;Andrei Petrescu;Str. 1;6/7/2025 1:14:22 PM;ComandaPlasata;Fragil,Asigurare Colet;102
