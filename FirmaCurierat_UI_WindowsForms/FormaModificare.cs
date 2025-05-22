@@ -12,6 +12,7 @@ using MetroFramework.Controls;
 using NivelStocareDate;
 using System.Collections;
 using LibrarieModele;
+using LibrarieModele.Enumerari;
 using System.Configuration;
 using System.IO;
 
@@ -24,9 +25,6 @@ namespace FirmaCurierat_UI_WindowsForms
         
         ArrayList optiuniSelectate = new ArrayList();
         
-        private const int NR_MAX_CARACTERE = 50;
-
-
         public FormaModificare(int idComanda)
         {
             InitializeComponent();
@@ -144,109 +142,28 @@ namespace FirmaCurierat_UI_WindowsForms
                 optiuniSelectate.Remove(optiuneSelectata);
         }
 
-        public bool Prevalidare()
-        {
-            bool areErori = false;
-
-            var campuriDeValidat = new (MetroTextBox TextBox, MetroLabel LabelEroare)[]
-            {
-                (mtxtNumeClient, mlblEroareNumeClient),
-                (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
-                (mtxtDescriere, mlblEroareDescriere)
-            };
-
-            foreach (var (textBox, labelEroare) in campuriDeValidat)
-            {
-                if (string.IsNullOrWhiteSpace(textBox.Text))
-                {
-                    labelEroare.Text = "Campul nu poate fi gol!";
-                    labelEroare.ForeColor = Color.Red;
-                    areErori = true;
-                }
-                else
-                {
-                    labelEroare.Text = string.Empty;
-                }
-            }
-
-            if (decimal.TryParse(nUDGreutate.Text, out decimal greutate))
-            {
-                if (greutate < 0.01m)
-                {
-                    mlblEroareGreutate.Text = "Valoarea nu poate fi 0!";
-                    mlblEroareGreutate.ForeColor = Color.Red;
-                    areErori = true;
-                }
-                else
-                {
-                    mlblEroareGreutate.Text = string.Empty;
-                }
-            }
-            else
-            {
-                mlblEroareGreutate.Text = "Campul nu poate fi gol!";
-                mlblEroareGreutate.ForeColor = Color.Red;
-                areErori = true;
-            }
-
-            var checkBoxes = new CheckBox[] { ckbNone, ckbFragil, ckbFragil, ckbLivrareRapida, ckbAsigurareColet, ckbLivrareSambata, ckbLivrareDuminica };
-            if (!checkBoxes.Any(cb => cb.Checked))
-            {
-                mlblEroareOptiuniLivrare.Text = "Trebuie să selectați cel puțin o opțiune de livrare!";
-                mlblEroareOptiuniLivrare.ForeColor = Color.Red;
-                areErori = true;
-            }
-            else
-            {
-                mlblEroareOptiuniLivrare.Text = string.Empty;
-            }
-
-            var radioButtons = new RadioButton[] { rdbMic, rdbMediuMic, rdbMediuStandard, rdbMediuMare, rdbMareMica, rdbMareStandard, rdbMareMare, rdbExtraMare };
-            if (!radioButtons.Any(rb => rb.Checked))
-            {
-                mlblEroareDimensiune.Text = "Trebuie să selectați o dimensiune pentru colet!";
-                mlblEroareDimensiune.ForeColor = Color.Red;
-                areErori = true;
-            }
-            else
-            {
-                mlblEroareDimensiune.Text = string.Empty;
-            }
-
-            return areErori;
-        }
-
-
-        public bool Validare()
-        {
-            bool areErori = false;
-
-            var campuriDeValidat = new (MetroTextBox TextBox, MetroLabel LabelEroare)[]
-            {
-                (mtxtNumeClient, mlblEroareNumeClient),
-                (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
-                (mtxtDescriere, mlblEroareDescriere)
-            };
-
-            foreach (var (textBox, labelEroare) in campuriDeValidat)
-            {
-                if (textBox.Text.Length > NR_MAX_CARACTERE)
-                {
-                    labelEroare.Text = $"Max. {NR_MAX_CARACTERE} caractere!";
-                    labelEroare.ForeColor = Color.Red;
-                    areErori = true;
-                }
-
-            }
-
-            return areErori;
-        }
-
         private void btnModifica_Click(object sender, EventArgs e)
         {
-            bool areEroriPrevalidare = Prevalidare();
+            var controale = new FormValidator.ControaleValidare
+            {
+                CampuriText = new (MetroTextBox, MetroLabel)[]
+                {
+                    (mtxtNumeClient, mlblEroareNumeClient),
+                    (mtxtAdresaLivrare, mlblEroareAdresaLivrare),
+                    (mtxtDescriere, mlblEroareDescriere)
+                },
+                DataLivrarePicker = dtpDataLivrare,
+                LabelEroareDataLivrare = mlblEroareDataLivrare,
+                LabelEroareGreutate = mlblEroareGreutate,
+                GreutateText = nUDGreutate.Text,
+                LabelEroareOptiuniLivrare = mlblEroareOptiuniLivrare,
+                CheckBoxes = new CheckBox[] { ckbFragil, ckbPerisabil, ckbLivrareRapida, ckbAsigurareColet, ckbLivrareSambata, ckbLivrareDuminica },
+                LabelEroareDimensiune = mlblEroareDimensiune,
+                RadioButtons = new RadioButton[] { rdbMic, rdbMediuMic, rdbMediuStandard, rdbMediuMare, rdbMareMica, rdbMareStandard, rdbMareMare, rdbExtraMare }
+            };
 
-            bool areEroriValidare = Validare();
+            bool areEroriPrevalidare = FormValidator.Prevalidare(controale);
+            bool areEroriValidare = FormValidator.Validare(controale);
 
             if (areEroriPrevalidare || areEroriValidare)
             {
@@ -258,7 +175,6 @@ namespace FirmaCurierat_UI_WindowsForms
             string adresaLivrare = mtxtAdresaLivrare.Text;
             DateTime dataLivrare = dtpDataLivrare.Value;
 
-
             StareComanda stareComanda = (StareComanda)mCmbStareComanda.SelectedItem;
 
             int idColet = Int32.Parse(mlblIDColet.Text);
@@ -266,7 +182,15 @@ namespace FirmaCurierat_UI_WindowsForms
             double greutate = double.Parse(nUDGreutate.Text);
 
             ArrayList OptiuniLivrare = new ArrayList();
-            OptiuniLivrare.AddRange(optiuniSelectate);
+
+            if (optiuniSelectate.Count == 0)
+            {
+                OptiuniLivrare.Add("None");
+            }
+            else
+            {
+                OptiuniLivrare.AddRange(optiuniSelectate);
+            }
 
             DimensiuneColet dimensiuneSelectata = GetDimensiuneColetSelectat();
 
@@ -276,7 +200,7 @@ namespace FirmaCurierat_UI_WindowsForms
             gestiuneComenzi.UpdateComanda(comanda);
             gestiuneColete.UpdateColet(colet);
 
-            this.Close();
+            Close();
         }
 
         private void btnModifica_MouseEnter(object sender, EventArgs e)
@@ -284,7 +208,6 @@ namespace FirmaCurierat_UI_WindowsForms
             btnModifica.BackColor = Color.FromArgb(65, 111, 139);
 
         }
-
         private void btnModifica_MouseLeave(object sender, EventArgs e)
         {
             btnModifica.BackColor = Color.FromArgb(42, 71, 89);

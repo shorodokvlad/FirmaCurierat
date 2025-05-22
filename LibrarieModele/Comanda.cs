@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using LibrarieModele.Enumerari;
 
 
 namespace LibrarieModele
 {
     public class Comanda
     {
-        // Constante pentru delimitarea în fișier
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private const char SEPARATOR_SECUNDAR_FISIER = ',';
 
@@ -40,7 +40,6 @@ namespace LibrarieModele
             }
         }
 
-        // Constructor fără parametri
         public Comanda()
         {
             IDComanda = 0;
@@ -52,7 +51,6 @@ namespace LibrarieModele
             OptiuniLivrare = new ArrayList();
         }
 
-        // Constructor cu parametri
         public Comanda(int idComanda, string numeClient, string adresaLivrare, DateTime dataLivrare, StareComanda stareComanda, ArrayList optiuniLivrare, int idColet)
         {
             IDComanda = idComanda;
@@ -64,7 +62,6 @@ namespace LibrarieModele
             OptiuniLivrare = optiuniLivrare;
         }
 
-        // Constructor care preia date dintr-o linie de fișier
         public Comanda(string linieFisier)
         {
             var date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
@@ -82,7 +79,6 @@ namespace LibrarieModele
         public string OptiuniLivrareToString()
         {
             return string.Join(", ", OptiuniLivrare.ToArray());
-
         }
 
         public string StareComandaToString()

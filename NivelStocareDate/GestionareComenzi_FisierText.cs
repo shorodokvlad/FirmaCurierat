@@ -23,7 +23,6 @@ namespace NivelStocareDate
         }
         public void AddComanda(Comanda comanda)
         {
-            comanda.IDComanda = GetId();
             using (StreamWriter streamWriter = new StreamWriter(numeFisierComenzi, true))
             {
                 streamWriter.WriteLine(comanda.ConversieLaSir_PentruFisier());
@@ -119,6 +118,37 @@ namespace NivelStocareDate
                 actualizareCuSucces = true;
             }
             return actualizareCuSucces;
+        }
+
+
+        public bool DeleteComanda(int idComanda)
+        {
+            List<Comanda> comenzi = GetComenzi();
+
+            bool found = false;
+            for (int i = 0; i < comenzi.Count; i++)
+            {
+                if (comenzi[i].IDComanda == idComanda)
+                {
+                    comenzi.RemoveAt(i);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                return false;
+            }
+
+            using (StreamWriter streamWriter = new StreamWriter(numeFisierComenzi, false))
+            {
+                foreach (Comanda comanda in comenzi)
+                {
+                    streamWriter.WriteLine(comanda.ConversieLaSir_PentruFisier());
+                }
+            }
+            return true;
         }
     }
 }

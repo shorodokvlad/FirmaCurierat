@@ -1,3 +1,16 @@
-100;Iphone 15 Pro Max;2.5;Mic
-101;a;0.25;Mic
-102;Haine;1;MediuStandard
+100;Haine;0.5;MediuMic
+101;Bijuterii;0.5;Mic
+102;Piese auto Logan;8.5;ExtraMare
+103;Casti wireless;0.25;Mic
+104;Aparat foto DSLR;0.5;MediuMic
+105;Telefon mobil;0.5;MediuMic
+106;HDD extern 1TB;0.5;Mic
+107;Set carti;0.75;MareStandard
+108;Casti studio;0.25;Mic
+109;Aparat foto DSLR;0.5;MediuMic
+110;Laptop 15 inch;0.5;MediuMic
+111;Parfumuri;0.5;Mic
+112;Espressor;0.75;MareStandard
+113;Casti gaming;0.25;Mic
+114;Router wireless;0.5;MediuMic
+115;TV 32 inch;3.5;MareStandard

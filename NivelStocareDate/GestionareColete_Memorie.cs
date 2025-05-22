@@ -25,29 +25,5 @@ namespace NivelStocareDate
         {
             return colete;
         }
-
-        public Colet CautareDupaIDColet(int idColet)
-        {
-            foreach (var colet in colete)
-            {
-                if (colet != null && colet.IDColet == idColet)
-                {
-                    return colet;
-                }
-            }
-            return null;
-        }
-
-        public Colet CautareDupaDescriere(string descriere)
-        {
-            foreach (var colet in colete)
-            {
-                if (colet != null && colet.Descriere == descriere)
-                {
-                    return colet;
-                }
-            }
-            return null;
-        }
     }
 }

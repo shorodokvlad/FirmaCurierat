@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarieModele.Enumerari;
 
 namespace LibrarieModele
 {
     public class Colet
     {
-        // Constante pentru delimitarea în fișier
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private const int ID_COLET = 0;
         private const int DESCRIERE = 1;
@@ -20,7 +20,6 @@ namespace LibrarieModele
         public double Greutate { get; set; }
         public DimensiuneColet Dimensiune { get; set; }
 
-        // Constructor fara parametri
         public Colet()
         {
             IDColet = 0;
@@ -29,7 +28,6 @@ namespace LibrarieModele
             Dimensiune = DimensiuneColet.Mic;
         }
 
-        // Constructor cu parametri
         public Colet(int idColet, string descriere, double greutate, DimensiuneColet dimensiune)
         {
             IDColet = idColet;
@@ -38,7 +36,6 @@ namespace LibrarieModele
             Dimensiune = dimensiune;
         }
 
-        // Constructor care preia date dintr-o linie de fișier
         public Colet(string linieFisier)
         {
             var date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
@@ -71,11 +68,6 @@ namespace LibrarieModele
                 default:
                     return "Dimensiune necunoscuta";
             }
-        }
-
-        public string GreutateToString()
-        {
-            return Greutate.ToString() + " kg";
         }
 
         public string Info()

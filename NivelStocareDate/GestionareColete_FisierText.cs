@@ -23,7 +23,6 @@ namespace NivelStocareDate
 
         public void AddColet(Colet colet)
         {
-            colet.IDColet = GetId();
             using (StreamWriter streamWriter = new StreamWriter(numeFisierColete, true))
             {
                 streamWriter.WriteLine(colet.ConversieLaSir_PentruFisier());
@@ -125,6 +124,35 @@ namespace NivelStocareDate
             return actualizareCuSucces;
         }
 
+        public bool DeleteColet(int idColet)
+        {
+            List<Colet> colete = GetColete();
+
+            bool found = false;
+            for (int i = 0; i < colete.Count; i++)
+            {
+                if (colete[i].IDColet == idColet)
+                {
+                    colete.RemoveAt(i);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                return false;
+            }
+
+            using (StreamWriter streamWriter = new StreamWriter(numeFisierColete, false))
+            {
+                foreach (Colet colet in colete)
+                {
+                    streamWriter.WriteLine(colet.ConversieLaSir_PentruFisier());
+                }
+            }
+            return true;
+        }
     }
 }
 

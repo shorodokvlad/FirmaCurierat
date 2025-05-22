@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using MetroFramework.Forms;
-using MetroFramework.Controls;
 
 
 namespace FirmaCurierat_UI_WindowsForms
@@ -71,7 +70,7 @@ namespace FirmaCurierat_UI_WindowsForms
                 {
                     row["ID Colet"] = colet.IDColet.ToString();
                     row["Descriere Colet"] = colet.Descriere;
-                    row["Greutate Colet"] = colet.GreutateToString();
+                    row["Greutate Colet"] = colet.Greutate + " kg";
                     row["Dimensiune Colet"] = colet.DimensiuneToString();
                 }
                 else
@@ -87,16 +86,40 @@ namespace FirmaCurierat_UI_WindowsForms
 
             dataGridComenziSiColete.DataSource = dataTable;
 
+            for (int i = 0; i < dataGridComenziSiColete.SelectedRows.Count; i++)
+            {
+                dataGridComenziSiColete.SelectedRows[i].Selected = false;
+            }
+
             dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridComenziSiColete.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10);
             
         }
+
+        private void ActualizareDataGrid()
+        {
+            dataGridComenziSiColete.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
+            List<Colet> colete = gestiuneColete.GetColete();
+            AfisareComenziSiColete(comenzi, colete);
+        }
+        private void FormaAfisare_Load(object sender, EventArgs e)
+        {
+            ActualizareDataGrid();
+        }
+
         private void btnAdauga_Click(object sender, EventArgs e)
         {
             FormAdaugare form2 = new FormAdaugare();
-            form2.Show();
+            form2.ShowDialog();
+
+            ActualizareDataGrid();
         }
 
+        private void btnActualizare_Click(object sender, EventArgs e)
+        {
+            ActualizareDataGrid();
+        }
         private void btnCautaComanda_Click(object sender, EventArgs e)
         {
             FormaCautareComanda form3 = new FormaCautareComanda();
@@ -109,6 +132,7 @@ namespace FirmaCurierat_UI_WindowsForms
                 List<Comanda> comenzi = gestiuneComenzi.GetComenzi(numeClient);
                 List<Colet> colete = gestiuneColete.GetColete().Where(c => comenzi.Any(comanda => comanda.IDColet == c.IDColet)).ToList();
 
+                dataGridComenziSiColete.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 AfisareComenziSiColete(comenzi, colete);
             }
         }
@@ -124,36 +148,61 @@ namespace FirmaCurierat_UI_WindowsForms
                 List<Colet> colete = gestiuneColete.GetColete(descriere);
                 List<Comanda> comenzi = gestiuneComenzi.GetComenzi().Where(c => colete.Any(colet => colet.IDColet == c.IDColet)).ToList();
 
+                dataGridComenziSiColete.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 AfisareComenziSiColete(comenzi, colete);
             }
         }
 
         private void btnModifica_Click(object sender, EventArgs e)
         {
-            if (dataGridComenziSiColete.CurrentRow == null)
+
+            if (dataGridComenziSiColete.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selectati o comanda pentru a o modifica.");
                 return;
             }
-            int idComanda = Convert.ToInt32(dataGridComenziSiColete.CurrentRow.Cells[0].Value);
+
+            int idComanda = Convert.ToInt32(dataGridComenziSiColete.SelectedRows[0].Cells[0].Value);
 
             FormaModificare form5 = new FormaModificare(idComanda);
             form5.ShowDialog();
+
+            ActualizareDataGrid();
         }
 
-        private void btnActualizare_Click(object sender, EventArgs e)
+        private void btnSterge_Click(object sender, EventArgs e)
         {
-            List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
-            List<Colet> colete = gestiuneColete.GetColete();
-            AfisareComenziSiColete(comenzi, colete);
+            if (dataGridComenziSiColete.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selectati o comanda pentru a o sterge.");
+                return;
+            }
+
+            int idComanda = Convert.ToInt32(dataGridComenziSiColete.SelectedRows[0].Cells[0].Value);
+
+            if (MessageBox.Show("Sigur doriti sa stergeti aceasta comanda?", "Confirmare stergere", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                return;
+
+            Comanda comanda = gestiuneComenzi.GetComanda(idComanda);
+            bool rezultatStergereComanda = false;
+            bool rezultatStergereColet = false;
+
+            if (comanda != null)
+            {
+                rezultatStergereComanda = gestiuneComenzi.DeleteComanda(idComanda);
+                rezultatStergereColet = gestiuneColete.DeleteColet(comanda.IDColet);
+            }
+
+            if (rezultatStergereComanda)
+            {
+                ActualizareDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Nu s-a putut sterge comanda.");
+            }
         }
 
-        private void FormaAfisare_Load(object sender, EventArgs e)
-        {
-            List<Comanda> comenzi = gestiuneComenzi.GetComenzi();
-            List<Colet> colete = gestiuneColete.GetColete();
-            AfisareComenziSiColete(comenzi, colete);
-        }
         private void btn_MouseEnter(object sender, EventArgs e)
         {
             var btn = sender as Button;

@@ -51,6 +51,8 @@ namespace FirmaCurierat_UI_WindowsForms
             this.pnlModifica = new System.Windows.Forms.Panel();
             this.btnModifica = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pnlSterge = new System.Windows.Forms.Panel();
+            this.btnSterge = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComenziSiColete)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
@@ -60,6 +62,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.pnlCautaColet.SuspendLayout();
             this.pnlModifica.SuspendLayout();
             this.pnlMenu.SuspendLayout();
+            this.pnlSterge.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridComenziSiColete
@@ -70,7 +73,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.dataGridComenziSiColete.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(239)))));
             this.dataGridComenziSiColete.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridComenziSiColete.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridComenziSiColete.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridComenziSiColete.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridComenziSiColete.BackgroundColor = System.Drawing.Color.White;
             this.dataGridComenziSiColete.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -114,7 +117,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.dataGridComenziSiColete.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridComenziSiColete.RowTemplate.Height = 33;
             this.dataGridComenziSiColete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridComenziSiColete.Size = new System.Drawing.Size(1354, 518);
+            this.dataGridComenziSiColete.Size = new System.Drawing.Size(1407, 518);
             this.dataGridComenziSiColete.TabIndex = 16;
             // 
             // pnlHeader
@@ -140,7 +143,7 @@ namespace FirmaCurierat_UI_WindowsForms
             // 
             // pbMenu
             // 
-            this.pbMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbMenu.Image")));
+            this.pbMenu.Image = global::FirmaCurierat_UI_WindowsForms.Properties.Resources.info;
             this.pbMenu.Location = new System.Drawing.Point(3, 2);
             this.pbMenu.Name = "pbMenu";
             this.pbMenu.Size = new System.Drawing.Size(40, 37);
@@ -286,6 +289,7 @@ namespace FirmaCurierat_UI_WindowsForms
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
+            this.pnlMenu.Controls.Add(this.pnlSterge);
             this.pnlMenu.Controls.Add(this.pnlAdauga);
             this.pnlMenu.Controls.Add(this.pnlActualizare);
             this.pnlMenu.Controls.Add(this.pnlModifica);
@@ -295,6 +299,33 @@ namespace FirmaCurierat_UI_WindowsForms
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(219, 518);
             this.pnlMenu.TabIndex = 22;
+            // 
+            // pnlSterge
+            // 
+            this.pnlSterge.Controls.Add(this.btnSterge);
+            this.pnlSterge.Location = new System.Drawing.Point(3, 268);
+            this.pnlSterge.Name = "pnlSterge";
+            this.pnlSterge.Size = new System.Drawing.Size(210, 47);
+            this.pnlSterge.TabIndex = 30;
+            // 
+            // btnSterge
+            // 
+            this.btnSterge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
+            this.btnSterge.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSterge.ForeColor = System.Drawing.Color.White;
+            this.btnSterge.Image = ((System.Drawing.Image)(resources.GetObject("btnSterge.Image")));
+            this.btnSterge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSterge.Location = new System.Drawing.Point(-20, -6);
+            this.btnSterge.Name = "btnSterge";
+            this.btnSterge.Padding = new System.Windows.Forms.Padding(25, 0, 0, 13);
+            this.btnSterge.Size = new System.Drawing.Size(259, 74);
+            this.btnSterge.TabIndex = 21;
+            this.btnSterge.Text = "               Sterge comanda";
+            this.btnSterge.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSterge.UseVisualStyleBackColor = false;
+            this.btnSterge.Click += new System.EventHandler(this.btnSterge_Click);
+            this.btnSterge.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSterge.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // FormaAfisare
             // 
@@ -324,6 +355,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.pnlCautaColet.ResumeLayout(false);
             this.pnlModifica.ResumeLayout(false);
             this.pnlMenu.ResumeLayout(false);
+            this.pnlSterge.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -344,6 +376,8 @@ namespace FirmaCurierat_UI_WindowsForms
         private System.Windows.Forms.Panel pnlActualizare;
         private System.Windows.Forms.Button btnActualizare;
         private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.Panel pnlSterge;
+        private System.Windows.Forms.Button btnSterge;
     }
 }
 
