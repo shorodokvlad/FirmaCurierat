@@ -1,16 +1,16 @@
-0;Andrei Popescu;Bld. 1 Mai, nr. 1, Suceava;6/17/2025 11:59:03 PM;ComandaPlasata;Livrare Rapida,Livrare Sambata;100
-1;Alin Neagu;Str. Constructorilor nr. 8, Pitesti;5/27/2025 11:59:03 PM;InAsteptareLaExpeditor;Perisabil,Livrare Rapida;101
-2;Ion Popescu;Str. Plopilor nr. 22A, Cluj-Napoca;5/24/2025 11:59:03 PM;InTranzit;None;102
-3;Laura Dragan;Str. Constructorilor nr. 8, Iasi;5/23/2025 11:59:03 PM;InProcesareLaCentruLogistic;Fragil,Livrare Rapida;103
-4;Bianca Ilie;Str. Plopilor nr. 22A, Cluj-Napoca;5/18/2025 11:59:03 PM;PreluatDeCurier;Livrare Rapida,Livrare Duminica;104
-5;Raul Munteanu;Str. Lalelelor, nr. 14, Bucuresti;6/17/2025 11:59:03 PM;ComandaPlasata;Livrare Sambata,Livrare Rapida;105
-6;Ionut Florescu;Str. Constructorilor nr. 8, Pitesti;5/27/2025 11:59:03 PM;InAsteptareLaExpeditor;Livrare Rapida;106
-7;Ion Popescu;Str. Unirii, nr. 3, Suceava;5/24/2025 11:59:03 PM;InTranzit;Asigurare Colet,Livrare Rapida;107
-8;Radu Enache;Str. Garii nr. 4, Timisoara;5/23/2025 11:59:03 PM;InProcesareLaCentruLogistic;Asigurare Colet;108
-9;Teododa Lupu;Str. Visinilor nr. 17, Sibiu;6/7/2025 11:59:03 PM;PreluatDeCurier;Livrare Rapida;109
-10;Cristian Dumitrescu;Str. Mioritei nr. 6, Bacau;6/17/2025 11:59:03 PM;ComandaPlasata;Livrare Sambata,Livrare Rapida;110
-11;Adrian Pop;Str. Cuza Voda nr. 33, Iasi;5/27/2025 11:59:03 PM;InAsteptareLaExpeditor;Livrare Rapida;111
-12;Maria Ionescu;Str. Florilor nr. 12, Buzau;5/22/2025 11:59:03 PM;IntarziereConditiiMeteoLogistice;None;112
-13;Ana Cojocaru;Str. Libertății nr. 44, Galați;5/23/2025 11:59:03 PM;InProcesareLaCentruLogistic;Asigurare Colet;113
-14;Mihai Dobre;Str. Aviatorilor nr. 10, Bucuresti;5/31/2025 11:59:03 PM;AdresaIncorectaIncompleta;Livrare Rapida;114
-15;Simona Mihai;Str. Narciselor nr. 11, Focsani;5/22/2025 7:45:29 PM;InAsteptareLaExpeditor;None;115
+0;Andrei Popescu;Bld. 1 Mai, nr. 1, Suceava;6/17/2025 23:59:03;ComandaPlasata;Livrare Rapida,Livrare Sambata;100
+1;Alin Neagu;Str. Constructorilor nr. 8, Pitesti;5/27/2025 23:59:03;InAsteptareLaExpeditor;Perisabil,Livrare Rapida;101
+2;Ion Popescu;Str. Plopilor nr. 22A, Cluj-Napoca;5/24/2025 23:59:03;InTranzit;None;102
+3;Laura Dragan;Str. Constructorilor nr. 8, Iasi;5/23/2025 23:59:03;InProcesareLaCentruLogistic;Fragil,Livrare Rapida;103
+4;Bianca Ilie;Str. Plopilor nr. 22A, Cluj-Napoca;5/18/2025 23:59:03;PreluatDeCurier;Livrare Rapida,Livrare Duminica;104
+5;Raul Munteanu;Str. Lalelelor, nr. 14, Bucuresti;6/17/2025 23:59:03;ComandaPlasata;Livrare Sambata,Livrare Rapida;105
+6;Ionut Florescu;Str. Constructorilor nr. 8, Pitesti;5/27/2025 23:59:03;InAsteptareLaExpeditor;Livrare Rapida;106
+7;Ion Popescu;Str. Unirii, nr. 3, Suceava;5/24/2025 23:59:03;InTranzit;Asigurare Colet,Livrare Rapida;107
+8;Radu Enache;Str. Garii nr. 4, Timisoara;5/23/2025 23:59:03;InProcesareLaCentruLogistic;Asigurare Colet;108
+9;Teododa Lupu;Str. Visinilor nr. 17, Sibiu;6/7/2025 23:59:03;PreluatDeCurier;Livrare Rapida;109
+10;Cristian Dumitrescu;Str. Mioritei nr. 6, Bacau;6/17/2025 23:59:03;ComandaPlasata;Livrare Sambata,Livrare Rapida;110
+11;Adrian Pop;Str. Cuza Voda nr. 33, Iasi;5/27/2025 23:59:03;InAsteptareLaExpeditor;Livrare Rapida;111
+12;Maria Ionescu;Str. Florilor nr. 12, Buzau;5/22/2025 23:59:03;IntarziereConditiiMeteoLogistice;None;112
+13;Ana Cojocaru;Str. Libertății nr. 44, Galați;5/23/2025 23:59:03;InProcesareLaCentruLogistic;Asigurare Colet;113
+14;Mihai Dobre;Str. Aviatorilor nr. 10, Bucuresti;5/31/2025 23:59:03;AdresaIncorectaIncompleta;Livrare Rapida;114
+15;1;1;5/28/2025 16:51:19;ComandaPlasata;None;115

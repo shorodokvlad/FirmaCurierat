@@ -13,4 +13,4 @@
 112;Espressor;0.75;MareStandard
 113;Casti gaming;0.25;Mic
 114;Router wireless;0.5;MediuMic
-115;TV 32 inch;3.5;MareStandard
+115;1;0.25;Mic

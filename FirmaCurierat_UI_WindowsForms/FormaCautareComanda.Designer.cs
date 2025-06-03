@@ -36,11 +36,11 @@ namespace FirmaCurierat_UI_WindowsForms
             this.mlblEroareNumeClient = new MetroFramework.Controls.MetroLabel();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.pbCautareColet = new System.Windows.Forms.PictureBox();
+            this.pbCautareComanda = new System.Windows.Forms.PictureBox();
             this.pnlCauta = new System.Windows.Forms.Panel();
             this.btnCauta = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCautareColet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCautareComanda)).BeginInit();
             this.pnlCauta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@ namespace FirmaCurierat_UI_WindowsForms
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.White;
             this.pnlHeader.Controls.Add(this.lblHeader);
-            this.pnlHeader.Controls.Add(this.pbCautareColet);
+            this.pnlHeader.Controls.Add(this.pbCautareComanda);
             this.pnlHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlHeader.Location = new System.Drawing.Point(3, 8);
             this.pnlHeader.Name = "pnlHeader";
@@ -95,15 +95,15 @@ namespace FirmaCurierat_UI_WindowsForms
             this.lblHeader.TabIndex = 21;
             this.lblHeader.Text = "CAUTARE COMANDA";
             // 
-            // pbCautareColet
+            // pbCautareComanda
             // 
-            this.pbCautareColet.Image = ((System.Drawing.Image)(resources.GetObject("pbCautareColet.Image")));
-            this.pbCautareColet.Location = new System.Drawing.Point(3, 2);
-            this.pbCautareColet.Name = "pbCautareColet";
-            this.pbCautareColet.Size = new System.Drawing.Size(40, 37);
-            this.pbCautareColet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCautareColet.TabIndex = 20;
-            this.pbCautareColet.TabStop = false;
+            this.pbCautareComanda.Image = ((System.Drawing.Image)(resources.GetObject("pbCautareComanda.Image")));
+            this.pbCautareComanda.Location = new System.Drawing.Point(3, 2);
+            this.pbCautareComanda.Name = "pbCautareComanda";
+            this.pbCautareComanda.Size = new System.Drawing.Size(40, 37);
+            this.pbCautareComanda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCautareComanda.TabIndex = 20;
+            this.pbCautareComanda.TabStop = false;
             // 
             // pnlCauta
             // 
@@ -151,7 +151,7 @@ namespace FirmaCurierat_UI_WindowsForms
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCautareColet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCautareComanda)).EndInit();
             this.pnlCauta.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,7 +164,7 @@ namespace FirmaCurierat_UI_WindowsForms
         private MetroLabel mlblEroareNumeClient;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.PictureBox pbCautareColet;
+        private System.Windows.Forms.PictureBox pbCautareComanda;
         private System.Windows.Forms.Panel pnlCauta;
         private System.Windows.Forms.Button btnCauta;
     }
